@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationView" customModule="QuizVinperl" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="zDa-Ql-u4b"/>
+                <outlet property="divView" destination="OoP-qE-qrf" id="E0u-lZ-qOy"/>
+                <outlet property="imageView" destination="rkV-13-dqv" id="fUa-3x-VdO"/>
+                <outlet property="leftButtonsStack" destination="EhC-By-v03" id="GVb-Wr-bBR"/>
+                <outlet property="rightButtonsStack" destination="tw1-CR-cCA" id="N1U-uK-52Z"/>
+                <outlet property="titleLabel" destination="Aaw-Bz-yHE" id="xbS-j4-oRr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXO-q8-bka">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhC-By-v03">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="250" constant="100" id="mt5-GZ-PFh"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Aaw-Bz-yHE">
+                            <rect key="frame" x="187.5" y="12" width="0.0" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Yk4-pj-e7H"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                            <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-navi" translatesAutoresizingMaskIntoConstraints="NO" id="rkV-13-dqv">
+                            <rect key="frame" x="165.5" y="9.5" width="44" height="25"/>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tw1-CR-cCA">
+                            <rect key="frame" x="275" y="0.0" width="100" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="250" constant="100" id="ngk-cI-Mnu"/>
+                            </constraints>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-qE-qrf" userLabel="Line">
+                            <rect key="frame" x="0.0" y="43.5" width="375" height="0.5"/>
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="C1k-dq-rAY"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="tw1-CR-cCA" secondAttribute="trailing" id="52G-UR-Id1"/>
+                        <constraint firstItem="Aaw-Bz-yHE" firstAttribute="centerY" secondItem="PXO-q8-bka" secondAttribute="centerY" id="8l5-ZV-OYx"/>
+                        <constraint firstItem="Aaw-Bz-yHE" firstAttribute="centerX" secondItem="PXO-q8-bka" secondAttribute="centerX" priority="250" id="AuR-l3-a8c"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rkV-13-dqv" secondAttribute="bottom" constant="2" id="H3x-HN-HDb"/>
+                        <constraint firstItem="rkV-13-dqv" firstAttribute="centerX" secondItem="PXO-q8-bka" secondAttribute="centerX" id="Jll-VQ-xrP"/>
+                        <constraint firstItem="tw1-CR-cCA" firstAttribute="top" secondItem="PXO-q8-bka" secondAttribute="top" id="NRW-pn-Kxo"/>
+                        <constraint firstItem="Aaw-Bz-yHE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EhC-By-v03" secondAttribute="trailing" priority="750" constant="5" id="OB9-NW-YYa"/>
+                        <constraint firstItem="EhC-By-v03" firstAttribute="top" secondItem="PXO-q8-bka" secondAttribute="top" id="Pk1-2J-ffU"/>
+                        <constraint firstAttribute="bottom" secondItem="EhC-By-v03" secondAttribute="bottom" id="QCs-hH-ha9"/>
+                        <constraint firstAttribute="bottom" secondItem="OoP-qE-qrf" secondAttribute="bottom" id="Qpu-rl-WPC"/>
+                        <constraint firstAttribute="height" constant="44" id="SJ0-aA-Tin"/>
+                        <constraint firstItem="tw1-CR-cCA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Aaw-Bz-yHE" secondAttribute="trailing" priority="750" constant="5" id="adK-KD-4w6"/>
+                        <constraint firstAttribute="trailing" secondItem="OoP-qE-qrf" secondAttribute="trailing" id="aeO-A0-3fK"/>
+                        <constraint firstItem="EhC-By-v03" firstAttribute="leading" secondItem="PXO-q8-bka" secondAttribute="leading" id="bWc-gU-v3G"/>
+                        <constraint firstItem="rkV-13-dqv" firstAttribute="centerY" secondItem="PXO-q8-bka" secondAttribute="centerY" id="tvW-Hg-zQF"/>
+                        <constraint firstAttribute="bottom" secondItem="tw1-CR-cCA" secondAttribute="bottom" id="zEZ-Du-twG"/>
+                        <constraint firstItem="OoP-qE-qrf" firstAttribute="leading" secondItem="PXO-q8-bka" secondAttribute="leading" id="zZq-GJ-zUB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="PXO-q8-bka" secondAttribute="bottom" id="YFx-iq-Xtb"/>
+                <constraint firstItem="PXO-q8-bka" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hpU-o1-AvE"/>
+                <constraint firstItem="PXO-q8-bka" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="750" id="lDK-Ml-9UY"/>
+                <constraint firstAttribute="trailing" secondItem="PXO-q8-bka" secondAttribute="trailing" id="tfq-C7-SdU"/>
+                <constraint firstItem="PXO-q8-bka" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="xIa-Oi-rWi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-133.5" y="-49"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo-navi" width="44" height="25"/>
+    </resources>
+</document>

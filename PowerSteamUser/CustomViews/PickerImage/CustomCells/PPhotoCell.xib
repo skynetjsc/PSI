@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PPhotoCell" id="gTV-IL-0wX" customClass="PPhotoCell" customModule="LianChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="184" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="184" height="160"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-eC-yqt" userLabel="Container View">
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="160"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fj0-GL-Qjo">
+                                <rect key="frame" x="1" y="1" width="182" height="158"/>
+                            </imageView>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70z-aM-MN4" userLabel="Cover View">
+                                <rect key="frame" x="0.0" y="0.0" width="184" height="160"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyf-aT-thT" customClass="PButton" customModule="LianChat" customModuleProvider="target">
+                                <rect key="frame" x="67" y="55" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.70458296654929575" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oyf-aT-thT" secondAttribute="height" id="brM-e8-YnF"/>
+                                    <constraint firstAttribute="width" constant="50" id="r8Q-dh-VgA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="15"/>
+                                <state key="normal" title="Gửi">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="cornerCircle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendButtonDidClick:" destination="gTV-IL-0wX" eventType="touchUpInside" id="lPz-aH-Ug2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oyf-aT-thT" firstAttribute="centerY" secondItem="6f8-eC-yqt" secondAttribute="centerY" id="0AN-Aj-dvg"/>
+                            <constraint firstItem="Fj0-GL-Qjo" firstAttribute="leading" secondItem="6f8-eC-yqt" secondAttribute="leading" constant="1" id="0xY-50-APu"/>
+                            <constraint firstItem="70z-aM-MN4" firstAttribute="top" secondItem="6f8-eC-yqt" secondAttribute="top" id="4Nk-sw-uaM"/>
+                            <constraint firstAttribute="bottom" secondItem="Fj0-GL-Qjo" secondAttribute="bottom" constant="1" id="5S7-6b-LH8"/>
+                            <constraint firstAttribute="trailing" secondItem="Fj0-GL-Qjo" secondAttribute="trailing" constant="1" id="DgG-Y1-9Wp"/>
+                            <constraint firstItem="Fj0-GL-Qjo" firstAttribute="top" secondItem="6f8-eC-yqt" secondAttribute="top" constant="1" id="En9-lg-9sO"/>
+                            <constraint firstItem="oyf-aT-thT" firstAttribute="centerX" secondItem="6f8-eC-yqt" secondAttribute="centerX" id="awn-HZ-ub4"/>
+                            <constraint firstAttribute="bottom" secondItem="70z-aM-MN4" secondAttribute="bottom" id="dDq-9i-pE9"/>
+                            <constraint firstItem="70z-aM-MN4" firstAttribute="leading" secondItem="6f8-eC-yqt" secondAttribute="leading" id="jy0-gm-fl3"/>
+                            <constraint firstAttribute="trailing" secondItem="70z-aM-MN4" secondAttribute="trailing" id="yKj-u1-TVz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="6f8-eC-yqt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="H6q-ea-mdE"/>
+                <constraint firstAttribute="bottom" secondItem="6f8-eC-yqt" secondAttribute="bottom" id="dlo-c2-mYp"/>
+                <constraint firstAttribute="trailing" secondItem="6f8-eC-yqt" secondAttribute="trailing" id="iEv-B1-10m"/>
+                <constraint firstItem="6f8-eC-yqt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sZH-tP-OA8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="184" height="160"/>
+            <connections>
+                <outlet property="containerView" destination="6f8-eC-yqt" id="oGd-Zu-Iqk"/>
+                <outlet property="coverView" destination="70z-aM-MN4" id="F6H-Fx-yYU"/>
+                <outlet property="imageView" destination="Fj0-GL-Qjo" id="5px-eW-eUR"/>
+                <outlet property="sendButton" destination="oyf-aT-thT" id="g2V-2f-E7w"/>
+            </connections>
+            <point key="canvasLocation" x="-19.199999999999999" y="79.160419790104953"/>
+        </collectionViewCell>
+    </objects>
+</document>

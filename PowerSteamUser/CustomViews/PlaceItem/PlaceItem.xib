@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceItem" customModule="LianChat" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="pSo-IL-Qbq" id="tnH-qv-oSc"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Yjv-PY-Lhu"/>
+                <outlet property="gradientView" destination="Ksc-xV-JK3" id="vB0-sU-9oC"/>
+                <outlet property="titleLabel" destination="QWw-2I-rzJ" id="bJ6-UN-Hko"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="PView" customModule="LianChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-sJ-muH">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ksc-xV-JK3" customClass="PGradientView" customModule="LianChat" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                    <color key="value" red="1" green="0.68627450980392157" blue="0.13725490196078433" alpha="1" colorSpace="deviceRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                    <color key="value" red="1" green="0.41960784313725491" blue="0.13725490196078433" alpha="1" colorSpace="deviceRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWw-2I-rzJ">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSo-IL-Qbq">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+                            <connections>
+                                <action selector="actionButtonDidClick:" destination="-1" eventType="touchUpInside" id="DDU-HX-KIj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstItem="QWw-2I-rzJ" firstAttribute="top" secondItem="FbA-sJ-muH" secondAttribute="top" id="5yi-QJ-A2r"/>
+                        <constraint firstAttribute="bottom" secondItem="pSo-IL-Qbq" secondAttribute="bottom" id="Cgt-WL-aid"/>
+                        <constraint firstItem="Ksc-xV-JK3" firstAttribute="leading" secondItem="FbA-sJ-muH" secondAttribute="leading" id="OeY-99-RvY"/>
+                        <constraint firstAttribute="bottom" secondItem="QWw-2I-rzJ" secondAttribute="bottom" id="Za0-Me-3oz"/>
+                        <constraint firstAttribute="bottom" secondItem="Ksc-xV-JK3" secondAttribute="bottom" id="ZzC-v3-qcu"/>
+                        <constraint firstItem="pSo-IL-Qbq" firstAttribute="leading" secondItem="FbA-sJ-muH" secondAttribute="leading" id="acu-AY-0i4"/>
+                        <constraint firstAttribute="trailing" secondItem="Ksc-xV-JK3" secondAttribute="trailing" id="bPx-hf-Ubp"/>
+                        <constraint firstItem="QWw-2I-rzJ" firstAttribute="leading" secondItem="FbA-sJ-muH" secondAttribute="leading" id="g01-nL-qDl"/>
+                        <constraint firstItem="Ksc-xV-JK3" firstAttribute="top" secondItem="FbA-sJ-muH" secondAttribute="top" id="mBE-RX-ad5"/>
+                        <constraint firstAttribute="trailing" secondItem="QWw-2I-rzJ" secondAttribute="trailing" id="s9E-0d-R5R"/>
+                        <constraint firstAttribute="trailing" secondItem="pSo-IL-Qbq" secondAttribute="trailing" id="szk-YB-hSA"/>
+                        <constraint firstItem="pSo-IL-Qbq" firstAttribute="top" secondItem="FbA-sJ-muH" secondAttribute="top" id="zH2-Vb-49e"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FbA-sJ-muH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8Fd-Oi-sAr"/>
+                <constraint firstItem="FbA-sJ-muH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="F9v-i8-SKv"/>
+                <constraint firstAttribute="trailing" secondItem="FbA-sJ-muH" secondAttribute="trailing" id="Zr7-Yh-zIa"/>
+                <constraint firstAttribute="bottom" secondItem="FbA-sJ-muH" secondAttribute="bottom" id="pbX-5b-RZV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+        </view>
+    </objects>
+</document>

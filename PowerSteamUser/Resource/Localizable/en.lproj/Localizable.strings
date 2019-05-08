@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Supership
+
+  Created by Mac on 8/29/18.
+  Copyright © 2018 Padi. All rights reserved.
+*/
+
+/**/
+"choose_media" = "Select media";
+
+/**/
+"choose_from_library" = "Select photos from album";
+
+/**/
+"take_a_photo" = "Take a picture";
+
+/**/
+"DELETE" = "Delete";
+
+/**/
+"An error occurred, please try again" = "An error occurred, please try again";
+
+/**/
+"SETTINGS"              = "Settings";
+
+/**/
+"CANCEL"                = "Cancel";
+
+/**/
+"CAMERA_TITLE"          = "Access camera";
+
+/**/
+"CAMERA_MESSAGE"        = "I can not access the camera. Please allow access so you can scan the receiptい";
+
+"LOCATION_TITLE"        = "Không thể lấy được thông tin vị trí của bạn";
+"LOCATION_MESSAGE"      = "Không thể lấy được thông tin vị trí của bạn. Vui lòng bật GPS.";
+"SETTINGS"              = "Cài đặt";
+"CANCEL"                = "Huỷ";
+
+"No_Data" = "No data";
+"Login" = "Login";
+"Developing" = "The function are developing";

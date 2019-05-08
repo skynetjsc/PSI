@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageItem" customModule="LianChat" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="TTo-6u-fV3" id="mJm-Pc-NcR"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="jej-tl-NQY"/>
+                <outlet property="imageView" destination="vky-NF-cgn" id="C5U-PM-UAr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="68" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vky-NF-cgn" customClass="PImageView" customModule="LianChat" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="68" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="68" id="71o-4y-hn0"/>
+                        <constraint firstAttribute="height" constant="60" id="AAo-EI-UYq"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTo-6u-fV3">
+                    <rect key="frame" x="43" y="0.0" width="25" height="22.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="TTo-6u-fV3" secondAttribute="height" multiplier="11:10" id="3JP-be-ylM"/>
+                        <constraint firstAttribute="width" constant="25" id="Rfs-6e-Vrx"/>
+                    </constraints>
+                    <state key="normal" image="Close.png"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vky-NF-cgn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2ua-wP-LUa"/>
+                <constraint firstAttribute="trailing" secondItem="vky-NF-cgn" secondAttribute="trailing" id="8SE-Ok-nUW"/>
+                <constraint firstAttribute="trailing" secondItem="TTo-6u-fV3" secondAttribute="trailing" id="DbM-Jc-DVY"/>
+                <constraint firstItem="vky-NF-cgn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gd4-Xt-Jnc"/>
+                <constraint firstAttribute="bottom" secondItem="vky-NF-cgn" secondAttribute="bottom" id="oJZ-2o-Su4"/>
+                <constraint firstItem="TTo-6u-fV3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uwS-q8-49v"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="40" y="46.776611694152926"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Close.png" width="16" height="16"/>
+    </resources>
+</document>
