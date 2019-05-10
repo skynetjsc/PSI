@@ -49,10 +49,10 @@ class PDefined: NSObject {
     
     // MARK: - Color
     
-    static let mainColor = UIColor(hexString: "28B56E")
+    static let mainColor = UIColor(hexString: "00C464")
     static let headerColor = UIColor(hexString: "FFFFFF")
     static let headerTintColor = UIColor(hexString: "2A2A2A")
-    static let normalTextColor = UIColor(hexString: "4A4A4A")
+    static let normalTextColor = UIColor(hexString: "193628")
     static let boldTextColor = UIColor(hexString: "2B2B2B")
     static let inactiveTextColor = UIColor(hexString: "A1AAB1")
     static let lineColor = UIColor(hexString: "000000").withAlphaComponent(0.06)

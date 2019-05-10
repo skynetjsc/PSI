@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mac. All rights reserved.
 //
 
+import IQKeyboardManagerSwift
 import UIKit
 
 @UIApplicationMain
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        setupInit()
+        
         return true
     }
 
@@ -40,7 +44,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
+
+// MARK: - Setup
+
+extension AppDelegate {
+    
+    static func setRootViewController(_ controller: UIViewController) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        appDelegate.window?.rootViewController = controller
+        appDelegate.window?.makeKeyAndVisible()
+    }
+    
+    func setupInit() {
+        // Keyboard
+        IQKeyboardManager.shared.enable = true
+        
+        SlideMenuOptions.contentViewScale = 1.0
+        SlideMenuOptions.hideStatusBar = false
+        
+        if let _ = PAppManager.shared.accessToken {
+            self.showMainHome()
+        } else {
+            self.showLogin()
+        }
+        window?.makeKeyAndVisible()
+    }
+    
+    func showMainHome() {
+        let naviHome = UINavigationController(rootViewController: HomeVC())
+        naviHome.isNavigationBarHidden = true
+        window?.rootViewController = naviHome
+    }
+    
+    func showLogin() {
+        let naviLogin = UINavigationController(rootViewController: HomeVC())
+        naviLogin.isNavigationBarHidden = true
+        window?.rootViewController = naviLogin
+    }
+}
+
+
+
+
 

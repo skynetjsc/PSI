@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationView" customModule="QuizVinperl" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="zDa-Ql-u4b"/>
                 <outlet property="divView" destination="OoP-qE-qrf" id="E0u-lZ-qOy"/>
@@ -49,7 +49,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-navi" translatesAutoresizingMaskIntoConstraints="NO" id="rkV-13-dqv">
-                            <rect key="frame" x="165.5" y="9.5" width="44" height="25"/>
+                            <rect key="frame" x="157.5" y="8" width="60" height="28"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tw1-CR-cCA">
                             <rect key="frame" x="275" y="0.0" width="100" height="44"/>
@@ -99,6 +99,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo-navi" width="44" height="25"/>
+        <image name="logo-navi" width="60" height="28"/>
     </resources>
 </document>

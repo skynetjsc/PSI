@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterVC" customModule="PowerSteamUser" customModuleProvider="target">
+            <connections>
+                <outlet property="emailField" destination="LMx-vj-sC9" id="aZc-hi-STM"/>
+                <outlet property="loginButton" destination="ZUi-9b-iyW" id="MGI-eT-AjU"/>
+                <outlet property="nameField" destination="3xE-jx-hzw" id="G4E-Br-6IQ"/>
+                <outlet property="navigationBar" destination="yVU-Lo-l8S" id="rx2-qO-xnO"/>
+                <outlet property="phoneField" destination="Nco-Ru-o3d" id="d0b-45-NJo"/>
+                <outlet property="registerButton" destination="vaI-Yc-lnp" id="DqS-Os-Uq6"/>
+                <outlet property="view" destination="NPl-OH-s3s" id="arO-Uk-bhd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="NPl-OH-s3s">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="I7B-WQ-UAb">
+                    <rect key="frame" x="240" y="44" width="135" height="362"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-small" translatesAutoresizingMaskIntoConstraints="NO" id="eZe-Ay-Kgp">
+                    <rect key="frame" x="215" y="44" width="120" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="eZe-Ay-Kgp" secondAttribute="height" multiplier="120:55" id="0jj-ag-d1H"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVU-Lo-l8S" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="750" constant="44" id="gCV-ef-AYt"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Yc-m1-ivX">
+                    <rect key="frame" x="0.0" y="117.5" width="375" height="549.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="x9L-ch-9Ze">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="549.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKB-MX-lcT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="407.5"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="l9Z-3i-gvA">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="407.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng ký..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51U-eS-OIE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="82"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="30"/>
+                                                    <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tạo tài khoản mới để nhận nhiều ưu đãi dịch vụ và các chính sách khác." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xu-dq-sau">
+                                                    <rect key="frame" x="0.0" y="97" width="335" height="38.5"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="14"/>
+                                                    <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysc-YM-9Ab" userLabel="Name View">
+                                                    <rect key="frame" x="0.0" y="150.5" width="335" height="46"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tên của bạn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xE-jx-hzw">
+                                                            <rect key="frame" x="15" y="0.0" width="305" height="46"/>
+                                                            <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="46" id="80B-36-7NU"/>
+                                                        <constraint firstItem="3xE-jx-hzw" firstAttribute="leading" secondItem="ysc-YM-9Ab" secondAttribute="leading" constant="15" id="CIb-XU-47N"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3xE-jx-hzw" secondAttribute="trailing" constant="15" id="lSF-Pw-xCw"/>
+                                                        <constraint firstItem="3xE-jx-hzw" firstAttribute="top" secondItem="ysc-YM-9Ab" secondAttribute="top" id="qcr-8B-3b5"/>
+                                                        <constraint firstAttribute="bottom" secondItem="3xE-jx-hzw" secondAttribute="bottom" id="smJ-cs-kyd"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-v8-TPG" userLabel="Phone View">
+                                                    <rect key="frame" x="0.0" y="211.5" width="335" height="46"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nco-Ru-o3d">
+                                                            <rect key="frame" x="15" y="0.0" width="305" height="46"/>
+                                                            <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Nco-Ru-o3d" firstAttribute="leading" secondItem="MKM-v8-TPG" secondAttribute="leading" constant="15" id="Oc2-sF-Lrh"/>
+                                                        <constraint firstItem="Nco-Ru-o3d" firstAttribute="top" secondItem="MKM-v8-TPG" secondAttribute="top" id="QdI-sV-TJ7"/>
+                                                        <constraint firstAttribute="height" constant="46" id="umJ-4P-Ij3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Nco-Ru-o3d" secondAttribute="bottom" id="yJl-zr-ZU3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Nco-Ru-o3d" secondAttribute="trailing" constant="15" id="zPR-0J-mCe"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHl-Ya-Zk0" userLabel="Email View">
+                                                    <rect key="frame" x="0.0" y="272.5" width="335" height="46"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LMx-vj-sC9">
+                                                            <rect key="frame" x="15" y="0.0" width="305" height="46"/>
+                                                            <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="LMx-vj-sC9" firstAttribute="leading" secondItem="NHl-Ya-Zk0" secondAttribute="leading" constant="15" id="0IP-45-eLV"/>
+                                                        <constraint firstAttribute="height" constant="46" id="7U8-Un-Kml"/>
+                                                        <constraint firstItem="LMx-vj-sC9" firstAttribute="top" secondItem="NHl-Ya-Zk0" secondAttribute="top" id="Cpl-79-NUJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="LMx-vj-sC9" secondAttribute="trailing" constant="15" id="EQL-0p-ph4"/>
+                                                        <constraint firstAttribute="bottom" secondItem="LMx-vj-sC9" secondAttribute="bottom" id="Npg-LN-1uu"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddA-Ly-pwu">
+                                                    <rect key="frame" x="0.0" y="333.5" width="335" height="74"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaI-Yc-lnp" customClass="PButton" customModule="PowerSteamUser" customModuleProvider="target">
+                                                            <rect key="frame" x="77.5" y="15" width="180" height="44"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="0.080000000000000002" colorSpace="deviceRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="180" id="Q7Q-U7-knZ"/>
+                                                                <constraint firstAttribute="height" constant="44" id="hNf-7R-zmt"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="18"/>
+                                                            <state key="normal" title="Đăng ký">
+                                                                <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="vaI-Yc-lnp" firstAttribute="top" secondItem="ddA-Ly-pwu" secondAttribute="top" constant="15" id="Y9t-1c-1EB"/>
+                                                        <constraint firstItem="vaI-Yc-lnp" firstAttribute="centerY" secondItem="ddA-Ly-pwu" secondAttribute="centerY" id="evt-fk-xLL"/>
+                                                        <constraint firstItem="vaI-Yc-lnp" firstAttribute="centerX" secondItem="ddA-Ly-pwu" secondAttribute="centerX" id="sEE-4I-G9E"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="l9Z-3i-gvA" secondAttribute="bottom" id="WE7-sF-516"/>
+                                        <constraint firstAttribute="trailing" secondItem="l9Z-3i-gvA" secondAttribute="trailing" constant="20" id="Wpr-Uw-ev1"/>
+                                        <constraint firstItem="l9Z-3i-gvA" firstAttribute="top" secondItem="xKB-MX-lcT" secondAttribute="top" id="fea-cV-H8R"/>
+                                        <constraint firstItem="l9Z-3i-gvA" firstAttribute="leading" secondItem="xKB-MX-lcT" secondAttribute="leading" constant="20" id="iot-AP-W4i"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6t-Co-BJD" userLabel="Space View">
+                                    <rect key="frame" x="0.0" y="427.5" width="375" height="10"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="10" id="Xjf-xS-vtK"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tôi đã có tài khoản!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PI6-BU-Pe0">
+                                    <rect key="frame" x="0.0" y="457.5" width="375" height="22"/>
+                                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                                    <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUi-9b-iyW" customClass="PButton" customModule="PowerSteamUser" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="499.5" width="375" height="50"/>
+                                    <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="373-jy-1lH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="18"/>
+                                    <state key="normal" title="Đăng nhập">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="x9L-ch-9Ze" secondAttribute="trailing" id="5ev-02-Ub4"/>
+                        <constraint firstItem="x9L-ch-9Ze" firstAttribute="top" secondItem="7Yc-m1-ivX" secondAttribute="top" id="hOf-jw-KsV"/>
+                        <constraint firstAttribute="bottom" secondItem="x9L-ch-9Ze" secondAttribute="bottom" id="lsg-e8-Gb5"/>
+                        <constraint firstItem="x9L-ch-9Ze" firstAttribute="leading" secondItem="7Yc-m1-ivX" secondAttribute="leading" id="woi-YO-cFZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="yVU-Lo-l8S" secondAttribute="trailing" id="1wp-zV-EFu"/>
+                <constraint firstItem="I7B-WQ-UAb" firstAttribute="leading" secondItem="eZe-Ay-Kgp" secondAttribute="leading" constant="25" id="93e-GO-2cN"/>
+                <constraint firstItem="I7B-WQ-UAb" firstAttribute="top" secondItem="NPl-OH-s3s" secondAttribute="top" constant="44" id="Cs3-WJ-Ou0"/>
+                <constraint firstItem="eZe-Ay-Kgp" firstAttribute="top" secondItem="I7B-WQ-UAb" secondAttribute="top" id="PQB-45-wbJ"/>
+                <constraint firstItem="yVU-Lo-l8S" firstAttribute="top" secondItem="NPl-OH-s3s" secondAttribute="top" priority="750" id="SOd-eY-Krg"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7Yc-m1-ivX" secondAttribute="bottom" id="W7P-mT-JtE"/>
+                <constraint firstItem="7Yc-m1-ivX" firstAttribute="bottom" secondItem="dg8-nF-pYL" secondAttribute="bottom" priority="750" id="oot-hL-8am"/>
+                <constraint firstItem="7Yc-m1-ivX" firstAttribute="leading" secondItem="NPl-OH-s3s" secondAttribute="leading" id="qqx-Xr-HsU"/>
+                <constraint firstItem="yVU-Lo-l8S" firstAttribute="leading" secondItem="NPl-OH-s3s" secondAttribute="leading" id="rNd-Cj-Nue"/>
+                <constraint firstAttribute="trailing" secondItem="I7B-WQ-UAb" secondAttribute="trailing" id="u0l-Dq-LiC"/>
+                <constraint firstAttribute="trailing" secondItem="7Yc-m1-ivX" secondAttribute="trailing" id="uWU-Jh-9LA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="dg8-nF-pYL"/>
+            <point key="canvasLocation" x="130.40000000000001" y="118.29085457271366"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="135" height="362"/>
+        <image name="logo-small" width="120" height="55"/>
+    </resources>
+</document>

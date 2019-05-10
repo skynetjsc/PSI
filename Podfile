@@ -22,6 +22,7 @@ target 'PowerSteamUser' do
     #pod 'SlideMenuControllerSwift', '4.0.0'
     #pod 'SkeletonView', '~> 1.4.2'
     #pod 'RSBarcodes_Swift'
+    pod 'SVPinView', '~> 1.0'
     
     # Float menu
     #pod 'FanMenu'

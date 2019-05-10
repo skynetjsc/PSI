@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044D977722851542007FFFD5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D977522851542007FFFD5 /* LoginVC.swift */; };
+		044D977822851542007FFFD5 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D977622851542007FFFD5 /* LoginVC.xib */; };
+		044D977A2285154F007FFFD5 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D97792285154F007FFFD5 /* LoginVM.swift */; };
+		044D977D2285233C007FFFD5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D977B2285233C007FFFD5 /* RegisterVC.swift */; };
+		044D977E2285233C007FFFD5 /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D977C2285233C007FFFD5 /* RegisterVC.xib */; };
+		044D978022852347007FFFD5 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D977F22852347007FFFD5 /* RegisterVM.swift */; };
+		044D9783228530E1007FFFD5 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D9781228530E1007FFFD5 /* ForgotPasswordVC.swift */; };
+		044D9784228530E1007FFFD5 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D9782228530E1007FFFD5 /* ForgotPasswordVC.xib */; };
+		044D978622853116007FFFD5 /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D978522853116007FFFD5 /* ForgotPasswordVM.swift */; };
+		044D9789228538B1007FFFD5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D9787228538B1007FFFD5 /* HomeVC.swift */; };
+		044D978A228538B1007FFFD5 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D9788228538B1007FFFD5 /* HomeVC.xib */; };
+		044D978F2285652A007FFFD5 /* SignupOtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D978D2285652A007FFFD5 /* SignupOtpVC.swift */; };
+		044D97902285652A007FFFD5 /* SignupOtpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D978E2285652A007FFFD5 /* SignupOtpVC.xib */; };
+		044D979222856537007FFFD5 /* SignupOtpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D979122856537007FFFD5 /* SignupOtpVM.swift */; };
+		044D97952285656A007FFFD5 /* AgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D97932285656A007FFFD5 /* AgreementVC.swift */; };
+		044D97962285656A007FFFD5 /* AgreementVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D97942285656A007FFFD5 /* AgreementVC.xib */; };
+		044D97982285657A007FFFD5 /* AgreementVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D97972285657A007FFFD5 /* AgreementVM.swift */; };
+		044D979C228565A6007FFFD5 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D979A228565A6007FFFD5 /* TermsVC.swift */; };
+		044D979D228565A6007FFFD5 /* TermsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D979B228565A6007FFFD5 /* TermsVC.xib */; };
+		044D979F228565B2007FFFD5 /* TermsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D979E228565B2007FFFD5 /* TermsVM.swift */; };
 		04AAA7022283587A0001FEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAA7012283587A0001FEB4 /* AppDelegate.swift */; };
 		04AAA7042283587A0001FEB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAA7032283587A0001FEB4 /* ViewController.swift */; };
 		04AAA7072283587A0001FEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AAA7052283587A0001FEB4 /* Main.storyboard */; };
@@ -175,6 +195,10 @@
 		04AAA8AF22835CA90001FEB4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAA80D22835CA80001FEB4 /* Reachability.swift */; };
 		04AAA8B022835CA90001FEB4 /* CommonServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAA80E22835CA80001FEB4 /* CommonServices.swift */; };
 		04AAA8B122835CA90001FEB4 /* EndpointAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAA80F22835CA80001FEB4 /* EndpointAPI.swift */; };
+		04E940D42285F275003B07F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E940D32285F275003B07F2 /* HomeVM.swift */; };
+		04E940D72285FAF8003B07F2 /* LeftMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E940D52285FAF8003B07F2 /* LeftMenuVC.swift */; };
+		04E940D82285FAF8003B07F2 /* LeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E940D62285FAF8003B07F2 /* LeftMenuVC.xib */; };
+		04E940DA2285FB07003B07F2 /* LeftMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E940D92285FB07003B07F2 /* LeftMenuVM.swift */; };
 		C58445E2E7D616BD74FAF434 /* Pods_PowerSteamUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */; };
 /* End PBXBuildFile section */
 
@@ -196,6 +220,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044D977522851542007FFFD5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		044D977622851542007FFFD5 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		044D97792285154F007FFFD5 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		044D977B2285233C007FFFD5 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		044D977C2285233C007FFFD5 /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
+		044D977F22852347007FFFD5 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		044D9781228530E1007FFFD5 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		044D9782228530E1007FFFD5 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		044D978522853116007FFFD5 /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
+		044D9787228538B1007FFFD5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		044D9788228538B1007FFFD5 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		044D978D2285652A007FFFD5 /* SignupOtpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupOtpVC.swift; sourceTree = "<group>"; };
+		044D978E2285652A007FFFD5 /* SignupOtpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupOtpVC.xib; sourceTree = "<group>"; };
+		044D979122856537007FFFD5 /* SignupOtpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupOtpVM.swift; sourceTree = "<group>"; };
+		044D97932285656A007FFFD5 /* AgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVC.swift; sourceTree = "<group>"; };
+		044D97942285656A007FFFD5 /* AgreementVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgreementVC.xib; sourceTree = "<group>"; };
+		044D97972285657A007FFFD5 /* AgreementVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVM.swift; sourceTree = "<group>"; };
+		044D979A228565A6007FFFD5 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		044D979B228565A6007FFFD5 /* TermsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsVC.xib; sourceTree = "<group>"; };
+		044D979E228565B2007FFFD5 /* TermsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVM.swift; sourceTree = "<group>"; };
 		04AAA6FE2283587A0001FEB4 /* PowerSteamUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerSteamUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AAA7012283587A0001FEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04AAA7032283587A0001FEB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -374,6 +418,10 @@
 		04AAA80D22835CA80001FEB4 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		04AAA80E22835CA80001FEB4 /* CommonServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonServices.swift; sourceTree = "<group>"; };
 		04AAA80F22835CA80001FEB4 /* EndpointAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointAPI.swift; sourceTree = "<group>"; };
+		04E940D32285F275003B07F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		04E940D52285FAF8003B07F2 /* LeftMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuVC.swift; sourceTree = "<group>"; };
+		04E940D62285FAF8003B07F2 /* LeftMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuVC.xib; sourceTree = "<group>"; };
+		04E940D92285FB07003B07F2 /* LeftMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuVM.swift; sourceTree = "<group>"; };
 		1D784848B42DD9846E55CABB /* Pods-PowerSteamUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.release.xcconfig"; sourceTree = "<group>"; };
 		474CAC86CC0D96528331CC53 /* Pods-PowerSteamUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.debug.xcconfig"; sourceTree = "<group>"; };
 		B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerSteamUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -405,6 +453,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044D9772228514DE007FFFD5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				044D977522851542007FFFD5 /* LoginVC.swift */,
+				044D97792285154F007FFFD5 /* LoginVM.swift */,
+				044D977622851542007FFFD5 /* LoginVC.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		044D9773228514EA007FFFD5 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				044D977B2285233C007FFFD5 /* RegisterVC.swift */,
+				044D977F22852347007FFFD5 /* RegisterVM.swift */,
+				044D977C2285233C007FFFD5 /* RegisterVC.xib */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		044D977422851529007FFFD5 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				044D9781228530E1007FFFD5 /* ForgotPasswordVC.swift */,
+				044D978522853116007FFFD5 /* ForgotPasswordVM.swift */,
+				044D9782228530E1007FFFD5 /* ForgotPasswordVC.xib */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		044D978B22856501007FFFD5 /* SignupOTP */ = {
+			isa = PBXGroup;
+			children = (
+				044D978D2285652A007FFFD5 /* SignupOtpVC.swift */,
+				044D979122856537007FFFD5 /* SignupOtpVM.swift */,
+				044D978E2285652A007FFFD5 /* SignupOtpVC.xib */,
+			);
+			path = SignupOTP;
+			sourceTree = "<group>";
+		};
+		044D978C22856515007FFFD5 /* Agreement */ = {
+			isa = PBXGroup;
+			children = (
+				044D97932285656A007FFFD5 /* AgreementVC.swift */,
+				044D97972285657A007FFFD5 /* AgreementVM.swift */,
+				044D97942285656A007FFFD5 /* AgreementVC.xib */,
+			);
+			path = Agreement;
+			sourceTree = "<group>";
+		};
+		044D979922856598007FFFD5 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				044D979A228565A6007FFFD5 /* TermsVC.swift */,
+				044D979E228565B2007FFFD5 /* TermsVM.swift */,
+				044D979B228565A6007FFFD5 /* TermsVC.xib */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
 		04AAA6F52283587A0001FEB4 = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +590,9 @@
 		04AAA73022835CA40001FEB4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				044D9787228538B1007FFFD5 /* HomeVC.swift */,
+				04E940D32285F275003B07F2 /* HomeVM.swift */,
+				044D9788228538B1007FFFD5 /* HomeVC.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -496,6 +607,9 @@
 		04AAA73222835CA40001FEB4 /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
+				04E940D52285FAF8003B07F2 /* LeftMenuVC.swift */,
+				04E940D92285FB07003B07F2 /* LeftMenuVM.swift */,
+				04E940D62285FAF8003B07F2 /* LeftMenuVC.xib */,
 			);
 			path = LeftMenu;
 			sourceTree = "<group>";
@@ -503,6 +617,12 @@
 		04AAA73322835CA40001FEB4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				044D979922856598007FFFD5 /* Terms */,
+				044D978C22856515007FFFD5 /* Agreement */,
+				044D978B22856501007FFFD5 /* SignupOTP */,
+				044D977422851529007FFFD5 /* ForgotPassword */,
+				044D9773228514EA007FFFD5 /* Register */,
+				044D9772228514DE007FFFD5 /* Login */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1210,6 +1330,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044D977822851542007FFFD5 /* LoginVC.xib in Resources */,
+				044D9784228530E1007FFFD5 /* ForgotPasswordVC.xib in Resources */,
 				04AAA70C2283587B0001FEB4 /* LaunchScreen.storyboard in Resources */,
 				04AAA7092283587B0001FEB4 /* Assets.xcassets in Resources */,
 				04AAA83722835CA80001FEB4 /* Close.png in Resources */,
@@ -1218,6 +1340,7 @@
 				04AAA86E22835CA80001FEB4 /* Nunito-Bold.ttf in Resources */,
 				04AAA88722835CA90001FEB4 /* SuccessView.xib in Resources */,
 				04AAA89B22835CA90001FEB4 /* WelcomeView.xib in Resources */,
+				04E940D82285FAF8003B07F2 /* LeftMenuVC.xib in Resources */,
 				04AAA83622835CA80001FEB4 /* Close@2x.png in Resources */,
 				04AAA85822835CA80001FEB4 /* NormalFooter.bundle in Resources */,
 				04AAA88922835CA90001FEB4 /* NavigationView.xib in Resources */,
@@ -1230,6 +1353,7 @@
 				04AAA87022835CA80001FEB4 /* Nunito-Black.ttf in Resources */,
 				04AAA89F22835CA90001FEB4 /* PlaceItem.xib in Resources */,
 				04AAA87522835CA90001FEB4 /* Nunito-LightItalic.ttf in Resources */,
+				044D977E2285233C007FFFD5 /* RegisterVC.xib in Resources */,
 				04AAA87422835CA90001FEB4 /* Nunito-Italic.ttf in Resources */,
 				04AAA85522835CA80001FEB4 /* NormalHeader.bundle in Resources */,
 				04AAA83B22835CA80001FEB4 /* chinese_regionalism.json in Resources */,
@@ -1240,10 +1364,14 @@
 				04AAA83522835CA80001FEB4 /* GLNotificationBar.xib in Resources */,
 				04AAA86B22835CA80001FEB4 /* Nunito-Light.ttf in Resources */,
 				04AAA83122835CA80001FEB4 /* LICENSE in Resources */,
+				044D97962285656A007FFFD5 /* AgreementVC.xib in Resources */,
 				04AAA89D22835CA90001FEB4 /* ReasonRejectView.xib in Resources */,
 				04AAA87A22835CA90001FEB4 /* ImageItem.xib in Resources */,
+				044D979D228565A6007FFFD5 /* TermsVC.xib in Resources */,
+				044D978A228538B1007FFFD5 /* HomeVC.xib in Resources */,
 				04AAA7072283587A0001FEB4 /* Main.storyboard in Resources */,
 				04AAA86822835CA80001FEB4 /* Nunito-ExtraBoldItalic.ttf in Resources */,
+				044D97902285652A007FFFD5 /* SignupOtpVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,6 +1416,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVPinView/SVPinView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
@@ -1313,6 +1442,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPinView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
@@ -1350,6 +1480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AAA89422835CA90001FEB4 /* PWebViewController.swift in Sources */,
+				044D9789228538B1007FFFD5 /* HomeVC.swift in Sources */,
 				04AAA85022835CA80001FEB4 /* FastAnimator.swift in Sources */,
 				04AAA7042283587A0001FEB4 /* ViewController.swift in Sources */,
 				04AAA85922835CA80001FEB4 /* CRRefreshBundle.swift in Sources */,
@@ -1359,9 +1490,11 @@
 				04AAA84A22835CA80001FEB4 /* RamotionBounceLayer.swift in Sources */,
 				04AAA8A222835CA90001FEB4 /* PickerViewManager.swift in Sources */,
 				04AAA82B22835CA80001FEB4 /* Parser.swift in Sources */,
+				044D978622853116007FFFD5 /* ForgotPasswordVM.swift in Sources */,
 				04AAA85E22835CA80001FEB4 /* CRRefreshComponent.swift in Sources */,
 				04AAA81322835CA80001FEB4 /* RxExtension.swift in Sources */,
 				04AAA8A722835CA90001FEB4 /* ShareManager.swift in Sources */,
+				044D97982285657A007FFFD5 /* AgreementVM.swift in Sources */,
 				04AAA84F22835CA80001FEB4 /* WCLLoadingView.swift in Sources */,
 				04AAA8A522835CA90001FEB4 /* InstagramLoginVC.swift in Sources */,
 				04AAA82E22835CA80001FEB4 /* RxKingfisherError.swift in Sources */,
@@ -1377,6 +1510,7 @@
 				04AAA82C22835CA80001FEB4 /* Kingfisher+Rx.swift in Sources */,
 				04AAA89822835CA90001FEB4 /* PPaddingLabel.swift in Sources */,
 				04AAA89122835CA90001FEB4 /* PBadgeButton.swift in Sources */,
+				044D978F2285652A007FFFD5 /* SignupOtpVC.swift in Sources */,
 				04AAA88C22835CA90001FEB4 /* PLabel.swift in Sources */,
 				04AAA85A22835CA80001FEB4 /* CRUIColorExtension.swift in Sources */,
 				04AAA8A922835CA90001FEB4 /* AppMessagesManager.swift in Sources */,
@@ -1414,13 +1548,16 @@
 				04AAA89E22835CA90001FEB4 /* PlaceItem.swift in Sources */,
 				04AAA82622835CA80001FEB4 /* EZAlertController.swift in Sources */,
 				04AAA84E22835CA80001FEB4 /* SlackLoadingAnimator.swift in Sources */,
+				044D979222856537007FFFD5 /* SignupOtpVM.swift in Sources */,
 				04AAA84D22835CA80001FEB4 /* RamotionBallLayer.swift in Sources */,
 				04AAA82222835CA80001FEB4 /* PConstants.swift in Sources */,
 				04AAA89222835CA90001FEB4 /* PTextField.swift in Sources */,
 				04AAA87C22835CA90001FEB4 /* CameraView.swift in Sources */,
+				044D977D2285233C007FFFD5 /* RegisterVC.swift in Sources */,
 				04AAA88522835CA90001FEB4 /* PPhotoLibrary.swift in Sources */,
 				04AAA8B122835CA90001FEB4 /* EndpointAPI.swift in Sources */,
 				04AAA85422835CA80001FEB4 /* FastCircleLayer.swift in Sources */,
+				044D979F228565B2007FFFD5 /* TermsVM.swift in Sources */,
 				04AAA82D22835CA80001FEB4 /* KingfisherManager+Rx.swift in Sources */,
 				04AAA81622835CA80001FEB4 /* StringExtension.swift in Sources */,
 				04AAA83922835CA80001FEB4 /* PickerControl_Date.swift in Sources */,
@@ -1428,6 +1565,7 @@
 				04AAA87722835CA90001FEB4 /* PUserModel.swift in Sources */,
 				04AAA88F22835CA90001FEB4 /* PCopyableLabel.swift in Sources */,
 				04AAA8A322835CA90001FEB4 /* MediaSourceManager.swift in Sources */,
+				044D977722851542007FFFD5 /* LoginVC.swift in Sources */,
 				04AAA84922835CA80001FEB4 /* CRRefreshAnimator.swift in Sources */,
 				04AAA81D22835CA80001FEB4 /* PDefined.swift in Sources */,
 				04AAA84522835CA80001FEB4 /* DatePickerViewController.swift in Sources */,
@@ -1442,6 +1580,7 @@
 				04AAA89922835CA90001FEB4 /* WelcomeViewModel.swift in Sources */,
 				04AAA81422835CA80001FEB4 /* UIViewControllerExtension.swift in Sources */,
 				04AAA85C22835CA80001FEB4 /* CRRefreshExtension.swift in Sources */,
+				04E940D72285FAF8003B07F2 /* LeftMenuVC.swift in Sources */,
 				04AAA88822835CA90001FEB4 /* SuccessView.swift in Sources */,
 				04AAA81E22835CA80001FEB4 /* PAppManager.swift in Sources */,
 				04AAA89522835CA90001FEB4 /* PTextView.swift in Sources */,
@@ -1450,6 +1589,8 @@
 				04AAA86522835CA80001FEB4 /* SJSegmentedScrollView.swift in Sources */,
 				04AAA89022835CA90001FEB4 /* PView.swift in Sources */,
 				04AAA81722835CA80001FEB4 /* DictionaryExtension.swift in Sources */,
+				04E940DA2285FB07003B07F2 /* LeftMenuVM.swift in Sources */,
+				04E940D42285F275003B07F2 /* HomeVM.swift in Sources */,
 				04AAA8AE22835CA90001FEB4 /* ReachabilityService.swift in Sources */,
 				04AAA81F22835CA80001FEB4 /* PLoadingActivity.swift in Sources */,
 				04AAA88E22835CA90001FEB4 /* PButton.swift in Sources */,
@@ -1462,22 +1603,27 @@
 				04AAA81522835CA80001FEB4 /* UIViewExtension.swift in Sources */,
 				04AAA84B22835CA80001FEB4 /* RamotionAnimator.swift in Sources */,
 				04AAA81022835CA80001FEB4 /* UIButtonExtension.swift in Sources */,
+				044D978022852347007FFFD5 /* RegisterVM.swift in Sources */,
 				04AAA8A822835CA90001FEB4 /* CameraManager.swift in Sources */,
 				04AAA83422835CA80001FEB4 /* GLNotificationBar.swift in Sources */,
 				04AAA87E22835CA90001FEB4 /* CRFooterLoading.swift in Sources */,
 				04AAA86422835CA80001FEB4 /* SJShadow.swift in Sources */,
 				04AAA82522835CA80001FEB4 /* ASExtendedCircularMenu.swift in Sources */,
+				044D97952285656A007FFFD5 /* AgreementVC.swift in Sources */,
 				04AAA84022835CA80001FEB4 /* PickerController_Date.swift in Sources */,
+				044D977A2285154F007FFFD5 /* LoginVM.swift in Sources */,
 				04AAA84722835CA80001FEB4 /* UIAlertController+Extensions.swift in Sources */,
 				04AAA86222835CA80001FEB4 /* SJSegmentTab.swift in Sources */,
 				04AAA88222835CA90001FEB4 /* PickerImageView.swift in Sources */,
 				04AAA83E22835CA80001FEB4 /* PickerControl_Base.swift in Sources */,
 				04AAA83A22835CA80001FEB4 /* PickerController_Group.swift in Sources */,
+				044D9783228530E1007FFFD5 /* ForgotPasswordVC.swift in Sources */,
 				04AAA82422835CA80001FEB4 /* KMPlaceholderTextView.swift in Sources */,
 				04AAA83022835CA80001FEB4 /* UPCarouselFlowLayout.swift in Sources */,
 				04AAA88122835CA90001FEB4 /* CustomUIDelegate.swift in Sources */,
 				04AAA88D22835CA90001FEB4 /* PImageView.swift in Sources */,
 				04AAA85F22835CA80001FEB4 /* CRRefreshFooterView.swift in Sources */,
+				044D979C228565A6007FFFD5 /* TermsVC.swift in Sources */,
 				04AAA8A622835CA90001FEB4 /* SocialManager.swift in Sources */,
 				04AAA84422835CA80001FEB4 /* PickerViewViewController.swift in Sources */,
 				04AAA8AF22835CA90001FEB4 /* Reachability.swift in Sources */,

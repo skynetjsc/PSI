@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuVC" customModule="PowerSteamUser" customModuleProvider="target">
+            <connections>
+                <outlet property="historyButton" destination="aBM-Za-14r" id="cQk-XO-9o3"/>
+                <outlet property="logoutButton" destination="Em6-R0-cmk" id="ZIY-fS-TjZ"/>
+                <outlet property="nameLabel" destination="L35-am-P2Q" id="s5e-5f-MB2"/>
+                <outlet property="notificationButton" destination="0Ro-Wo-PxF" id="WV7-JE-z95"/>
+                <outlet property="profileButton" destination="Krf-4y-4oB" id="Npf-xw-9zq"/>
+                <outlet property="reportButton" destination="tsL-Rr-2FP" id="qt3-kq-TE8"/>
+                <outlet property="scheduleButton" destination="RLa-T3-jsP" id="x7L-ng-3mi"/>
+                <outlet property="scheduleMeetButton" destination="K4N-mV-Cag" id="gdU-QT-ek5"/>
+                <outlet property="serviceButton" destination="Dsf-GI-K4r" id="Igk-47-uJB"/>
+                <outlet property="supportButton" destination="3Y6-eO-2pz" id="Hqy-jI-0KT"/>
+                <outlet property="view" destination="zI2-DT-et9" id="2sA-Fl-mkU"/>
+                <outlet property="walletButton" destination="8Oi-Hy-FJa" id="bA1-d0-nnP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="zI2-DT-et9">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="nba-tG-h0R">
+                    <rect key="frame" x="30" y="78" width="335" height="559"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tran Thanh Tuan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L35-am-P2Q">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="NeN-iM-mFa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="15"/>
+                            <color key="textColor" red="0.098039215686274508" green="0.21176470588235294" blue="0.15686274509803921" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN7-GC-YKM" userLabel="Space Item">
+                            <rect key="frame" x="0.0" y="29" width="335" height="10"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="xaR-GG-rgI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsf-GI-K4r">
+                            <rect key="frame" x="0.0" y="43" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="7cB-Ki-rCg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Đặt dịch vụ">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oi-Hy-FJa">
+                            <rect key="frame" x="0.0" y="72" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="iN5-BW-YF7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Ví tài khoản">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krf-4y-4oB">
+                            <rect key="frame" x="0.0" y="101" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="U1l-BB-XJN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Hồ sơ cá nhân">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLa-T3-jsP">
+                            <rect key="frame" x="0.0" y="130" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="kUn-j0-c22"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Lịch định kỳ">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBM-Za-14r">
+                            <rect key="frame" x="0.0" y="159" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="8DR-vT-m9j"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Lịch sử dịch vụ">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4N-mV-Cag">
+                            <rect key="frame" x="0.0" y="188" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="1hM-nt-7FH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Lịch hẹn sắp tới">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ro-Wo-PxF">
+                            <rect key="frame" x="0.0" y="217" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="XgW-sp-h2a"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Thông báo &amp; khuyến mại">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsL-Rr-2FP">
+                            <rect key="frame" x="0.0" y="246" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="7jn-DZ-srN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Khiếu nại">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Y6-eO-2pz">
+                            <rect key="frame" x="0.0" y="275" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="3EB-oj-V0j"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="15"/>
+                            <state key="normal" title="Hỗ trợ">
+                                <color key="titleColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUS-DW-wq6" userLabel="Space Item">
+                            <rect key="frame" x="0.0" y="304" width="335" height="226"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Em6-R0-cmk">
+                            <rect key="frame" x="0.0" y="534" width="335" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="XPD-qI-JcR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Thoát" image="logout">
+                                <color key="titleColor" red="0.9137254901960784" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="nba-tG-h0R" secondAttribute="trailing" constant="10" id="Twl-Vq-buY"/>
+                <constraint firstAttribute="bottom" secondItem="nba-tG-h0R" secondAttribute="bottom" constant="30" id="Wap-yj-aVS"/>
+                <constraint firstItem="nba-tG-h0R" firstAttribute="top" secondItem="zI2-DT-et9" secondAttribute="top" constant="78" id="YPz-yj-1tj"/>
+                <constraint firstItem="nba-tG-h0R" firstAttribute="leading" secondItem="zI2-DT-et9" secondAttribute="leading" constant="30" id="qCb-19-gtj"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="HQY-5O-y3e"/>
+            <point key="canvasLocation" x="132" y="119.1904047976012"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logout" width="15" height="12"/>
+    </resources>
+</document>

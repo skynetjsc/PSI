@@ -43,10 +43,11 @@ class NavigationView: UIView {
 		contentView.frame = self.bounds
         contentView.backgroundColor = UIColor.clear
         titleLabel.textColor = PDefined.headerTintColor
+        divView.isHidden = true
         
         // add backbutton
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-        backButton.setImage(#imageLiteral(resourceName: "arrow-left"), for: .normal)
+        backButton.setImage(#imageLiteral(resourceName: "back"), for: .normal)
         //backButton.setImage(#imageLiteral(resourceName: "arrow-right").withRenderingMode(.alwaysTemplate), for: .normal)
         //backButton.tintColor = PDefined.headerTintColor
         backButton.rx.tap.asDriver()

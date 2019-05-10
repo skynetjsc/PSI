@@ -77,6 +77,7 @@ PODS:
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - SnapKit (4.2.0)
+  - SVPinView (1.0.7)
   - SwiftDate (5.0.10)
   - SwiftMessages (5.0.1):
     - SwiftMessages/App (= 5.0.1)
@@ -101,6 +102,7 @@ DEPENDENCIES:
   - RxSwift (= 4.3.1)
   - RxSwiftExt (= 3.3.0)
   - SnapKit (= 4.2.0)
+  - SVPinView (~> 1.0)
   - SwiftDate (= 5.0.10)
   - SwiftMessages (~> 5.0)
   - SwiftyJSON (= 4.2.0)
@@ -129,6 +131,7 @@ SPEC REPOS:
     - RxSwiftExt
     - SDWebImage
     - SnapKit
+    - SVPinView
     - SwiftDate
     - SwiftMessages
     - SwiftyJSON
@@ -156,11 +159,12 @@ SPEC CHECKSUMS:
   RxSwiftExt: 81afb48ab0602f503147417baeb3989d64c7687d
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SVPinView: 6c1da57e4a1273298802f460c60511ba10f7c831
   SwiftDate: fcdaa7ca22a903faf6d7ed231239a88d174dcae3
   SwiftMessages: 32ce3cfc8388b41aae56ff4853cc752a20101147
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XLPagerTabStrip: 22d4c58200d7c105e0e407ab6bfd01a5d85014be
 
-PODFILE CHECKSUM: 6437972757306318a044cd16f493efb24c6a0a45
+PODFILE CHECKSUM: 72d1518660f45457ee2abc2b4466d8cd4495a075
 
 COCOAPODS: 1.5.3
