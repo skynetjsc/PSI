@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCouponVC" customModule="PowerSteamUser" customModuleProvider="target">
+            <connections>
+                <outlet property="confirmButton" destination="Whd-bD-IVf" id="0lK-dG-wJK"/>
+                <outlet property="couponField" destination="0B4-h6-fk9" id="y1d-AV-e23"/>
+                <outlet property="navigationBar" destination="Ff7-KI-ufh" id="aM4-QY-LxP"/>
+                <outlet property="view" destination="315-6N-eH3" id="fbg-Zp-68G"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="315-6N-eH3">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="a79-J4-hHN">
+                    <rect key="frame" x="240" y="44" width="135" height="362"/>
+                </imageView>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-small" translatesAutoresizingMaskIntoConstraints="NO" id="iFI-4G-MAs">
+                    <rect key="frame" x="215" y="44" width="120" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="iFI-4G-MAs" secondAttribute="height" multiplier="120:55" id="cbs-xT-Yr5"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ff7-KI-ufh" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="750" constant="64" id="BSg-2h-EGh"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5G-6T-tXm">
+                    <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1EL-op-6wU">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-WI-rnr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="533"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-UW-NZ4">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="533"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mã giảm giá của bạn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ7-Q0-4xn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="kJF-c5-b98"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="30"/>
+                                                    <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nếu như bạn có mã khuyến mại vui lòng nhập vào ô bên dưới đẻ được hưởng ưu đãi" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amX-0w-7BR">
+                                                    <rect key="frame" x="0.0" y="45" width="335" height="38.5"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                                    <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gw0-si-dnn">
+                                                    <rect key="frame" x="0.0" y="98.5" width="335" height="434.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift-large" translatesAutoresizingMaskIntoConstraints="NO" id="FDt-Bq-IyU">
+                                                            <rect key="frame" x="135.5" y="109.5" width="64" height="64"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="FDt-Bq-IyU" secondAttribute="height" multiplier="1:1" id="6Ch-Qy-oWN"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMt-lt-Dsl" userLabel="Phone View">
+                                                            <rect key="frame" x="82.5" y="198.5" width="170" height="38"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border-button" translatesAutoresizingMaskIntoConstraints="NO" id="qYS-lq-rqp">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="38"/>
+                                                                </imageView>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mã giảm giá" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0B4-h6-fk9">
+                                                                    <rect key="frame" x="5" y="0.0" width="160" height="38"/>
+                                                                    <color key="textColor" red="0.22352941179999999" green="0.70980392160000005" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="38" id="1Kz-DZ-S5T"/>
+                                                                <constraint firstAttribute="trailing" secondItem="qYS-lq-rqp" secondAttribute="trailing" id="LK2-w1-wrz"/>
+                                                                <constraint firstAttribute="bottom" secondItem="0B4-h6-fk9" secondAttribute="bottom" id="Pm8-8y-Gke"/>
+                                                                <constraint firstAttribute="trailing" secondItem="0B4-h6-fk9" secondAttribute="trailing" constant="5" id="Wv8-cZ-eXU"/>
+                                                                <constraint firstItem="qYS-lq-rqp" firstAttribute="top" secondItem="LMt-lt-Dsl" secondAttribute="top" id="ZHs-ZX-H0m"/>
+                                                                <constraint firstItem="0B4-h6-fk9" firstAttribute="leading" secondItem="LMt-lt-Dsl" secondAttribute="leading" constant="5" id="Zgz-Px-0kb"/>
+                                                                <constraint firstItem="0B4-h6-fk9" firstAttribute="top" secondItem="LMt-lt-Dsl" secondAttribute="top" id="i3Y-Dp-WuI"/>
+                                                                <constraint firstAttribute="width" constant="170" id="j2a-hD-RJL"/>
+                                                                <constraint firstAttribute="bottom" secondItem="qYS-lq-rqp" secondAttribute="bottom" id="kxL-UZ-ghB"/>
+                                                                <constraint firstItem="qYS-lq-rqp" firstAttribute="leading" secondItem="LMt-lt-Dsl" secondAttribute="leading" id="sDp-x5-MnI"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="LMt-lt-Dsl" firstAttribute="centerY" secondItem="Gw0-si-dnn" secondAttribute="centerY" id="2Bo-DU-zVv"/>
+                                                        <constraint firstItem="FDt-Bq-IyU" firstAttribute="centerX" secondItem="Gw0-si-dnn" secondAttribute="centerX" id="lef-QL-zow"/>
+                                                        <constraint firstItem="LMt-lt-Dsl" firstAttribute="top" secondItem="FDt-Bq-IyU" secondAttribute="bottom" constant="25" id="mc4-OE-rpZ"/>
+                                                        <constraint firstItem="LMt-lt-Dsl" firstAttribute="centerX" secondItem="Gw0-si-dnn" secondAttribute="centerX" id="nEg-GW-NBE"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="qOM-UW-NZ4" secondAttribute="bottom" id="0gt-MU-ws6"/>
+                                        <constraint firstAttribute="trailing" secondItem="qOM-UW-NZ4" secondAttribute="trailing" constant="20" id="3ah-Mu-oBL"/>
+                                        <constraint firstItem="qOM-UW-NZ4" firstAttribute="leading" secondItem="Bdo-WI-rnr" secondAttribute="leading" constant="20" id="I8c-2G-22b"/>
+                                        <constraint firstItem="qOM-UW-NZ4" firstAttribute="top" secondItem="Bdo-WI-rnr" secondAttribute="top" id="P6P-k9-XFD"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whd-bD-IVf" customClass="PButton" customModule="PowerSteamUser" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="533" width="375" height="50"/>
+                                    <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="Qmo-Hj-rXJ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="18"/>
+                                    <state key="normal" title="Áp dụng">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="1EL-op-6wU" firstAttribute="leading" secondItem="G5G-6T-tXm" secondAttribute="leading" id="IO5-rl-abI"/>
+                        <constraint firstItem="1EL-op-6wU" firstAttribute="top" secondItem="G5G-6T-tXm" secondAttribute="top" id="NoW-TL-ORz"/>
+                        <constraint firstAttribute="trailing" secondItem="1EL-op-6wU" secondAttribute="trailing" id="sug-rX-df6"/>
+                        <constraint firstAttribute="bottom" secondItem="1EL-op-6wU" secondAttribute="bottom" id="tdX-Rd-wgv"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="a79-J4-hHN" firstAttribute="top" secondItem="315-6N-eH3" secondAttribute="top" constant="44" id="0H7-B5-F72"/>
+                <constraint firstItem="Ff7-KI-ufh" firstAttribute="top" secondItem="315-6N-eH3" secondAttribute="top" priority="750" id="0gu-q4-qRl"/>
+                <constraint firstAttribute="trailing" secondItem="G5G-6T-tXm" secondAttribute="trailing" id="2nO-Gi-SFA"/>
+                <constraint firstAttribute="trailing" secondItem="a79-J4-hHN" secondAttribute="trailing" id="DJ1-5D-b3L"/>
+                <constraint firstItem="G5G-6T-tXm" firstAttribute="leading" secondItem="315-6N-eH3" secondAttribute="leading" id="J9H-q7-fOL"/>
+                <constraint firstItem="G5G-6T-tXm" firstAttribute="top" secondItem="Ff7-KI-ufh" secondAttribute="bottom" constant="20" id="M9J-vY-Zu6"/>
+                <constraint firstItem="Ff7-KI-ufh" firstAttribute="leading" secondItem="315-6N-eH3" secondAttribute="leading" id="MIz-EG-222"/>
+                <constraint firstItem="iFI-4G-MAs" firstAttribute="top" secondItem="a79-J4-hHN" secondAttribute="top" id="ZAt-EC-Imw"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="G5G-6T-tXm" secondAttribute="bottom" id="fUJ-Rt-qeW"/>
+                <constraint firstItem="a79-J4-hHN" firstAttribute="leading" secondItem="iFI-4G-MAs" secondAttribute="leading" constant="25" id="mXK-He-sqT"/>
+                <constraint firstAttribute="trailing" secondItem="Ff7-KI-ufh" secondAttribute="trailing" id="rVL-O7-IG5"/>
+                <constraint firstItem="G5G-6T-tXm" firstAttribute="bottom" secondItem="1k4-ub-2KN" secondAttribute="bottom" priority="750" id="uew-8r-qME"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="1k4-ub-2KN"/>
+            <point key="canvasLocation" x="130.40000000000001" y="118.29085457271366"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="135" height="362"/>
+        <image name="border-button" width="169" height="38"/>
+        <image name="gift-large" width="64" height="64"/>
+        <image name="logo-small" width="120" height="55"/>
+    </resources>
+</document>

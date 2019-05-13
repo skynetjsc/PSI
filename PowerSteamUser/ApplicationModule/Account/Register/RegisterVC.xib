@@ -50,9 +50,9 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVU-Lo-l8S" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="750" constant="44" id="gCV-ef-AYt"/>
+                        <constraint firstAttribute="height" priority="750" constant="64" id="gCV-ef-AYt"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Yc-m1-ivX">

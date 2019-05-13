@@ -15,7 +15,7 @@ public let kPrePhone                = Bundle.main.object(forInfoDictionaryKey: "
 
 class EndpointAPI {
     
-    static let baseURL              = "\(kBasePath ?? "http://vinperldemo.online")/api_phieucham/"
+    static let baseURL              = "\(kBasePath ?? "http://cms.powersteam.vn")/api/"
     
     // User
     static let login                = baseURL + "login.php"
@@ -26,18 +26,9 @@ class EndpointAPI {
     static let logout               = baseURL + "logout.php"
     static let registerDevice       = baseURL + "user/register-device"
     
-    static let history              = baseURL + "history.php"
-    static let historyDetail        = baseURL + "history_detail.php"
-    static let mark                 = baseURL + "mark.php"
-    static let remark               = baseURL + "remark.php"
-    static let remarkDetail         = baseURL + "remark_detail.php"
-    static let confirmRemark        = baseURL + "confirm_remark.php"
-    static let remarking            = baseURL + "remarking.php"
-    static let confirmMark          = baseURL + "confirm_mark.php"
-    static let cardContent          = baseURL + "card_content.php"
-    static let cardDetail           = baseURL + "card_detail.php"
-    static let searchStudent        = baseURL + "search_student.php"
-    static let updateImageCard      = baseURL + "update_image_card.php"
+    // Booking
+    static let service              = baseURL + "service.php"
+    static let serviceCategory      = baseURL + "service_category.php"
     
 }
 

@@ -49,9 +49,9 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEy-4w-MTU" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="750" constant="44" id="NIL-kF-wdV"/>
+                        <constraint firstAttribute="height" priority="750" constant="64" id="NIL-kF-wdV"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQj-4R-7Yi">

@@ -42,6 +42,7 @@ class LeftMenuVC: UIViewController {
 extension LeftMenuVC {
     
     private func initComponent() {
+        navigationController?.isNavigationBarHidden = true
         tapAction()
     }
     
@@ -129,9 +130,7 @@ extension LeftMenuVC {
 extension LeftMenuVC {
     
     func showMainHome() {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            appDelegate.showMainHome()
-        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     

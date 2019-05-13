@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ServiceListCell" rowHeight="113" id="KGk-i7-Jjw" customClass="ServiceListCell" customModule="PowerSteamUser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGO-N3-sNu" userLabel="Container View">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exterior" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-jj-KyU" customClass="PImageView" customModule="PowerSteamUser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="12.5" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JK5-jj-KyU" secondAttribute="height" id="M9s-Bf-feM"/>
+                                    <constraint firstAttribute="width" constant="55" id="fX7-My-6tz"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="52Q-Dp-afe">
+                                <rect key="frame" x="70" y="11.5" width="285" height="57"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngoại thất" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGz-yW-GTH">
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="16"/>
+                                        <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdj-NP-ofy">
+                                        <rect key="frame" x="0.0" y="24" width="238" height="33"/>
+                                        <string key="text">Vệ sinh ngoại thất xe theo các gói dịch vụ do
+lựa chọn của bạn.</string>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
+                                        <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="5h5-3K-Kha">
+                                <rect key="frame" x="365" y="30.5" width="10" height="19"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="52Q-Dp-afe" firstAttribute="centerY" secondItem="PGO-N3-sNu" secondAttribute="centerY" id="GeH-ah-7RE"/>
+                            <constraint firstAttribute="trailing" secondItem="5h5-3K-Kha" secondAttribute="trailing" id="Mc1-L9-VXf"/>
+                            <constraint firstItem="JK5-jj-KyU" firstAttribute="leading" secondItem="PGO-N3-sNu" secondAttribute="leading" id="Rzb-s7-xgs"/>
+                            <constraint firstItem="5h5-3K-Kha" firstAttribute="leading" secondItem="52Q-Dp-afe" secondAttribute="trailing" constant="10" id="VQn-41-CbP"/>
+                            <constraint firstItem="52Q-Dp-afe" firstAttribute="leading" secondItem="JK5-jj-KyU" secondAttribute="trailing" constant="15" id="Xd0-5f-vUd"/>
+                            <constraint firstItem="JK5-jj-KyU" firstAttribute="centerY" secondItem="PGO-N3-sNu" secondAttribute="centerY" id="ZCY-Tv-uSd"/>
+                            <constraint firstItem="5h5-3K-Kha" firstAttribute="centerY" secondItem="PGO-N3-sNu" secondAttribute="centerY" id="ZMK-PI-dLB"/>
+                            <constraint firstItem="JK5-jj-KyU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PGO-N3-sNu" secondAttribute="top" constant="12" id="p85-AI-bGc"/>
+                            <constraint firstItem="52Q-Dp-afe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PGO-N3-sNu" secondAttribute="top" constant="10" id="rDG-CA-f5G"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PGO-N3-sNu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5Ip-1V-cAM"/>
+                    <constraint firstAttribute="trailing" secondItem="PGO-N3-sNu" secondAttribute="trailing" id="O8M-d3-Em7"/>
+                    <constraint firstAttribute="bottom" secondItem="PGO-N3-sNu" secondAttribute="bottom" id="leU-Rm-rUz"/>
+                    <constraint firstItem="PGO-N3-sNu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qya-6k-xKE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="PGO-N3-sNu" id="Cy5-i7-0gm"/>
+                <outlet property="descriptionLabel" destination="kdj-NP-ofy" id="FF3-gt-nFG"/>
+                <outlet property="nameLabel" destination="yGz-yW-GTH" id="JWI-gO-inM"/>
+                <outlet property="serviceImage" destination="JK5-jj-KyU" id="o2C-Sx-r5p"/>
+            </connections>
+            <point key="canvasLocation" x="131.15942028985509" y="161.38392857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="exterior" width="57" height="57"/>
+        <image name="right-arrow" width="10" height="19"/>
+    </resources>
+</document>

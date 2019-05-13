@@ -125,6 +125,55 @@ extension AppMessagesManager {
         view.confirmCompletion = confirmCompletion
         SwiftMessages.sharedInstance.show(config: config, view: view)
     }
+    
+    func showChooseCarView(confirmCompletion: (() -> Void)? = nil) {
+        var config = sharedConfig
+        config.presentationStyle = .center
+        config.interactiveHide = false
+        config.dimMode = .gray(interactive: false)
+        let view: ChooseCarView = try! SwiftMessages.viewFromNib()
+        view.viewModel = ChooseCarViewModel()
+        view.confirmCompletion = confirmCompletion
+        SwiftMessages.sharedInstance.show(config: config, view: view)
+    }
+    
+    func showBookingConfirm(confirmCompletion: (() -> Void)? = nil) {
+        var config = sharedConfig
+        config.presentationStyle = .center
+        config.interactiveHide = false
+        config.dimMode = .gray(interactive: false)
+        let view: BookingConfirmView = try! SwiftMessages.viewFromNib()
+        view.confirmCompletion = confirmCompletion
+        SwiftMessages.sharedInstance.show(config: config, view: view)
+    }
+    
+    func showBookProcessingView() {
+        var config = sharedConfig
+        config.presentationStyle = .bottom
+        config.interactiveHide = false
+        config.dimMode = .gray(interactive: false)
+        let view: BookProcessingView = try! SwiftMessages.viewFromNib()
+        SwiftMessages.sharedInstance.show(config: config, view: view)
+    }
+    
+    func showBookSuccessView() {
+        var config = sharedConfig
+        config.presentationStyle = .bottom
+        config.interactiveHide = false
+        config.dimMode = .gray(interactive: false)
+        let view: BookSuccessView = try! SwiftMessages.viewFromNib()
+        SwiftMessages.sharedInstance.show(config: config, view: view)
+    }
+    
+    func showBookOnWayView() {
+        var config = sharedConfig
+        config.presentationStyle = .center
+        config.interactiveHide = false
+        config.dimMode = .gray(interactive: false)
+        let view: BookOnWayView = try! SwiftMessages.viewFromNib()
+        SwiftMessages.sharedInstance.show(config: config, view: view)
+    }
+    
 }
 
 

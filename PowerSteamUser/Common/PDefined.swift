@@ -83,58 +83,20 @@ class PDefined: NSObject {
     static let bankYuchoCode = "9900"
 }
 
-enum ExamType: Int {
-    case new = 1
-    case retest = 2
-    case reference
+enum VehicleType: Int {
+    
+    case sedan = 1
+    case suv = 2
+    case bike = 3
     
     var name: String {
         switch self {
-        case .new:
-            return "Hoàn thành".localized()
-        case .retest:
-            return "Thi lại".localized()
-        case .reference:
-            return "Phúc khảo".localized()
-        }
-    }
-    
-    var color: UIColor {
-        switch self {
-        case .new:
-            return UIColor(hexString: "7ED321")
-        case .retest:
-            return UIColor(hexString: "D0021B")
-        case .reference:
-            return UIColor(hexString: "F76B1C")
-        }
-    }
-}
-
-enum ExamActive: Int {
-    case registered = 1
-    case examing = 2
-    case finishedExam = 3
-    
-    var name: String {
-        switch self {
-        case .registered:
-            return "Đã đăng ký".localized()
-        case .examing:
-            return "Đang thi".localized()
-        case .finishedExam:
-            return "Hoàn thành".localized()
-        }
-    }
-    
-    var color: UIColor {
-        switch self {
-        case .registered:
-            return UIColor(hexString: "7ED321")
-        case .examing:
-            return UIColor(hexString: "D0021B")
-        case .finishedExam:
-            return UIColor(hexString: "00C464")
+        case .sedan:
+            return "Sedan".localized()
+        case .suv:
+            return "SUV".localized()
+        case .bike:
+            return "Bike".localized()
         }
     }
 }

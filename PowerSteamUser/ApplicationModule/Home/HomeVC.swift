@@ -23,6 +23,8 @@ class HomeVC: UIViewController {
     // MARK: - Variable
     let disposeBag = DisposeBag()
     var viewModel: HomeVM!
+    fileprivate var sideManager: SideMenuManager!
+    var isFirstLoad = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,23 @@ class HomeVC: UIViewController {
         initData()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //AppMessagesManager.shared.showChooseCarView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if isFirstLoad {
+            isFirstLoad = false
+            
+            configSideMenu()
+            
+            AppMessagesManager.shared.showBookOnWayView()
+        }
+    }
+    
 }
 
 // MARK: - Initialization
@@ -41,6 +60,7 @@ extension HomeVC {
     private func initComponent() {
         viewModel = HomeVM()
         setupNavigationBar()
+        configSideMenu()
         tapActions()
     }
     
@@ -63,7 +83,10 @@ extension HomeVC {
         menuButton.rx.tap.asDriver()
             .throttle(1)
             .drive(onNext: { [weak self] in
-                
+                guard let `self` = self else { return }
+                // Show left menu
+                guard let leftVC = self.sideManager.menuLeftNavigationController else { return }
+                self.present(leftVC, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         
@@ -75,6 +98,22 @@ extension HomeVC {
             .disposed(by: disposeBag)
     }
     
+    func configSideMenu() {
+        if sideManager == nil {
+            sideManager = SideMenuManager.default
+        }
+        let menuController = LeftMenuVC()
+        let leftNavigationController = UISideMenuNavigationController(rootViewController: menuController)
+        sideManager.menuLeftNavigationController = leftNavigationController
+        sideManager.menuAddScreenEdgePanGesturesToPresent(toView: self.view, forMenu: .left)
+        
+        sideManager.menuFadeStatusBar = false
+        sideManager.menuPresentMode = .menuSlideIn
+        sideManager.menuWidth = round(self.view.width * 0.6)
+        sideManager.menuShadowColor = UIColor.black
+        sideManager.menuShadowOpacity = 0.5
+    }
+    
     private func initData() {
         
     }
@@ -83,7 +122,7 @@ extension HomeVC {
         bookingButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                
+                self?.showServiceList()
             })
             .disposed(by: disposeBag)
     }
@@ -93,6 +132,10 @@ extension HomeVC {
 
 extension HomeVC {
     
+    func showServiceList() {
+        let serviceList = ServiceListVC()
+        navigationController?.pushViewController(serviceList, animated: true)
+    }
 }
 
 
