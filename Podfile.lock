@@ -52,6 +52,13 @@ PODS:
     - SDWebImage/GIF
   - Fabric (1.8.0)
   - FLAnimatedImage (1.0.12)
+  - GoogleMaps (3.1.0):
+    - GoogleMaps/Maps (= 3.1.0)
+  - GoogleMaps/Base (3.1.0)
+  - GoogleMaps/Maps (3.1.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.1.0):
+    - GoogleMaps/Base (= 3.1.0)
   - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.2.0)
   - Kingfisher (4.10.0)
@@ -91,6 +98,8 @@ DEPENDENCIES:
   - Crashlytics (= 3.11.0)
   - DKImagePickerController (= 4.0.4)
   - Fabric (= 1.8.0)
+  - GoogleMaps
+  - GooglePlaces
   - Hero (= 1.4.0)
   - IQKeyboardManagerSwift (= 6.2.0)
   - Kingfisher (= 4.10.0)
@@ -119,6 +128,8 @@ SPEC REPOS:
     - DKPhotoGallery
     - Fabric
     - FLAnimatedImage
+    - GoogleMaps
+    - GooglePlaces
     - Hero
     - IQKeyboardManagerSwift
     - Kingfisher
@@ -147,6 +158,8 @@ SPEC CHECKSUMS:
   DKPhotoGallery: 1b4d65d9a485dfdd2002f22daa5b955eafb350ea
   Fabric: 4ac1cdfef3004ccd83ce0959b91eda8a6e37df72
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
+  GooglePlaces: e874db179f2675c4f3eeda0b686b540273a578b0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
@@ -165,6 +178,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XLPagerTabStrip: 22d4c58200d7c105e0e407ab6bfd01a5d85014be
 
-PODFILE CHECKSUM: 72d1518660f45457ee2abc2b4466d8cd4495a075
+PODFILE CHECKSUM: 3ae8b0a7eacb00c28a7ee7ad3132eaf7df96756b
 
 COCOAPODS: 1.5.3

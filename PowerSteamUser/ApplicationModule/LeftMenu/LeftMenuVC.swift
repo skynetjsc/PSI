@@ -14,6 +14,7 @@ class LeftMenuVC: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var serviceButton: UIButton!
     @IBOutlet weak var walletButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
@@ -53,6 +54,13 @@ extension LeftMenuVC {
     }
     
     private func tapAction() {
+        nameButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                self?.showProfile()
+            })
+            .disposed(by: disposeBag)
+        
         serviceButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
@@ -70,7 +78,7 @@ extension LeftMenuVC {
         profileButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                self?.showProfile()
             })
             .disposed(by: disposeBag)
         
@@ -119,7 +127,15 @@ extension LeftMenuVC {
         logoutButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                _ = EZAlertController.alert("", message: "Bạn có chắc muốn đăng xuất không?", buttons: ["OK", "Huỷ"], tapBlock: { (action, index) in
+                    if index == 0 {
+                        PAppManager.shared.accessToken = nil
+                        PAppManager.shared.currentUser = nil
+                        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                            appDelegate.showLogin()
+                        }
+                    }
+                })
             })
             .disposed(by: disposeBag)
     }
@@ -133,7 +149,10 @@ extension LeftMenuVC {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    func showProfile() {
+        let profileVC = ProfileVC()
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
 }
 
 

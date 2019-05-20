@@ -37,19 +37,22 @@ class LoginVM {
     
     func login(completion: ((Int, String) -> Void)?) {
         PLoadingActivity.shared.show()
-        let params: [String: Any] = ["username": accountStr.value, "password": passwordStr.value]
+        let params: [String: Any] = ["phone": accountStr.value,
+                                     "password": passwordStr.value,
+                                     "type": 1  // type: 1: user, 2: tech
+                                    ]
         userServices.login(params: params).asObservable()
             .subscribe { (event) in
                 PLoadingActivity.shared.hide()
                 switch event {
                 case .next(let userModel):
-                    PAppManager.shared.accessToken = userModel.token
+                    PAppManager.shared.accessToken = userModel.name
                     PAppManager.shared.currentUser = userModel
                     
-                    completion?(1, "Login successfully".localized())
+                    completion?(1, "Đăng nhập thành công".localized())
                 case .error(let error):
                     if case APIError.error(let error) = error {
-                        completion?(0, error.data as? String ?? "Login failed".localized())
+                        completion?(0, error.data as? String ?? "Đăng nhập thất bại".localized())
                     }
                 default:
                     break

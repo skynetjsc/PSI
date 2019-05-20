@@ -18,7 +18,7 @@ class PaymentVC: UIViewController {
     
     // MARK: - Outlet
     let disposeBag = DisposeBag()
-    var viewModel: ServiceListVM!
+    var viewModel: PaymentVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class PaymentVC: UIViewController {
 extension PaymentVC {
     
     private func initComponent() {
-        viewModel = ServiceListVM()
+        viewModel = PaymentVM()
         
         // setup tableview
         tableView.delegate = self

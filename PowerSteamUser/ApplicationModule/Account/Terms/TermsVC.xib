@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="contentTextView" destination="wGz-Ve-dVH" id="pJf-oy-rhv"/>
                 <outlet property="navigationBar" destination="ndm-0q-L5J" id="NBb-el-3Zm"/>
+                <outlet property="titleLabel" destination="LTB-ci-oIh" id="qex-2h-NRI"/>
                 <outlet property="view" destination="iDU-Os-KYI" id="Yld-pg-00T"/>
             </connections>
         </placeholder>

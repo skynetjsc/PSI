@@ -61,159 +61,51 @@ class CommonServices {
 //            .share(replay: 1)
 //    }
 //
-//    /// get terms of use
-//    ///
-//    /// - Returns: Observable object
-//    func getTermsOfUse() -> Observable<String> {
-//        RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.termsOfUse)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["data"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    func getTermsAgreement() -> Observable<String> {
-//        RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.termsAgreement)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["data"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    /// get policy
-//    ///
-//    /// - Returns: Observable object
-//    func getPolicy() -> Observable<String> {
-//        //RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.policy)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["data"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    /// get user guide
-//    ///
-//    /// - Returns: Observable object
-//    func getUserGuide() -> Observable<String> {
-//        RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.userGuide)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["data"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    /// get transfer Schedule
-//    ///
-//    /// - Returns: Observable object
-//    func getTransferSchedule() -> Observable<String> {
-//        RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.transferSchedule)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["data"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    func getArticleDetail(urlString: String) -> Observable<String> {
-//        RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: urlString)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["data"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    /// contact
-//    ///
-//    /// - Parameter params: dictionary object
-//    /// - Returns: Observable object
-//    func contact(params: [String: Any]) -> Observable<String> {
-//        RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.contact, parameters: params)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["message"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
+    
+    func getTermsAgreement(agreementType: AgreementType) -> Observable<PTermsAgreementModel> {
+        //RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
+        var endpoint = ""
+        switch agreementType {
+        case .privacy:
+            endpoint = EndpointAPI.privacy
+        default:
+            endpoint = EndpointAPI.term
+        }
+        return RxAlamofireClient.shared.request(method: .get, endpoint: endpoint)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> PTermsAgreementModel in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess && json["data"].dictionary != nil {
+                        return PTermsAgreementModel(json: json["data"])
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
+    func addCar(params: [String : Any]) -> Observable<String> {
+        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.addCar, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> String in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["message"].stringValue
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
 }

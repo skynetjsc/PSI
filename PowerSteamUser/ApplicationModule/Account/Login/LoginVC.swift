@@ -79,7 +79,7 @@ extension LoginVC {
     
     func showMainHome() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-//            appDelegate.showMainHome()
+            appDelegate.showMainHome()
         }
     }
     

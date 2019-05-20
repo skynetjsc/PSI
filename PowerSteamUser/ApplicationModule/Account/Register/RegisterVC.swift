@@ -51,7 +51,27 @@ extension RegisterVC {
         registerButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
+                guard let self = self else { return }
+                if !self.viewModel.phoneStr.value.isValidPhoneNumber() {
+                    AppMessagesManager.shared.showMessage(messageType: .error, message: "Số điện thoại không hợp lệ".localized(), completion: {
+                        self.phoneField.becomeFirstResponder()
+                    })
+                    return
+                }
+                if !self.viewModel.emailStr.value.isValidEmail() {
+                    AppMessagesManager.shared.showMessage(messageType: .error, message: "Email không hợp lệ".localized(), completion: {
+                        self.emailField.becomeFirstResponder()
+                    })
+                    return
+                }
                 
+                self.viewModel.verifyCode(completion: { (code, message) in
+                    if code > 0 {
+                        self.showSignupOtpVC()
+                    } else {
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                    }
+                })
             })
             .disposed(by: disposeBag)
         
@@ -70,6 +90,11 @@ extension RegisterVC {
     
     func showLogin() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func showSignupOtpVC() {
+        let signupOtpVC = SignupOtpVC(viewModel.otpCode, viewModel.phoneStr.value, viewModel.getInputParams())
+        navigationController?.pushViewController(signupOtpVC, animated: true)
     }
 }
 

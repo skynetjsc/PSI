@@ -30,12 +30,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGO-N3-sNu" userLabel="Container View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exterior" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-jj-KyU" customClass="PImageView" customModule="PowerSteamUser" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exterior" translatesAutoresizingMaskIntoConstraints="NO" id="JK5-jj-KyU" customClass="PImageView" customModule="PowerSteamUser" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="12.5" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JK5-jj-KyU" secondAttribute="height" id="M9s-Bf-feM"/>
                                     <constraint firstAttribute="width" constant="55" id="fX7-My-6tz"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="cornerCircle" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.22352941176470587" green="0.70980392156862748" blue="0.29019607843137252" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="52Q-Dp-afe">
                                 <rect key="frame" x="70" y="11.5" width="285" height="57"/>

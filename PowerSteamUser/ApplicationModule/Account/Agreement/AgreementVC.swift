@@ -40,7 +40,7 @@ extension AgreementVC {
     
     private func initComponent() {
         viewModel = AgreementVM()
-        navigationBar.hideLeftButton()
+        //navigationBar.hideLeftButton()
         viewModel.enableConfirm.asDriver().drive(self.confirmButton.rx.isEnabled).disposed(by: disposeBag)
         
         // add custom type
@@ -52,10 +52,10 @@ extension AgreementVC {
         summaryLabel.customSelectedColor[customType1] = PDefined.mainColor
         summaryLabel.customSelectedColor[customType2] = PDefined.mainColor
         summaryLabel.handleCustomTap(for: customType1) { [weak self] element in
-            self?.showTerms()
+            self?.showTerms(.privacy)
         }
         summaryLabel.handleCustomTap(for: customType2) { [weak self] element in
-            self?.showTerms()
+            self?.showTerms(.term)
         }
         summaryLabel.text = "Bằng việc nhấn vào tiếp tục là bạn đã đồng ý với chính sách và điều khoản của PowerSteam"
     }
@@ -75,7 +75,8 @@ extension AgreementVC {
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.showTerms()
+                PAppManager.shared.acceptedAgreement = true
+                self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -92,8 +93,8 @@ extension AgreementVC {
 
 extension AgreementVC {
     
-    func showTerms() {
-        let termsVC = TermsVC()
+    func showTerms(_ agreementType: AgreementType) {
+        let termsVC = TermsVC(agreementType)
         navigationController?.pushViewController(termsVC, animated: true)
     }
 }

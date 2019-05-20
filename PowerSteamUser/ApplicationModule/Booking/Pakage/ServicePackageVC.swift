@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mac. All rights reserved.
 //
 
+import CoreLocation
 import RxCocoa
 import RxSwift
 import UIKit
@@ -25,11 +26,13 @@ class ServicePackageVC: UIViewController {
     @IBOutlet weak var dateTimeView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var hourButton: UIButton!
+    @IBOutlet weak var dateButton: UIButton!
     
     @IBOutlet weak var couponLabel: UILabel!
     @IBOutlet weak var couponButton: UIButton!
     @IBOutlet weak var noteView: UIView!
-    @IBOutlet weak var noteContentLabel: UILabel!
+    @IBOutlet weak var noteTextView: UITextView!
     
     @IBOutlet weak var confirmButton: UIButton!
     
@@ -38,8 +41,8 @@ class ServicePackageVC: UIViewController {
     private let disposeBag = DisposeBag()
     private var viewModel: ServicePackageVM!
     
-    init(_ serviceModel: PServiceModel) {
-        viewModel = ServicePackageVM(serviceModel)
+    init(_ address: String, _ location: CLLocation, _ serviceModel: PServiceModel) {
+        viewModel = ServicePackageVM(address, location, serviceModel)
         
         super.init(nibName: "ServicePackageVC", bundle: nil)
     }
@@ -83,14 +86,34 @@ extension ServicePackageVC {
     }
     
     private func tapActions() {
-        addressButton.rx.tap.asDriver()
+        hourButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 if let `self` = self {
-                    
+                    self.showDatePicker(title: "Thời gian giao hàng".localized(), initialDate: Date(), minDate: Date(), maxDate: nil, mode: .time, onDone: { [weak self] (date) in
+                        guard let self = self else { return }
+                        self.viewModel.hourWorking.accept(date.toFormat("HH:mm"))
+                    }, onCancel: {
+                        // write code here
+                    })
                 }
             })
             .disposed(by: disposeBag)
+        
+        dateButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                if let `self` = self {
+                    self.showDatePicker(title: "Chọn lịch dự tính".localized(), initialDate: Date(), minDate: Date(), maxDate: nil, mode: .date, onDone: { [weak self] (date) in
+                        guard let self = self else { return }
+                        self.viewModel.dateWorking.accept(date)
+                        }, onCancel: {
+                            // write code here
+                    })
+                }
+            })
+            .disposed(by: disposeBag)
+
         
         couponButton.rx.tap.asDriver()
             .throttle(1.0)
@@ -120,18 +143,40 @@ extension ServicePackageVC {
         
         viewModel.noDataStr.asDriver()
             .drive(onNext: { [weak self] (message) in
-                self?.collectionView.showNoResultView(isShow: message.count > 0, title: message)
+                self?.collectionView.showNoResultView(isShow: message.count > 0, title: message, yPosition: 5.0)
             })
             .disposed(by: disposeBag)
         
-//        viewModel.successNumberStr.asDriver().drive(self.trueInputLabel.rx.text).disposed(by: disposeBag)
-//        viewModel.failNumberStr.asDriver().drive(self.falseInputLabel.rx.text).disposed(by: disposeBag)
-//        viewModel.undefinedNumberStr.asDriver().drive(self.undefinedInputLabel.rx.text).disposed(by: disposeBag)
+        viewModel.packageNameStr.asDriver().drive(self.packageNameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.packagePriceStr.asDriver().drive(self.packagePriceLabel.rx.text).disposed(by: disposeBag)
+        viewModel.addressStr.asDriver().drive(self.addressButton.rx.title(for: .normal)).disposed(by: disposeBag)
+        viewModel.hourWorking.asDriver().drive(self.timeLabel.rx.text).disposed(by: disposeBag)
+        viewModel.dateWorking.asDriver().map { $0.toFormat("dd MMM yyyy") }.drive(self.dateLabel.rx.text).disposed(by: disposeBag)
+        viewModel.enableConfirm.asDriver().drive(self.confirmButton.rx.isEnabled).disposed(by: disposeBag)
         
-        (1...4).forEach { (item) in
-            let item = PackageItemView()
-            self.itemsStackView.addArrangedSubview(item)
-        }
+        viewModel.selectedPackage.asDriver()
+            .drive(onNext: { [weak self] (selectedPackage) in
+                guard let self = self, let selectedPackage = selectedPackage else { return }
+                
+                self.viewModel.packageNameStr.accept(selectedPackage.name)
+                self.viewModel.packagePriceStr.accept(selectedPackage.price.currencyVN)
+                
+                // add item views
+                self.itemsStackView.arrangedSubviews.forEach({ (subview) in
+                    self.itemsStackView.removeArrangedSubview(subview)
+                })
+                self.itemsStackView.subviews.forEach({ (subview) in
+                    subview.removeFromSuperview()
+                })
+                selectedPackage.items.forEach { (item) in
+                    let itemView = PackageItemView()
+                    itemView.setupData(name: item.title)
+                    self.itemsStackView.addArrangedSubview(itemView)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        
     }
 }
 
@@ -180,6 +225,7 @@ extension ServicePackageVC: UICollectionViewDelegate {
         }
         let cellVM = viewModel.packageList.value[indexPath.row]
         cellVM.isSelected.accept(true)
+        viewModel.selectedPackage.accept(cellVM.model)
     }
 }
 
@@ -197,7 +243,7 @@ extension ServicePackageVC: UICollectionViewDelegateFlowLayout {
         }
         var cellWidth = (SCREEN_WIDTH - 106.0) / CGFloat(viewModel.packageList.value.count)
         cellWidth = max(cellWidth, 60)
-        return CGSize(width: cellWidth, height: collectionView.height)
+        return CGSize(width: collectionView.height, height: collectionView.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

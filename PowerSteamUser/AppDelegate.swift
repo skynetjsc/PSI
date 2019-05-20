@@ -7,6 +7,7 @@
 //
 
 import IQKeyboardManagerSwift
+import GoogleMaps
 import UIKit
 
 @UIApplicationMain
@@ -63,8 +64,13 @@ extension AppDelegate {
         // Keyboard
         IQKeyboardManager.shared.enable = true
         
+        // Slidemenu
         SlideMenuOptions.contentViewScale = 1.0
         SlideMenuOptions.hideStatusBar = false
+        
+        // Google
+        GMSServices.provideAPIKey(kGoogleMapKey)
+        //GMSPlacesClient.provideAPIKey(kGoogleMapKey)
         
         if let _ = PAppManager.shared.accessToken {
             self.showMainHome()
@@ -81,7 +87,7 @@ extension AppDelegate {
     }
     
     func showLogin() {
-        let naviLogin = UINavigationController(rootViewController: HomeVC())
+        let naviLogin = UINavigationController(rootViewController: LoginVC())
         naviLogin.isNavigationBarHidden = true
         window?.rootViewController = naviLogin
     }

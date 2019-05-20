@@ -25,14 +25,21 @@ class PDefined: NSObject {
     // MARK: - Font
     
     static func fontBold(size: CGFloat) -> UIFont {
-        return UIFont(name: "OpenSans-Bold", size: size)!
+        return UIFont(name: "Nunito-Bold", size: size)!
+    }
+    static func fontExtraBold(size: CGFloat) -> UIFont {
+        return UIFont(name: "Nunito-ExtraBold", size: size)!
     }
     static func fontRegular(size: CGFloat) -> UIFont {
-        return UIFont(name: "OpenSans", size: size)!
+        return UIFont(name: "Nunito-Regular", size: size)!
     }
     static func fontMedium(size: CGFloat) -> UIFont {
-        return UIFont(name: "OpenSans-Semibold", size: size)!
+        return UIFont(name: "Nunito-SemiBold", size: size)!
     }
+    static func fontItalic(size: CGFloat) -> UIFont {
+        return UIFont(name: "Nunito-Italic", size: size)!
+    }
+    
     static func fontTitle() -> UIFont {
         return PDefined.fontBold(size: 16)
     }
@@ -100,6 +107,35 @@ enum VehicleType: Int {
         }
     }
 }
+
+enum AgreementType: String {
+    
+    case privacy = "privacy"
+    case term = "term"
+}
+
+enum RepeatType: Int {
+    
+    case none = 0
+    case day = 1
+    case week = 2
+    case month = 3
+    
+    var name: String {
+        switch self {
+        case .none:
+            return "Không lặp lại".localized()
+        case .day:
+            return "Lặp lại 1 ngày/lần".localized()
+        case .week:
+            return "Lặp lại 2 tuần/lần".localized()
+        case .month:
+            return "Lặp lại 3 tháng/lần".localized()
+        }
+    }
+}
+
+
 
 
 

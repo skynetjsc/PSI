@@ -64,13 +64,21 @@ class ChooseCarView: UIView {
         confirmButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                let content = self?.textField.text ?? ""
-                if content.count == 0 {
-                    self?.textField.becomeFirstResponder()
+                guard let self = self, let viewModel = self.viewModel else { return }
+                let carName = self.textField.text ?? ""
+                if carName.count == 0 {
+                    self.textField.becomeFirstResponder()
                     return
                 }
-                SwiftMessages.hideAll()
-                self?.confirmCompletion?()
+                let selectedVehicle = (self.selectedVehicle ?? .bike)
+                viewModel.addCar(selectedVehicle.rawValue, carName, completion: { (code, message) in
+                    if code > 0 {
+                        SwiftMessages.hideAll()
+                        self.confirmCompletion?()
+                    } else {
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                    }
+                })
             })
             .disposed(by: disposeBag)
     }

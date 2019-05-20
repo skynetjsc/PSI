@@ -27,6 +27,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignupOtpVC" customModule="PowerSteamUser" customModuleProvider="target">
             <connections>
                 <outlet property="confirmButton" destination="c4h-bO-wCN" id="URw-mq-V10"/>
+                <outlet property="countTime" destination="jiw-u5-o4c" id="f2T-Hc-YKv"/>
                 <outlet property="navigationBar" destination="gEy-4w-MTU" id="2Zh-av-yTr"/>
                 <outlet property="pinView" destination="JZu-2H-xws" id="I58-hc-2s4"/>
                 <outlet property="resendButton" destination="WiF-gI-vJH" id="IKZ-P8-7tm"/>
@@ -48,7 +49,7 @@
                         <constraint firstAttribute="width" secondItem="ted-gC-Lun" secondAttribute="height" multiplier="120:55" id="w5h-XA-i4Q"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEy-4w-MTU" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEy-4w-MTU" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <constraints>
                         <constraint firstAttribute="height" priority="750" constant="64" id="NIL-kF-wdV"/>
@@ -103,17 +104,38 @@
                                         <constraint firstItem="JZu-2H-xws" firstAttribute="top" secondItem="bqH-Go-0gY" secondAttribute="top" id="loT-kT-p8y"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiF-gI-vJH">
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPI-zF-FtB">
                                     <rect key="frame" x="4" y="383" width="327" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiF-gI-vJH">
+                                            <rect key="frame" x="0.0" y="0.0" width="327" height="30"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                            <state key="normal" title="Gửi lại OTP">
+                                                <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
+                                            </state>
+                                        </button>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sau 30s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiw-u5-o4c">
+                                            <rect key="frame" x="327" y="0.0" width="0.0" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" priority="750" constant="57" id="C8k-1f-qLC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="oN6-ms-UEx"/>
+                                        <constraint firstAttribute="trailing" secondItem="jiw-u5-o4c" secondAttribute="trailing" id="8QM-FC-rHm"/>
+                                        <constraint firstItem="jiw-u5-o4c" firstAttribute="top" secondItem="VPI-zF-FtB" secondAttribute="top" id="EVs-X6-GAc"/>
+                                        <constraint firstAttribute="bottom" secondItem="WiF-gI-vJH" secondAttribute="bottom" id="KUH-sr-D5z"/>
+                                        <constraint firstAttribute="height" constant="30" id="Mso-j0-VuP"/>
+                                        <constraint firstItem="WiF-gI-vJH" firstAttribute="leading" secondItem="VPI-zF-FtB" secondAttribute="leading" id="Xhg-99-093"/>
+                                        <constraint firstAttribute="bottom" secondItem="jiw-u5-o4c" secondAttribute="bottom" id="fNQ-Yt-9nC"/>
+                                        <constraint firstItem="WiF-gI-vJH" firstAttribute="top" secondItem="VPI-zF-FtB" secondAttribute="top" id="qUr-Ho-6Rg"/>
+                                        <constraint firstItem="jiw-u5-o4c" firstAttribute="leading" secondItem="WiF-gI-vJH" secondAttribute="trailing" id="tHG-Yg-CjK"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
-                                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                    <state key="normal" title="Gửi lại OTP">
-                                        <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
-                                    </state>
-                                </button>
+                                </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJj-SC-MxW" userLabel="Space View">
                                     <rect key="frame" x="0.0" y="428" width="335" height="5"/>
                                     <constraints>
@@ -141,11 +163,11 @@
                         </stackView>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="VPI-zF-FtB" secondAttribute="trailing" constant="24" id="5XW-uj-Fod"/>
                         <constraint firstAttribute="bottom" secondItem="Xvg-50-3FQ" secondAttribute="bottom" id="P32-p0-jzT"/>
                         <constraint firstItem="Xvg-50-3FQ" firstAttribute="top" secondItem="eQj-4R-7Yi" secondAttribute="top" id="aO4-lr-gcL"/>
                         <constraint firstAttribute="trailing" secondItem="Xvg-50-3FQ" secondAttribute="trailing" constant="20" id="gia-6i-mRt"/>
                         <constraint firstItem="Xvg-50-3FQ" firstAttribute="leading" secondItem="eQj-4R-7Yi" secondAttribute="leading" constant="20" id="ieA-Gl-Ime"/>
-                        <constraint firstAttribute="trailing" secondItem="WiF-gI-vJH" secondAttribute="trailing" constant="24" id="ied-9S-Oca"/>
                         <constraint firstItem="N9o-jZ-S3s" firstAttribute="leading" secondItem="eQj-4R-7Yi" secondAttribute="leading" constant="20" id="ifL-8Z-a7d"/>
                     </constraints>
                 </view>

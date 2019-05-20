@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import RxCocoa
 import RxSwift
 
@@ -14,20 +15,27 @@ class ServiceListVM {
     
     let disposeBag = DisposeBag()
     let bookingServices = BookingServices()
+    var address: String = ""
+    var location: CLLocation!
     
     let serviceList = BehaviorRelay<[ServiceListCellVM]>(value: [])
     let shouldShowIndicatorView = BehaviorRelay<Bool>(value: true)
     let noDataStr = BehaviorRelay<String>(value: "")
     
-    init() {
-        dummyData()
-        //getServiceList()
+    init(_ address: String, _ location: CLLocation) {
+        self.address = address
+        self.location = location
+        
+        //dummyData()
+        getServiceList()
     }
     
     func getServiceList() {
+        PLoadingActivity.shared.show()
         bookingServices.getServiceList(params: [:])
             .asDriver(onErrorJustReturn: [])
             .drive(onNext: { [weak self] (list) in
+                PLoadingActivity.shared.hide()
                 guard let `self` = self else { return }
                 self.shouldShowIndicatorView.accept(false)
                 let newList = list.map { ServiceListCellVM(model: $0) }

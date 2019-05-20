@@ -18,11 +18,23 @@ class SignupOtpVC: UIViewController {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet var pinView: SVPinView!
     @IBOutlet weak var resendButton: UIButton!
+    @IBOutlet weak var countTime: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
     // MARK: - Variable
     let disposeBag = DisposeBag()
+    var countDisposeBag: DisposeBag!
     var viewModel: SignupOtpVM!
+    var count: Int = 30
+    
+    init(_ otpCode: Int, _ phoneNumber: String, _ params: [String: Any]) {
+        viewModel = SignupOtpVM(otpCode, phoneNumber, params)
+        super.init(nibName: "SignupOtpVC", bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +43,6 @@ class SignupOtpVC: UIViewController {
         initComponent()
         initData()
     }
-
 }
 
 // MARK: - Initialization
@@ -39,7 +50,6 @@ class SignupOtpVC: UIViewController {
 extension SignupOtpVC {
     
     private func initComponent() {
-        viewModel = SignupOtpVM()
         configurePinView()
         viewModel.enableConfirm.asDriver().drive(self.confirmButton.rx.isEnabled).disposed(by: disposeBag)
     }
@@ -59,8 +69,8 @@ extension SignupOtpVC {
         pinView.activeFieldBackgroundColor = UIColor(hexString: "F2F2F2")
         pinView.fieldCornerRadius = 4
         pinView.activeFieldCornerRadius = 4
-        pinView.placeholder = "*"
-        pinView.becomeFirstResponderAtIndex = 0
+        pinView.placeholder = ""
+        //pinView.becomeFirstResponderAtIndex = 0
         
         pinView.font = UIFont.systemFont(ofSize: 15)
         pinView.keyboardType = .numberPad
@@ -87,18 +97,64 @@ extension SignupOtpVC {
     }
     
     private func initData() {
+        // setup attributedText for summaryLabel
+        let summary = "Vui lòng nhập mã xác thực gồm 04 chữ số vừa gửi vào số điện thoại \(viewModel.phoneNumber) của bạn"
+        summaryLabel.text = summary
+        let textRange = NSMakeRange(0, summary.count)
+        let attributedText = NSMutableAttributedString(string: summary)
+        attributedText.addAttributes([NSAttributedString.Key.font: self.summaryLabel.font,
+                                      NSAttributedString.Key.foregroundColor: self.summaryLabel.textColor], range: textRange)
+        if let range = summary.range(of: "04 chữ số") {
+            let nsRange = summary.nsRange(from: range)
+            attributedText.addAttributes([NSAttributedString.Key.font: PDefined.fontBold(size: 14),
+                                          NSAttributedString.Key.foregroundColor: self.summaryLabel.textColor], range: nsRange)
+        }
+        if let range = summary.range(of: "\(viewModel.phoneNumber)") {
+            let nsRange = summary.nsRange(from: range)
+            attributedText.addAttributes([NSAttributedString.Key.font: PDefined.fontBold(size: 14),
+                                          NSAttributedString.Key.foregroundColor: self.summaryLabel.textColor], range: nsRange)
+        }
+        summaryLabel.attributedText = attributedText
+        // end
+        resendButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.pinView.clearPin()
+                self.viewModel.verifyCode(completion: { (code, message) in
+                    if code > 0 {
+                        self.setupCountTime()
+                    } else {
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                    }
+                })
+            })
+            .disposed(by: disposeBag)
+        
         confirmButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-                let pin = self.pinView.getPin()
-                guard !pin.isEmpty else {
+                let pinCode = self.pinView.getPin()
+                guard !pinCode.isEmpty else {
                     //showAlert(title: "Error", message: "Pin entry incomplete")
                     return
                 }
-                
+                if pinCode != self.viewModel.otpCode.description {
+                    AppMessagesManager.shared.showMessage(messageType: .error, message: "Mã xác thực không chính xác".localized())
+                    return
+                }
+                self.viewModel.register(pinCode: pinCode, completion: { (code, message) in
+                    if code > 0 {
+                        self.showMainHome()
+                    } else {
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                    }
+                })
             })
             .disposed(by: disposeBag)
+        
+        setupCountTime()
     }
 }
 
@@ -114,13 +170,39 @@ extension SignupOtpVC {
         //print(pin)
         viewModel.enableConfirm.accept(true)
     }
+    
+    func setupCountTime() {
+        countDisposeBag = DisposeBag()
+        count = 30
+        resendButton.isEnabled = false
+        countTime.isHidden = false
+        countTime.text = "sau \(self.count)s"
+        Observable<Int>.interval(1.0, scheduler: MainScheduler.instance)
+            //.debug("interval")
+            .subscribe(onNext: { [weak self] (counter) in
+                guard let self = self else { return }
+                self.countTime.text = "sau \(self.count)s"
+                if self.count <= 0 {
+                    self.countDisposeBag = nil
+                    self.resendButton.isEnabled = true
+                    self.countTime.isHidden = true
+                    return
+                }
+                self.count -= 1
+            })
+            .disposed(by: countDisposeBag)
+    }
 }
 
 // MARK: - Navigation
 
 extension SignupOtpVC {
     
-    
+    func showMainHome() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.showMainHome()
+        }
+    }
 }
 
 

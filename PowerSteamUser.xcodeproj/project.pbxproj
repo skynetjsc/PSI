@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042E29EC22919D9700C71BB5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E29EB22919D9700C71BB5 /* LocationManager.swift */; };
+		042E29EE2291D43A00C71BB5 /* PPackageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E29ED2291D43A00C71BB5 /* PPackageItemModel.swift */; };
 		044D977722851542007FFFD5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D977522851542007FFFD5 /* LoginVC.swift */; };
 		044D977822851542007FFFD5 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D977622851542007FFFD5 /* LoginVC.xib */; };
 		044D977A2285154F007FFFD5 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D97792285154F007FFFD5 /* LoginVM.swift */; };
@@ -27,6 +29,10 @@
 		044D979C228565A6007FFFD5 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D979A228565A6007FFFD5 /* TermsVC.swift */; };
 		044D979D228565A6007FFFD5 /* TermsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D979B228565A6007FFFD5 /* TermsVC.xib */; };
 		044D979F228565B2007FFFD5 /* TermsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D979E228565B2007FFFD5 /* TermsVM.swift */; };
+		045A2FEB228BF59900FBE0B2 /* PTermsAgreementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A2FEA228BF59900FBE0B2 /* PTermsAgreementModel.swift */; };
+		045A2FEF228BFB8300FBE0B2 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A2FED228BFB8300FBE0B2 /* ProfileVC.swift */; };
+		045A2FF0228BFB8300FBE0B2 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045A2FEE228BFB8300FBE0B2 /* ProfileVC.xib */; };
+		045A2FF2228BFB8E00FBE0B2 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A2FF1228BFB8E00FBE0B2 /* ProfileVM.swift */; };
 		045DB15422881BDB0025D3ED /* ServicePackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DB15222881BDB0025D3ED /* ServicePackageVC.swift */; };
 		045DB15522881BDB0025D3ED /* ServicePackageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045DB15322881BDB0025D3ED /* ServicePackageVC.xib */; };
 		045DB15722881BEF0025D3ED /* ServicePackageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DB15622881BEF0025D3ED /* ServicePackageVM.swift */; };
@@ -41,7 +47,6 @@
 		046D0DD02288991D0041147F /* PackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D0DCE2288991D0041147F /* PackageCell.swift */; };
 		046D0DD12288991D0041147F /* PackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046D0DCF2288991D0041147F /* PackageCell.xib */; };
 		046D0DD3228899280041147F /* PackageCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D0DD2228899280041147F /* PackageCellVM.swift */; };
-		046D0DD522889AAD0041147F /* PPackageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D0DD422889AAD0041147F /* PPackageModel.swift */; };
 		046D0DD722889E580041147F /* PServicePackageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D0DD622889E580041147F /* PServicePackageModel.swift */; };
 		0481D6C622892B5F000C65E4 /* AddCouponVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481D6C422892B5F000C65E4 /* AddCouponVC.swift */; };
 		0481D6C722892B5F000C65E4 /* AddCouponVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0481D6C522892B5F000C65E4 /* AddCouponVC.xib */; };
@@ -270,6 +275,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042E29EB22919D9700C71BB5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		042E29ED2291D43A00C71BB5 /* PPackageItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPackageItemModel.swift; sourceTree = "<group>"; };
 		044D977522851542007FFFD5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		044D977622851542007FFFD5 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		044D97792285154F007FFFD5 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -290,6 +297,10 @@
 		044D979A228565A6007FFFD5 /* TermsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		044D979B228565A6007FFFD5 /* TermsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsVC.xib; sourceTree = "<group>"; };
 		044D979E228565B2007FFFD5 /* TermsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsVM.swift; sourceTree = "<group>"; };
+		045A2FEA228BF59900FBE0B2 /* PTermsAgreementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTermsAgreementModel.swift; sourceTree = "<group>"; };
+		045A2FED228BFB8300FBE0B2 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		045A2FEE228BFB8300FBE0B2 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		045A2FF1228BFB8E00FBE0B2 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		045DB15222881BDB0025D3ED /* ServicePackageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePackageVC.swift; sourceTree = "<group>"; };
 		045DB15322881BDB0025D3ED /* ServicePackageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicePackageVC.xib; sourceTree = "<group>"; };
 		045DB15622881BEF0025D3ED /* ServicePackageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePackageVM.swift; sourceTree = "<group>"; };
@@ -304,7 +315,6 @@
 		046D0DCE2288991D0041147F /* PackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCell.swift; sourceTree = "<group>"; };
 		046D0DCF2288991D0041147F /* PackageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackageCell.xib; sourceTree = "<group>"; };
 		046D0DD2228899280041147F /* PackageCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCellVM.swift; sourceTree = "<group>"; };
-		046D0DD422889AAD0041147F /* PPackageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPackageModel.swift; sourceTree = "<group>"; };
 		046D0DD622889E580041147F /* PServicePackageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PServicePackageModel.swift; sourceTree = "<group>"; };
 		0481D6C422892B5F000C65E4 /* AddCouponVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponVC.swift; sourceTree = "<group>"; };
 		0481D6C522892B5F000C65E4 /* AddCouponVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCouponVC.xib; sourceTree = "<group>"; };
@@ -613,6 +623,16 @@
 			path = Terms;
 			sourceTree = "<group>";
 		};
+		045A2FEC228BFB5F00FBE0B2 /* Profiile */ = {
+			isa = PBXGroup;
+			children = (
+				045A2FED228BFB8300FBE0B2 /* ProfileVC.swift */,
+				045A2FF1228BFB8E00FBE0B2 /* ProfileVM.swift */,
+				045A2FEE228BFB8300FBE0B2 /* ProfileVC.xib */,
+			);
+			path = Profiile;
+			sourceTree = "<group>";
+		};
 		045DB15122881BB40025D3ED /* Pakage */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +860,7 @@
 		04AAA73322835CA40001FEB4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				045A2FEC228BFB5F00FBE0B2 /* Profiile */,
 				044D979922856598007FFFD5 /* Terms */,
 				044D978C22856515007FFFD5 /* Agreement */,
 				044D978B22856501007FFFD5 /* SignupOTP */,
@@ -1222,7 +1243,8 @@
 				04AAA7C222835CA60001FEB4 /* PUserModel.swift */,
 				04871CC42287D61100C29998 /* PServiceModel.swift */,
 				046D0DD622889E580041147F /* PServicePackageModel.swift */,
-				046D0DD422889AAD0041147F /* PPackageModel.swift */,
+				042E29ED2291D43A00C71BB5 /* PPackageItemModel.swift */,
+				045A2FEA228BF59900FBE0B2 /* PTermsAgreementModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1402,6 +1424,7 @@
 				04AAA80422835CA70001FEB4 /* AppMessagesManager.swift */,
 				04AAA80522835CA70001FEB4 /* JsonHelper.swift */,
 				04AAA80622835CA70001FEB4 /* OneSignalSetup.swift */,
+				042E29EB22919D9700C71BB5 /* LocationManager.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -1505,6 +1528,7 @@
 				04AAA6FB2283587A0001FEB4 /* Frameworks */,
 				04AAA6FC2283587A0001FEB4 /* Resources */,
 				6AB448B166E1C2DAAA0A81F9 /* [CP] Embed Pods Frameworks */,
+				6215408376BE46B49E05357E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1638,6 +1662,7 @@
 				04AAA85522835CA80001FEB4 /* NormalHeader.bundle in Resources */,
 				04AAA83B22835CA80001FEB4 /* chinese_regionalism.json in Resources */,
 				04AAA87222835CA80001FEB4 /* Nunito-SemiBoldItalic.ttf in Resources */,
+				045A2FF0228BFB8300FBE0B2 /* ProfileVC.xib in Resources */,
 				045DB15522881BDB0025D3ED /* ServicePackageVC.xib in Resources */,
 				04AAA86C22835CA80001FEB4 /* Nunito-Regular.ttf in Resources */,
 				04AAA87122835CA80001FEB4 /* Nunito-ExtraLight.ttf in Resources */,
@@ -1677,6 +1702,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6215408376BE46B49E05357E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6AB448B166E1C2DAAA0A81F9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1833,6 +1878,7 @@
 				0468AEB5228987BA001A9F70 /* BookSuccessView.swift in Sources */,
 				04AAA7022283587A0001FEB4 /* AppDelegate.swift in Sources */,
 				04871CC72287D89C00C29998 /* BookingServices.swift in Sources */,
+				042E29EC22919D9700C71BB5 /* LocationManager.swift in Sources */,
 				04AAA8A022835CA90001FEB4 /* KeyboardObserver.swift in Sources */,
 				04AAA8A122835CA90001FEB4 /* CsvHelper.swift in Sources */,
 				04AAA88422835CA90001FEB4 /* PPhotoCell.swift in Sources */,
@@ -1853,6 +1899,7 @@
 				044D979222856537007FFFD5 /* SignupOtpVM.swift in Sources */,
 				04AAA84D22835CA80001FEB4 /* RamotionBallLayer.swift in Sources */,
 				0481D6C922892BA1000C65E4 /* AddCouponVM.swift in Sources */,
+				042E29EE2291D43A00C71BB5 /* PPackageItemModel.swift in Sources */,
 				04AAA82222835CA80001FEB4 /* PConstants.swift in Sources */,
 				04AAA89222835CA90001FEB4 /* PTextField.swift in Sources */,
 				04AAA87C22835CA90001FEB4 /* CameraView.swift in Sources */,
@@ -1899,8 +1946,9 @@
 				046D0DD3228899280041147F /* PackageCellVM.swift in Sources */,
 				04AAA86522835CA80001FEB4 /* SJSegmentedScrollView.swift in Sources */,
 				046D0DD722889E580041147F /* PServicePackageModel.swift in Sources */,
-				046D0DD522889AAD0041147F /* PPackageModel.swift in Sources */,
+				045A2FF2228BFB8E00FBE0B2 /* ProfileVM.swift in Sources */,
 				04AAA89022835CA90001FEB4 /* PView.swift in Sources */,
+				045A2FEB228BF59900FBE0B2 /* PTermsAgreementModel.swift in Sources */,
 				04AAA81722835CA80001FEB4 /* DictionaryExtension.swift in Sources */,
 				04E940DA2285FB07003B07F2 /* LeftMenuVM.swift in Sources */,
 				04E940D42285F275003B07F2 /* HomeVM.swift in Sources */,
@@ -1913,6 +1961,7 @@
 				04AAA84122835CA80001FEB4 /* PickerController_Correlation.swift in Sources */,
 				04AAA87B22835CA90001FEB4 /* CameraViewModel.swift in Sources */,
 				04AAA87822835CA90001FEB4 /* MaskView.swift in Sources */,
+				045A2FEF228BFB8300FBE0B2 /* ProfileVC.swift in Sources */,
 				04AAA81522835CA80001FEB4 /* UIViewExtension.swift in Sources */,
 				04AAA84B22835CA80001FEB4 /* RamotionAnimator.swift in Sources */,
 				04AAA81022835CA80001FEB4 /* UIButtonExtension.swift in Sources */,
@@ -2131,7 +2180,7 @@
 			baseConfigurationReference = 474CAC86CC0D96528331CC53 /* Pods-PowerSteamUser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BASE_URL = "http://cms.powersteam.vn";
+				BASE_URL = "http://powersteaminc.site";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FN6GB7872Y;
 				INFOPLIST_FILE = PowerSteamUser/Info.plist;

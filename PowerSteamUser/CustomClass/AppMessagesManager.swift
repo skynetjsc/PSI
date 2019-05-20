@@ -42,7 +42,7 @@ class AppMessagesManager {
 
 // MARK: - Message notify
 extension AppMessagesManager {
-    func showMessage(messageType type: Theme, withTitle title: String = "", message: String, completion: (() -> Void)? = nil, duration: SwiftMessages.Duration = .seconds(seconds: 4)) {
+    func showMessage(messageType type: Theme, withTitle title: String = "", message: String, completion: (() -> Void)? = nil, duration: SwiftMessages.Duration = .seconds(seconds: 3)) {
         var config = sharedConfig
         let view = MessageView.viewFromNib(layout: .cardView)
         view.configureTheme(type)

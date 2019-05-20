@@ -29,6 +29,15 @@ class PAppManager {
         }
     }
     
+    var acceptedAgreement: Bool {
+        get {
+            return userDefaults.bool(forKey: kAcceptedAgreement)
+        }
+        set {
+            userDefaults.set(newValue, forKey: kAcceptedAgreement)
+        }
+    }
+    
     var deviceID: String = UIDevice.current.identifierForVendor?.uuidString ?? ""
     
     var currentUser: PUserModel? {

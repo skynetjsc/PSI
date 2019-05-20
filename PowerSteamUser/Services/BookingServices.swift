@@ -43,17 +43,17 @@ class BookingServices {
     ///
     /// - Parameter params: dictionary object
     /// - Returns: Observable object
-    func getServiceCategory(params: [String: Any]) -> Observable<PServicePackageModel> {
+    func getServiceCategory(params: [String: Any]) -> Observable<[PServicePackageModel]> {
         //RxAlamofireClient.shared.headers["token"] = userDefaults.string(forKey: kAccessToken) ?? ""
         
         return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.serviceCategory, parameters: params)
             .observeOn(MainScheduler.instance)
-            .map({ (data) -> PServicePackageModel in
+            .map({ (data) -> [PServicePackageModel] in
                 if let jsonFormat = data as? [String: Any] {
                     let json = JSON(jsonFormat)
                     let result = json["errorId"].intValue
                     if result == kCodeSuccess {
-                        return PServicePackageModel(json: json["data"])
+                        return json["data"].arrayValue.map { PServicePackageModel(json: $0) }
                     } else {
                         throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
                     }

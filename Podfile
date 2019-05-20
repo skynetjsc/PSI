@@ -49,9 +49,9 @@ target 'PowerSteamUser' do
     #pod 'Firebase/DynamicLinks'
     
     #Google place
-    #pod 'GooglePlaces'
+    pod 'GoogleMaps', '3.1.0'
+    pod 'GooglePlaces', '3.1.0'
     #pod 'GooglePlacePicker'
-    #pod 'GoogleMaps'
     #pod 'GoogleSignIn', '4.4.0'
     
     #Services & Network

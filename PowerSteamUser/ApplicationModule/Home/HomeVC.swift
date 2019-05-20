@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mac. All rights reserved.
 //
 
+import GoogleMaps
 import RxCocoa
 import RxSwift
 import UIKit
@@ -14,9 +15,9 @@ class HomeVC: UIViewController {
 
     // MARK: - Outlet
     @IBOutlet weak var navigationBar: NavigationView!
-    
+    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var bookingView: UIView!
     @IBOutlet weak var bookingButton: UIButton!
     
@@ -25,6 +26,8 @@ class HomeVC: UIViewController {
     var viewModel: HomeVM!
     fileprivate var sideManager: SideMenuManager!
     var isFirstLoad = true
+    var isFoscusCenter = false
+    var geocoder: CLGeocoder!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,12 @@ class HomeVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //AppMessagesManager.shared.showChooseCarView()
+        
+        LocationManager.shared.setupLocation()
+        LocationManager.shared.updateLocation = { [weak self] (newLocation) in
+            guard let `self` = self else { return }
+            (self.isFoscusCenter == true) ? nil : self.focusToCurrent(toLocation: newLocation)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,10 +52,9 @@ class HomeVC: UIViewController {
         
         if isFirstLoad {
             isFirstLoad = false
-            
             configSideMenu()
-            
-            AppMessagesManager.shared.showBookOnWayView()
+            //AppMessagesManager.shared.showBookOnWayView()
+            //AppMessagesManager.shared.showChooseCarView()
         }
     }
     
@@ -58,6 +65,11 @@ class HomeVC: UIViewController {
 extension HomeVC {
     
     private func initComponent() {
+        // write code here
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.delegate = self
+        
         viewModel = HomeVM()
         setupNavigationBar()
         configSideMenu()
@@ -115,16 +127,78 @@ extension HomeVC {
     }
     
     private func initData() {
-        
+        viewModel.addressStr.asDriver().drive(self.placeLabel.rx.text).disposed(by: disposeBag)
     }
     
     private func tapActions() {
         bookingButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showServiceList()
+                if PAppManager.shared.acceptedAgreement {
+                    AppMessagesManager.shared.showChooseCarView(confirmCompletion: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                            self?.showServiceList()
+                        })
+                    })
+                } else {
+                    self?.showAgreementVC()
+                }
             })
             .disposed(by: disposeBag)
+    }
+    
+    
+    /// Refer https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/LocationAwarenessPG/UsingGeocoders/UsingGeocoders.html
+    ///
+    /// - Parameter location: CLLocation object
+    private func geocodeLocation(location: CLLocation) {
+        if geocoder == nil {
+            geocoder = CLGeocoder()
+        }
+        geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
+            guard let self = self else { return }
+            if let placemarks = placemarks, placemarks.count > 0 {
+                //print(placemarks)
+                let placemark = placemarks[0]
+                var originAddress: String?
+                if let addrList = placemark.addressDictionary?["FormattedAddressLines"] as? [String] {
+                    originAddress = addrList.joined(separator: ", ")
+                }
+                self.viewModel.addressStr.accept(originAddress ?? "")
+            }
+        }
+    }
+}
+
+// MARK: - GMSMapViewDelegate
+
+extension HomeVC: GMSMapViewDelegate {
+    
+    func focusToCurrent(toLocation: CLLocation? = nil) {
+        if let location = toLocation {
+            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 13)
+            mapView.animate(to: camera)
+            //viewModel.getAddressFromLatLong(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            geocodeLocation(location: location)
+            viewModel.currentLocation = location
+        } else if let location = mapView.myLocation {
+            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 13)
+            mapView.animate(to: camera)
+            //viewModel.getAddressFromLatLong(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            geocodeLocation(location: location)
+            viewModel.currentLocation = location
+        }
+        isFoscusCenter = true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+//        if isFoscusCenter || (!isFoscusCenter && !LocationManager.shared.isAllowLocationPermission) {
+            let latitude = mapView.camera.target.latitude
+            let longitude = mapView.camera.target.longitude
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            geocodeLocation(location: location)
+            viewModel.currentLocation = location
+//        }
     }
 }
 
@@ -133,8 +207,17 @@ extension HomeVC {
 extension HomeVC {
     
     func showServiceList() {
-        let serviceList = ServiceListVC()
-        navigationController?.pushViewController(serviceList, animated: true)
+        if viewModel.currentLocation != nil {
+            let serviceList = ServiceListVC(viewModel.addressStr.value, viewModel.currentLocation)
+            navigationController?.pushViewController(serviceList, animated: true)
+        } else {
+            LocationManager.shared.requireLocationAlert()
+        }
+    }
+    
+    func showAgreementVC() {
+        let agreementVC = AgreementVC()
+        navigationController?.pushViewController(agreementVC, animated: true)
     }
 }
 

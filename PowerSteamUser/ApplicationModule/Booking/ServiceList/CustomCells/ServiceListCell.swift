@@ -51,9 +51,9 @@ class ServiceListCell: UITableViewCell {
 extension ServiceListCell {
     
     private func initialization() {
-//        serviceImage.image = PDefined.placeholderImage
-//        nameLabel.text = ""
-//        descriptionLabel.text = ""
+        serviceImage.image = PDefined.placeholderImage
+        nameLabel.text = ""
+        descriptionLabel.text = ""
     }
     
     private func bindData() {

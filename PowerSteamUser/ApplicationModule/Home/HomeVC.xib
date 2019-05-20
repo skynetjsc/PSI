@@ -22,8 +22,9 @@
             <connections>
                 <outlet property="bookingButton" destination="1EM-8C-TH6" id="kpn-dQ-YcJ"/>
                 <outlet property="bookingView" destination="yh2-5W-zBg" id="zB0-3j-8Lm"/>
+                <outlet property="mapView" destination="p3F-S7-wqQ" id="7Pw-BA-lAz"/>
                 <outlet property="navigationBar" destination="vVj-1s-72l" id="qBm-mm-1Pf"/>
-                <outlet property="searchField" destination="oiW-t4-L1e" id="mc3-xU-yEk"/>
+                <outlet property="placeLabel" destination="7lk-Vq-i19" id="bT9-Dd-o40"/>
                 <outlet property="searchView" destination="l6H-1v-s4P" id="j23-Mg-hGX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,9 +43,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aK7-Nh-67q">
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <subviews>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XD8-0Q-pZR">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3F-S7-wqQ" customClass="GMSMapView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        </mapView>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6H-1v-s4P" userLabel="Search View" customClass="PView" customModule="PowerSteamUser" customModuleProvider="target">
                             <rect key="frame" x="14" y="25" width="347" height="46"/>
                             <subviews>
@@ -63,27 +65,26 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="a3x-S9-pZC">
                                     <rect key="frame" x="322" y="15.5" width="18" height="15"/>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nhập địa chỉ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oiW-t4-L1e">
-                                    <rect key="frame" x="35" y="0.0" width="282" height="46"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" verticalHuggingPriority="251" text="Trương Định, P. Mai Động" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lk-Vq-i19">
+                                    <rect key="frame" x="39" y="13.5" width="278" height="19"/>
                                     <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="oiW-t4-L1e" secondAttribute="bottom" id="7IR-Ea-Q9e"/>
                                 <constraint firstItem="L6s-7Y-mBd" firstAttribute="leading" secondItem="l6H-1v-s4P" secondAttribute="leading" constant="7" id="AAZ-vt-Ypq"/>
                                 <constraint firstItem="rTR-yi-WfF" firstAttribute="top" secondItem="l6H-1v-s4P" secondAttribute="top" id="H5z-rA-wb9"/>
-                                <constraint firstAttribute="trailing" secondItem="oiW-t4-L1e" secondAttribute="trailing" constant="30" id="I8e-X9-6gK"/>
+                                <constraint firstItem="a3x-S9-pZC" firstAttribute="leading" secondItem="7lk-Vq-i19" secondAttribute="trailing" constant="5" id="J82-nZ-pvI"/>
                                 <constraint firstAttribute="height" constant="46" id="PJL-vr-SIg"/>
                                 <constraint firstItem="a3x-S9-pZC" firstAttribute="centerY" secondItem="l6H-1v-s4P" secondAttribute="centerY" id="UyY-GH-avc"/>
                                 <constraint firstAttribute="bottom" secondItem="rTR-yi-WfF" secondAttribute="bottom" id="Xkh-ZG-XMQ"/>
                                 <constraint firstItem="rTR-yi-WfF" firstAttribute="leading" secondItem="l6H-1v-s4P" secondAttribute="leading" id="Yqu-BJ-7V3"/>
                                 <constraint firstAttribute="trailing" secondItem="a3x-S9-pZC" secondAttribute="trailing" constant="7" id="b7f-a5-aja"/>
-                                <constraint firstItem="oiW-t4-L1e" firstAttribute="top" secondItem="l6H-1v-s4P" secondAttribute="top" id="c5q-az-OhH"/>
-                                <constraint firstItem="oiW-t4-L1e" firstAttribute="leading" secondItem="l6H-1v-s4P" secondAttribute="leading" constant="35" id="oL9-qI-9o4"/>
                                 <constraint firstAttribute="trailing" secondItem="rTR-yi-WfF" secondAttribute="trailing" id="omm-mo-B5u"/>
                                 <constraint firstItem="L6s-7Y-mBd" firstAttribute="centerY" secondItem="l6H-1v-s4P" secondAttribute="centerY" id="r5V-mF-g67"/>
+                                <constraint firstItem="7lk-Vq-i19" firstAttribute="centerY" secondItem="l6H-1v-s4P" secondAttribute="centerY" id="rg1-TL-hON"/>
+                                <constraint firstItem="7lk-Vq-i19" firstAttribute="leading" secondItem="L6s-7Y-mBd" secondAttribute="trailing" constant="10" id="yKG-ty-T7P"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -91,11 +92,19 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tni-H5-4Ix">
+                            <rect key="frame" x="162.5" y="276.5" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="8vf-d1-Kbd"/>
+                                <constraint firstAttribute="width" secondItem="Tni-H5-4Ix" secondAttribute="height" multiplier="1:1" id="y8z-wI-oth"/>
+                            </constraints>
+                            <state key="normal" image="target"/>
+                        </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yh2-5W-zBg" userLabel="Book View" customClass="PView" customModule="PowerSteamUser" customModuleProvider="target">
-                            <rect key="frame" x="92.5" y="333" width="190" height="50"/>
+                            <rect key="frame" x="92.5" y="346.5" width="190" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ĐẶT LỊCH NGAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-y6-Rmc">
-                                    <rect key="frame" x="23" y="15" width="107" height="20"/>
+                                    <rect key="frame" x="23" y="17" width="105" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                                     <color key="textColor" red="0.0078431372549019607" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="deviceRGB"/>
                                     <nil key="highlightedColor"/>
@@ -130,15 +139,17 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="XD8-0Q-pZR" secondAttribute="bottom" id="0sk-QG-kme"/>
+                        <constraint firstAttribute="bottom" secondItem="p3F-S7-wqQ" secondAttribute="bottom" id="2Cz-EI-Wjb"/>
                         <constraint firstItem="l6H-1v-s4P" firstAttribute="top" secondItem="aK7-Nh-67q" secondAttribute="top" constant="25" id="6fI-Pz-wV3"/>
-                        <constraint firstAttribute="trailing" secondItem="XD8-0Q-pZR" secondAttribute="trailing" id="8tj-ec-c95"/>
                         <constraint firstItem="l6H-1v-s4P" firstAttribute="leading" secondItem="aK7-Nh-67q" secondAttribute="leading" constant="14" id="9ph-Zw-zFf"/>
                         <constraint firstItem="yh2-5W-zBg" firstAttribute="centerX" secondItem="aK7-Nh-67q" secondAttribute="centerX" id="9vu-l5-7Up"/>
+                        <constraint firstItem="Tni-H5-4Ix" firstAttribute="centerY" secondItem="aK7-Nh-67q" secondAttribute="centerY" id="Dst-Wb-UDI"/>
+                        <constraint firstItem="p3F-S7-wqQ" firstAttribute="top" secondItem="aK7-Nh-67q" secondAttribute="top" id="J2k-JH-0r4"/>
+                        <constraint firstItem="Tni-H5-4Ix" firstAttribute="centerX" secondItem="aK7-Nh-67q" secondAttribute="centerX" id="NPm-Zl-a6r"/>
                         <constraint firstItem="l6H-1v-s4P" firstAttribute="centerX" secondItem="aK7-Nh-67q" secondAttribute="centerX" id="aii-Bu-lcg"/>
-                        <constraint firstItem="XD8-0Q-pZR" firstAttribute="top" secondItem="aK7-Nh-67q" secondAttribute="top" id="bRp-PA-yI5"/>
-                        <constraint firstItem="XD8-0Q-pZR" firstAttribute="leading" secondItem="aK7-Nh-67q" secondAttribute="leading" id="jAs-RW-LpG"/>
-                        <constraint firstAttribute="bottom" secondItem="yh2-5W-zBg" secondAttribute="bottom" constant="220" id="nvQ-tu-kK2"/>
+                        <constraint firstItem="yh2-5W-zBg" firstAttribute="top" secondItem="Tni-H5-4Ix" secondAttribute="bottom" constant="20" id="i4f-ty-0TR"/>
+                        <constraint firstItem="p3F-S7-wqQ" firstAttribute="leading" secondItem="aK7-Nh-67q" secondAttribute="leading" id="lPl-Ic-0nI"/>
+                        <constraint firstAttribute="trailing" secondItem="p3F-S7-wqQ" secondAttribute="trailing" id="xgm-eS-Vfo"/>
                     </constraints>
                 </view>
             </subviews>
@@ -160,5 +171,6 @@
         <image name="icon-calendar" width="18" height="20"/>
         <image name="location" width="22" height="27"/>
         <image name="placeholder" width="18" height="15"/>
+        <image name="target" width="77" height="77"/>
     </resources>
 </document>

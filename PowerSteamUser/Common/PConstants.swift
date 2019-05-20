@@ -21,6 +21,7 @@ public let kAuthToken   = "kAuthToken"
 public let kDeviceUUID  = "kDeviceUUID"
 public let kVendorDeviceUUID    = "kVendorDeviceUUID"
 public let kFirstOpenApp        = "kFirstOpenApp"
+public let kAcceptedAgreement   = "kAcceptedAgreement"
 public var kUUID: String = ""
 public var kFCMToken: String = ""
 
@@ -72,7 +73,7 @@ public let kGoogleReversedClientID = "com.googleusercontent.apps.508795560004-2u
 
 // MARK: Google Place
 public let kPlacesAPIKey = "AIzaSyDNaxV6tecldXTshO0Gf2ZbcMbLhh_Uk0k"
-public let kGoogleMapKey = "AIzaSyDNaxV6tecldXTshO0Gf2ZbcMbLhh_Uk0k"
+public let kGoogleMapKey = "AIzaSyDx8bQbQ9zE7Wn8X864XeOJ9Fss_YSDNWQ"
 public let kPlacesSearchAPIKey = "AIzaSyDNaxV6tecldXTshO0Gf2ZbcMbLhh_Uk0k"
 public let GoogleNearBySearchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mac. All rights reserved.
 //
 
+import CoreLocation
 import RxCocoa
 import RxSwift
 import UIKit
@@ -19,6 +20,15 @@ class ServiceListVC: UIViewController {
     // MARK: - Outlet
     let disposeBag = DisposeBag()
     var viewModel: ServiceListVM!
+    
+    init(_ address: String, _ location: CLLocation) {
+        viewModel = ServiceListVM(address, location)
+        super.init(nibName: "ServiceListVC", bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +45,6 @@ class ServiceListVC: UIViewController {
 extension ServiceListVC {
     
     private func initComponent() {
-        viewModel = ServiceListVM()
-        
         // setup tableview
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
@@ -72,7 +80,7 @@ extension ServiceListVC {
             .drive(onNext: { [weak self] (indexPath) in
                 guard let self = self else { return }
                 self.tableView.deselectRow(at: indexPath, animated: true)
-                self.showServicePakage(PServiceModel())
+                self.showServicePakage(self.viewModel.serviceList.value[indexPath.row].model)
             })
             .disposed(by: disposeBag)
         
@@ -84,7 +92,7 @@ extension ServiceListVC {
 extension ServiceListVC {
     
     func showServicePakage(_ service: PServiceModel) {
-        let servicePakageVC = ServicePackageVC(service)
+        let servicePakageVC = ServicePackageVC(viewModel.address, viewModel.location, service)
         navigationController?.pushViewController(servicePakageVC, animated: true)
     }
 }

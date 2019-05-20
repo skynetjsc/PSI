@@ -23,9 +23,9 @@ class ServiceListCellVM {
         
         imageLink.accept(model.img)
         nameStr.accept(model.name)
-        description.accept(model.descrip)
+        description.accept(model.content)
         
-        dummyData()
+        //dummyData()
     }
     
     func dummyData() {

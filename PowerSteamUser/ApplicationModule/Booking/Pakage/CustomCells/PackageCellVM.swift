@@ -14,13 +14,14 @@ import SwiftDate
 class PackageCellVM {
     
     let disposeBag = DisposeBag()
-    var model: PPackageModel!
+    var model: PServicePackageModel!
     
     let imageLink = BehaviorRelay<String>(value: "")
     let isSelected = BehaviorRelay<Bool>(value: false)
     
-    init(model: PPackageModel) {
+    init(model: PServicePackageModel) {
         self.model = model
         
+        imageLink.accept(model.img)
     }
 }

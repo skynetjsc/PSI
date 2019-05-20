@@ -14,6 +14,29 @@ import RxSwift
 
 class UserServices {
     
+    /// verifyCode
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func verifyCode(params: [String: Any]) -> Observable<Int> {
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.verifyCode, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> Int in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["data"].intValue
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
     /// register user
     ///
     /// - Parameter params: dictionary object
@@ -42,7 +65,7 @@ class UserServices {
     /// - Parameter params: dictionary object
     /// - Returns: Observable object
     func login(params: [String: Any]) -> Observable<PUserModel> {
-        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.login, parameters: params)
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.login, parameters: params)
             .observeOn(MainScheduler.instance)
             .map({ (data) -> PUserModel in
                 if let jsonFormat = data as? [String: Any] {
@@ -84,10 +107,10 @@ class UserServices {
     
     /// get infor
     ///
-    /// - Parameter userID: userID need get profile
+    /// - Parameter dictionary object
     /// - Returns: Observable object
     func getInfo(params: [String: Any]) -> Observable<PUserModel> {
-        RxAlamofireClient.shared.headers["token"] = userDefaults.string(forKey: kAccessToken) ?? ""
+        //RxAlamofireClient.shared.headers["token"] = userDefaults.string(forKey: kAccessToken) ?? ""
         return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.getInfo, parameters: params)
             .observeOn(MainScheduler.instance)
             .map({ (data) -> PUserModel in
@@ -106,13 +129,36 @@ class UserServices {
             .share(replay: 1)
     }
     
+    /// forgetPassword
+    ///
+    /// - Parameter dictionary object
+    /// - Returns: Observable object
+    func forgetPassword(params: [String: Any]) -> Observable<String> {
+        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.forgetPassword, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> String in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["message"].stringValue
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
     /// get user infor
     ///
-    /// - Parameter userID: userID need get profile
+    /// - Parameter params: dictionary object
     /// - Returns: Observable object
     func getProfile(params: [String: Any]) -> Observable<PUserModel> {
         RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
-        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.profile, parameters: params)
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.getInfo, parameters: params)
             .observeOn(MainScheduler.instance)
             .map({ (data) -> PUserModel in
                 if let jsonFormat = data as? [String: Any] {
@@ -176,120 +222,7 @@ class UserServices {
             .share(replay: 1)
     }
     
-//    /// get list task
-//    ///
-//    /// - Parameter userID: userID need get profile
-//    /// - Returns: Observable object
-//    func getListTask(params: [String: Any]) -> Observable<[PTaskModel]> {
-//        RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
-//
-//        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.listTask, parameters: params)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> [PTaskModel] in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["code"].intValue
-//                    if result == kCodeSuccess {
-//                        return json["data"].arrayValue.map { PTaskModel(json: $0) }
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    /// get list task member
-//    ///
-//    /// - Parameter userID: userID need get profile
-//    /// - Returns: Observable object
-//    func getListTaskMember(params: [String: Any]) -> Observable<[PProjectModel]> {
-//        RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
-//
-//        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.listTaskMember, parameters: params)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> [PProjectModel] in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["code"].intValue
-//                    if result == kCodeSuccess {
-//                        return json["data"].arrayValue.map { PProjectModel(json: $0) }
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    func confirmTask(taskID: Int, params: [String: Any]) -> Observable<PTaskModel> {
-//        RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
-//
-//        let endpoint = String(format: EndpointAPI.confirm, taskID)
-//        return RxAlamofireClient.shared.request(method: .post, endpoint: endpoint, parameters: params)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> PTaskModel in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["code"].intValue
-//                    if result == kCodeSuccess {
-//                        return PTaskModel(json: json["data"])
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    func reportTask(params: [String: Any]) -> Observable<String> {
-//        RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
-//
-//        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.report, parameters: params)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> String in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["code"].intValue
-//                    if result == kCodeSuccess {
-//                        return json["message"].stringValue
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-//    func unlockTask(taskID: Int, params: [String: Any]) -> Observable<PTaskModel> {
-//        RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
-//
-//        let endpoint = String(format: EndpointAPI.unlockTask, taskID)
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: endpoint, parameters: params)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> PTaskModel in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["code"].intValue
-//                    if result == kCodeSuccess {
-//                        return PTaskModel(json: json["data"])
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
+
 //
 //    /// get list task
 //    ///

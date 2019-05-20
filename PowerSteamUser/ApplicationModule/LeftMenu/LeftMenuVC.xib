@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="historyButton" destination="aBM-Za-14r" id="cQk-XO-9o3"/>
                 <outlet property="logoutButton" destination="Em6-R0-cmk" id="ZIY-fS-TjZ"/>
+                <outlet property="nameButton" destination="qbM-Sv-Rts" id="5f4-M6-kes"/>
                 <outlet property="nameLabel" destination="L35-am-P2Q" id="s5e-5f-MB2"/>
                 <outlet property="notificationButton" destination="0Ro-Wo-PxF" id="WV7-JE-z95"/>
                 <outlet property="profileButton" destination="Krf-4y-4oB" id="Npf-xw-9zq"/>
@@ -169,9 +170,16 @@
                         </button>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbM-Sv-Rts">
+                    <rect key="frame" x="30" y="78" width="335" height="25"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="qbM-Sv-Rts" firstAttribute="trailing" secondItem="L35-am-P2Q" secondAttribute="trailing" id="610-nT-XdF"/>
+                <constraint firstItem="qbM-Sv-Rts" firstAttribute="top" secondItem="L35-am-P2Q" secondAttribute="top" id="84k-Sq-Dgn"/>
+                <constraint firstItem="qbM-Sv-Rts" firstAttribute="bottom" secondItem="L35-am-P2Q" secondAttribute="bottom" id="88b-MB-G6K"/>
+                <constraint firstItem="qbM-Sv-Rts" firstAttribute="leading" secondItem="L35-am-P2Q" secondAttribute="leading" id="Ksj-ij-hlz"/>
                 <constraint firstAttribute="trailing" secondItem="nba-tG-h0R" secondAttribute="trailing" constant="10" id="Twl-Vq-buY"/>
                 <constraint firstAttribute="bottom" secondItem="nba-tG-h0R" secondAttribute="bottom" constant="30" id="Wap-yj-aVS"/>
                 <constraint firstItem="nba-tG-h0R" firstAttribute="top" secondItem="zI2-DT-et9" secondAttribute="top" constant="78" id="YPz-yj-1tj"/>

@@ -47,10 +47,18 @@ extension ForgotPasswordVC {
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-                if self.viewModel.phoneStr.value.isValidEmail() || self.viewModel.phoneStr.value.isValidPhoneNumber() {
-                    self.showOTP()
+                if self.viewModel.phoneStr.value.isValidPhoneNumber() {
+                    self.viewModel.forgetPassword(completion: { (code, message) in
+                        if code > 0 {
+                            AppMessagesManager.shared.showMessage(messageType: .success, message: message, completion: {
+                                self.showLogin()
+                            })
+                        } else {
+                            AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                        }
+                    })
                 } else {
-                    AppMessagesManager.shared.showMessage(messageType: .error, message: "Số điện thoại hoặc email không hợp lệ.".localized())
+                    AppMessagesManager.shared.showMessage(messageType: .error, message: "Số điện thoại không hợp lệ".localized())
                 }
             })
             .disposed(by: disposeBag)
@@ -61,9 +69,8 @@ extension ForgotPasswordVC {
 
 extension ForgotPasswordVC {
     
-    func showOTP() {
-        let signupOTPVC = SignupOtpVC()
-        navigationController?.pushViewController(signupOTPVC, animated: true)
+    func showLogin() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
