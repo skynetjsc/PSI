@@ -15,10 +15,20 @@ class PaymentVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var confirmButton: UIButton!
     
     // MARK: - Outlet
     let disposeBag = DisposeBag()
     var viewModel: PaymentVM!
+    
+    init(params: [String: Any]) {
+        viewModel = PaymentVM(params)
+        super.init(nibName: "PaymentVC", bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +45,6 @@ class PaymentVC: UIViewController {
 extension PaymentVC {
     
     private func initComponent() {
-        viewModel = PaymentVM()
-        
         // setup tableview
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -48,22 +56,24 @@ extension PaymentVC {
         // indicator view
         viewModel.shouldShowIndicatorView.asDriver()
             .drive(onNext: { [weak self] (isShow) in
-                self?.tableView.showIndicatorView(isShow: isShow)
+                //self?.tableView.showIndicatorView(isShow: isShow)
             })
             .disposed(by: disposeBag)
     }
     
     private func initData() {
+        viewModel.enableConfirm.asDriver().drive(self.confirmButton.rx.isEnabled).disposed(by: disposeBag)
+        
         viewModel.noDataStr.asDriver()
             .drive(onNext: { [weak self] (message) in
-                self?.tableView.showNoResultView(isShow: message.count > 0, title: message)
+                //self?.tableView.showNoResultView(isShow: message.count > 0, title: message)
             })
             .disposed(by: disposeBag)
         
-        viewModel.serviceList.asObservable()
+        viewModel.paymentList.asObservable()
             .observeOn(MainScheduler.instance)
             .bind(to: tableView.rx.items(cellIdentifier: PaymentMethodCell.cellIdentifier, cellType: PaymentMethodCell.self)) { index, cellViewModel, cell in
-//                cell.viewModel = cellViewModel
+                cell.viewModel = cellViewModel
                 cell.backgroundColor = UIColor.clear
                 cell.selectionStyle = .none
             }
@@ -78,6 +88,27 @@ extension PaymentVC {
             })
             .disposed(by: disposeBag)
         
+        confirmButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.booking(completion: { [weak self] (code, message) in
+                    guard let self = self else { return }
+                    if code > 0 {
+                        AppMessagesManager.shared.showBookingConfirm(confirmCompletion: {
+                            for viewcontroller in self.navigationController?.viewControllers ?? [] {
+                                if let homeVC = viewcontroller as? HomeVC {
+                                    homeVC.bookingConfirmHandler()
+                                }
+                            }
+                            self.navigationController?.popToRootViewController(animated: false)
+                        })
+                    } else {
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                    }
+                })
+            })
+            .disposed(by: disposeBag)
     }
 }
 

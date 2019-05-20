@@ -13,7 +13,7 @@ target 'PowerSteamUser' do
     pod 'SnapKit', '4.2.0'
     pod 'NVActivityIndicatorView', '4.4.0'
     #pod 'SwipeCellKit', '2.5.2'
-    #pod 'DropDown', '2.3.12'
+    pod 'DropDown', '2.3.12'
     pod 'ActiveLabel', '1.0.1'
     #pod 'ISEmojiView', '0.1.2'
     pod 'DKImagePickerController', '4.0.4'

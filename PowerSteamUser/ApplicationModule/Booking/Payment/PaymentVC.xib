@@ -23,6 +23,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentVC" customModule="PowerSteamUser" customModuleProvider="target">
             <connections>
+                <outlet property="confirmButton" destination="In3-RP-vbH" id="Hay-ZA-l8U"/>
                 <outlet property="navigationBar" destination="h6M-W8-Ggr" id="eE1-zv-MWB"/>
                 <outlet property="tableView" destination="rLX-SY-Ozc" id="8lN-vU-CS9"/>
                 <outlet property="view" destination="yVM-Cf-Vcq" id="naW-V4-aC1"/>

@@ -254,6 +254,7 @@
 		04E940D82285FAF8003B07F2 /* LeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E940D62285FAF8003B07F2 /* LeftMenuVC.xib */; };
 		04E940DA2285FB07003B07F2 /* LeftMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E940D92285FB07003B07F2 /* LeftMenuVM.swift */; };
 		04F132232286E38D00CF1C69 /* ChooseCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */; };
+		9ABD9A3022928EC2004BA264 /* PBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABD9A2F22928EC2004BA264 /* PBookModel.swift */; };
 		C58445E2E7D616BD74FAF434 /* Pods_PowerSteamUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */; };
 /* End PBXBuildFile section */
 
@@ -534,6 +535,7 @@
 		04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCarViewModel.swift; sourceTree = "<group>"; };
 		1D784848B42DD9846E55CABB /* Pods-PowerSteamUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.release.xcconfig"; sourceTree = "<group>"; };
 		474CAC86CC0D96528331CC53 /* Pods-PowerSteamUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.debug.xcconfig"; sourceTree = "<group>"; };
+		9ABD9A2F22928EC2004BA264 /* PBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBookModel.swift; sourceTree = "<group>"; };
 		B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerSteamUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1245,6 +1247,7 @@
 				046D0DD622889E580041147F /* PServicePackageModel.swift */,
 				042E29ED2291D43A00C71BB5 /* PPackageItemModel.swift */,
 				045A2FEA228BF59900FBE0B2 /* PTermsAgreementModel.swift */,
+				9ABD9A2F22928EC2004BA264 /* PBookModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1708,7 +1711,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
@@ -1719,7 +1722,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6AB448B166E1C2DAAA0A81F9 /* [CP] Embed Pods Frameworks */ = {
@@ -1728,13 +1731,14 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CLImageEditor/CLImageEditor.framework",
 				"${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework",
 				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -1761,6 +1765,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKCamera.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKPhotoGallery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
@@ -1781,7 +1786,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DBBB693E8C12ED19E70DD44E /* [CP] Check Pods Manifest.lock */ = {
@@ -1968,6 +1973,7 @@
 				044D978022852347007FFFD5 /* RegisterVM.swift in Sources */,
 				04AAA8A822835CA90001FEB4 /* CameraManager.swift in Sources */,
 				04871CC02287D1CF00C29998 /* ServiceListCell.swift in Sources */,
+				9ABD9A3022928EC2004BA264 /* PBookModel.swift in Sources */,
 				0481D6D7228932B6000C65E4 /* PaymentMethodCellVM.swift in Sources */,
 				04AAA83422835CA80001FEB4 /* GLNotificationBar.swift in Sources */,
 				045DB15422881BDB0025D3ED /* ServicePackageVC.swift in Sources */,

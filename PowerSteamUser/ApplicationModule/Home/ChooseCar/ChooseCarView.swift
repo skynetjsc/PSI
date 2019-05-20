@@ -22,7 +22,7 @@ class ChooseCarView: UIView {
     @IBOutlet weak var confirmButton: UIButton!
     
     let disposeBag = DisposeBag()
-    var confirmCompletion: (() -> Void)?
+    var confirmCompletion: ((String, Int) -> Void)?
     let enableConfirm = BehaviorRelay<Bool>(value: false)
     var viewModel: ChooseCarViewModel? {
         didSet {
@@ -71,10 +71,11 @@ class ChooseCarView: UIView {
                     return
                 }
                 let selectedVehicle = (self.selectedVehicle ?? .bike)
-                viewModel.addCar(selectedVehicle.rawValue, carName, completion: { (code, message) in
+                viewModel.addCar(selectedVehicle.rawValue, carName, completion: { [weak self] (code, message) in
+                    guard let self = self else { return }
                     if code > 0 {
                         SwiftMessages.hideAll()
-                        self.confirmCompletion?()
+                        self.confirmCompletion?(carName, selectedVehicle.rawValue)
                     } else {
                         AppMessagesManager.shared.showMessage(messageType: .error, message: message)
                     }

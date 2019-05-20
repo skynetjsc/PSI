@@ -52,9 +52,8 @@ class PaymentMethodCell: UITableViewCell {
 extension PaymentMethodCell {
     
     private func initialization() {
-        //        serviceImage.image = PDefined.placeholderImage
-        //        nameLabel.text = ""
-        //        descriptionLabel.text = ""
+        titleLabel.text = ""
+        valueLabel.text = ""
     }
     
     private func bindData() {
@@ -68,8 +67,9 @@ extension PaymentMethodCell {
             })
             .disposed(by: disposeBag)
         
-//        viewModel.nameStr.asDriver().drive(self.nameLabel.rx.text).disposed(by: disposeBag)
-//        viewModel.description.asDriver().drive(self.descriptionLabel.rx.text).disposed(by: disposeBag)
+        titleLabel.text = viewModel.model.name
+        valueLabel.isHidden = true
+        
     }
 }
 

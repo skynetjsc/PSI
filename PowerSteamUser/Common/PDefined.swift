@@ -116,6 +116,8 @@ enum AgreementType: String {
 
 enum RepeatType: Int {
     
+    static let allValues = [none, day, week, month]
+    
     case none = 0
     case day = 1
     case week = 2

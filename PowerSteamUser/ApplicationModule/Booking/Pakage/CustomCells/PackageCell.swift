@@ -64,7 +64,7 @@ extension PackageCell {
         viewModel.isSelected.asDriver()
             .drive(onNext: { [weak self] (isSelected) in
                 guard let self = self else { return }
-                self.packageImage.image = isSelected ? #imageLiteral(resourceName: "drops1") : #imageLiteral(resourceName: "drops")
+                //self.packageImage.image = isSelected ? #imageLiteral(resourceName: "drops1") : #imageLiteral(resourceName: "drops")
                 self.containerView.borderWidth = isSelected ? 1.5 : 0.0
             })
             .disposed(by: disposeBag)

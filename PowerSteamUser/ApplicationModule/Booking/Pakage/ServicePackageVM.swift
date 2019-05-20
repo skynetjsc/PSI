@@ -17,6 +17,7 @@ class ServicePackageVM {
     let bookingServices = BookingServices()
     var address: String = ""
     var location: CLLocation!
+    var typeBike: Int = 0
     var serviceModel: PServiceModel!
     
     let packageList = BehaviorRelay<[PackageCellVM]>(value: [])
@@ -27,13 +28,18 @@ class ServicePackageVM {
     let packageNameStr = BehaviorRelay<String>(value: "")
     let packagePriceStr = BehaviorRelay<String>(value: "")
     let enableConfirm = BehaviorRelay<Bool>(value: false)
-    var hourWorking = BehaviorRelay<String>(value: "")
-    var dateWorking = BehaviorRelay<Date>(value: Date())
+    let hourWorking = BehaviorRelay<String>(value: "")
+    let dateWorking = BehaviorRelay<Date>(value: Date())
+    let repeatType = BehaviorRelay<RepeatType>(value: .none)
     
-    init(_ address: String, _ location: CLLocation, _ serviceModel: PServiceModel) {
+    init(_ address: String, _ location: CLLocation, _ typeBike: Int, _ serviceModel: PServiceModel) {
         self.address = address
         self.location = location
+        self.typeBike = typeBike
         self.serviceModel = serviceModel
+        
+        addressStr.accept(address)
+        
         getServiceCategory()
         
         let validObserable = Observable.combineLatest(selectedPackage.asObservable(), hourWorking.asObservable(), dateWorking.asObservable()) { (value1, value2, value3) -> Bool in

@@ -126,7 +126,7 @@ extension AppMessagesManager {
         SwiftMessages.sharedInstance.show(config: config, view: view)
     }
     
-    func showChooseCarView(confirmCompletion: (() -> Void)? = nil) {
+    func showChooseCarView(confirmCompletion: ((String, Int) -> Void)? = nil) {
         var config = sharedConfig
         config.presentationStyle = .center
         config.interactiveHide = false

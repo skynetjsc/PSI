@@ -7,8 +7,10 @@
 //
 
 import CoreLocation
+import DropDown
 import RxCocoa
 import RxSwift
+import SwiftDate
 import UIKit
 
 class ServicePackageVC: UIViewController {
@@ -23,11 +25,14 @@ class ServicePackageVC: UIViewController {
     @IBOutlet weak var itemsStackView: UIStackView!
     
     @IBOutlet weak var addressButton: UIButton!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateTimeView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var hourButton: UIButton!
     @IBOutlet weak var dateButton: UIButton!
+    @IBOutlet weak var repeatTypeLabel: UILabel!
+    @IBOutlet weak var repeatTypeButton: UIButton!
     
     @IBOutlet weak var couponLabel: UILabel!
     @IBOutlet weak var couponButton: UIButton!
@@ -40,9 +45,10 @@ class ServicePackageVC: UIViewController {
     // MARK: - Variable
     private let disposeBag = DisposeBag()
     private var viewModel: ServicePackageVM!
+    let itemsDropDown = DropDown()
     
-    init(_ address: String, _ location: CLLocation, _ serviceModel: PServiceModel) {
-        viewModel = ServicePackageVM(address, location, serviceModel)
+    init(_ address: String, _ location: CLLocation, _ typeBike: Int, _ serviceModel: PServiceModel) {
+        viewModel = ServicePackageVM(address, location, typeBike, serviceModel)
         
         super.init(nibName: "ServicePackageVC", bundle: nil)
     }
@@ -83,6 +89,7 @@ extension ServicePackageVC {
             .disposed(by: disposeBag)
         
         tapActions()
+        setupDropDown()
     }
     
     private func tapActions() {
@@ -114,6 +121,14 @@ extension ServicePackageVC {
             })
             .disposed(by: disposeBag)
 
+        repeatTypeButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                if let `self` = self {
+                    self.showDropDown()
+                }
+            })
+            .disposed(by: disposeBag)
         
         couponButton.rx.tap.asDriver()
             .throttle(1.0)
@@ -128,10 +143,45 @@ extension ServicePackageVC {
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 if let `self` = self {
-                    self.showPaymentVC()
+                    if self.checkRequire() {
+                        self.showPaymentVC()
+                    }
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    func setupDropDown() {
+        self.itemsDropDown.backgroundColor = UIColor.white
+        self.itemsDropDown.dimmedBackgroundColor = UIColor.black.withAlphaComponent(0.39)
+        self.itemsDropDown.selectionBackgroundColor = UIColor.lightText
+        self.itemsDropDown.dataSource = RepeatType.allValues.map { $0.name }
+    }
+    
+    func showDropDown() {
+        self.itemsDropDown.anchorView = repeatTypeButton
+        self.itemsDropDown.bottomOffset = CGPoint(x: 0, y: repeatTypeButton.height)
+        self.itemsDropDown.topOffset = CGPoint(x: 0, y: -repeatTypeButton.height)
+        //self.itemsDropDown.offsetFromWindowBottom = CGFloat(200)
+        
+        // setup custom cell for dropdown
+        self.itemsDropDown.customCellConfiguration = { [weak self] (index: Index, item: String, cell: DropDownCell) -> Void in
+            guard let self = self else { return }
+            cell.backgroundColor = UIColor(hexString: "F9F9F9")
+            cell.optionLabel.text = item
+            cell.optionLabel.textAlignment = .left
+        }
+        
+        // Action triggered on selection
+        self.itemsDropDown.selectionAction = { [weak self] (index: Int, item: String) in
+            guard let `self` = self else { return }
+            
+            //print("Selected item: \(item) at index: \(index)")
+            self.itemsDropDown.reloadAllComponents()
+            self.viewModel.repeatType.accept(RepeatType(rawValue: index) ?? .none)
+        }
+        
+        self.itemsDropDown.show()
     }
     
     private func bindData() {
@@ -149,18 +199,18 @@ extension ServicePackageVC {
         
         viewModel.packageNameStr.asDriver().drive(self.packageNameLabel.rx.text).disposed(by: disposeBag)
         viewModel.packagePriceStr.asDriver().drive(self.packagePriceLabel.rx.text).disposed(by: disposeBag)
-        viewModel.addressStr.asDriver().drive(self.addressButton.rx.title(for: .normal)).disposed(by: disposeBag)
+        viewModel.addressStr.asDriver().drive(self.addressLabel.rx.text).disposed(by: disposeBag)
         viewModel.hourWorking.asDriver().drive(self.timeLabel.rx.text).disposed(by: disposeBag)
         viewModel.dateWorking.asDriver().map { $0.toFormat("dd MMM yyyy") }.drive(self.dateLabel.rx.text).disposed(by: disposeBag)
-        viewModel.enableConfirm.asDriver().drive(self.confirmButton.rx.isEnabled).disposed(by: disposeBag)
-        
+        //viewModel.enableConfirm.asDriver().drive(self.confirmButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.repeatType.asDriver().map{ $0.name }.drive(self.repeatTypeLabel.rx.text).disposed(by: disposeBag)
         viewModel.selectedPackage.asDriver()
             .drive(onNext: { [weak self] (selectedPackage) in
                 guard let self = self, let selectedPackage = selectedPackage else { return }
                 
                 self.viewModel.packageNameStr.accept(selectedPackage.name)
                 self.viewModel.packagePriceStr.accept(selectedPackage.price.currencyVN)
-                
+                self.timeLabel.text = "\(selectedPackage.timeUsed)s"
                 // add item views
                 self.itemsStackView.arrangedSubviews.forEach({ (subview) in
                     self.itemsStackView.removeArrangedSubview(subview)
@@ -175,8 +225,6 @@ extension ServicePackageVC {
                 }
             })
             .disposed(by: disposeBag)
-        
-        
     }
 }
 
@@ -184,9 +232,17 @@ extension ServicePackageVC {
 
 extension ServicePackageVC {
     
-    
     private func reloadView() {
         
+    }
+    
+    private func checkRequire() -> Bool {
+        if viewModel.selectedPackage.value == nil {
+            AppMessagesManager.shared.showMessage(messageType: .error, message: "Vui lòng chọn loại dịch vụ!".localized())
+            return false
+        }
+        
+        return true
     }
 }
 
@@ -265,7 +321,21 @@ extension ServicePackageVC {
     }
     
     func showPaymentVC() {
-        let paymentVC = PaymentVC()
+        let hourWorking: String = self.viewModel.hourWorking.value.count > 0 ? self.viewModel.hourWorking.value : Date().toFormat("HH:mm")
+        let params: [String: Any] = ["user_id": PAppManager.shared.currentUser?.id ?? 0,
+                                     "address": self.viewModel.address,
+                                     "date_working": self.viewModel.dateWorking.value.toFormat("MM/dd/yyyy"),
+                                     "hour_working": hourWorking,
+                                     "id_promotion": 0,
+                                     "location_id": 0,
+                                     "lat": self.viewModel.location.coordinate.latitude,
+                                     "lng": self.viewModel.location.coordinate.longitude,
+                                     "note": self.noteTextView.text!,
+                                     "repeat_type": self.viewModel.repeatType.value.rawValue,
+                                     "service_id": self.viewModel.serviceModel.id,
+                                     "type_bike": self.viewModel.typeBike]
+        
+        let paymentVC = PaymentVC(params: params)
         navigationController?.pushViewController(paymentVC, animated: true)
     }
 }

@@ -135,9 +135,9 @@ extension HomeVC {
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 if PAppManager.shared.acceptedAgreement {
-                    AppMessagesManager.shared.showChooseCarView(confirmCompletion: {
+                    AppMessagesManager.shared.showChooseCarView(confirmCompletion: { (carName, type) in
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                            self?.showServiceList()
+                            self?.showServiceList(carName: carName, typeBike: type)
                         })
                     })
                 } else {
@@ -146,7 +146,11 @@ extension HomeVC {
             })
             .disposed(by: disposeBag)
     }
-    
+}
+
+// MARK: - Helper
+
+extension HomeVC {
     
     /// Refer https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/LocationAwarenessPG/UsingGeocoders/UsingGeocoders.html
     ///
@@ -167,6 +171,10 @@ extension HomeVC {
                 self.viewModel.addressStr.accept(originAddress ?? "")
             }
         }
+    }
+    
+    func bookingConfirmHandler() {
+        
     }
 }
 
@@ -206,9 +214,9 @@ extension HomeVC: GMSMapViewDelegate {
 
 extension HomeVC {
     
-    func showServiceList() {
+    func showServiceList(carName: String, typeBike: Int) {
         if viewModel.currentLocation != nil {
-            let serviceList = ServiceListVC(viewModel.addressStr.value, viewModel.currentLocation)
+            let serviceList = ServiceListVC(viewModel.addressStr.value, viewModel.currentLocation, typeBike)
             navigationController?.pushViewController(serviceList, animated: true)
         } else {
             LocationManager.shared.requireLocationAlert()

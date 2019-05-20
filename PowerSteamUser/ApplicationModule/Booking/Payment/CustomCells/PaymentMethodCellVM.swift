@@ -13,10 +13,11 @@ import RxSwift
 class PaymentMethodCellVM {
     
     let disposeBag = DisposeBag()
+    var model: PaymentType!
     let isSelected = BehaviorRelay<Bool>(value: false)
     
-    init() {
-       
+    init(model: PaymentType) {
+        self.model = model
         
     }
 }

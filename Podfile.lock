@@ -50,6 +50,7 @@ PODS:
     - SDWebImage/GIF
   - DKPhotoGallery/Resource (0.0.12):
     - SDWebImage/GIF
+  - DropDown (2.3.12)
   - Fabric (1.8.0)
   - FLAnimatedImage (1.0.12)
   - GoogleMaps (3.1.0):
@@ -97,9 +98,10 @@ DEPENDENCIES:
   - Alamofire (= 4.7.3)
   - Crashlytics (= 3.11.0)
   - DKImagePickerController (= 4.0.4)
+  - DropDown (= 2.3.12)
   - Fabric (= 1.8.0)
-  - GoogleMaps
-  - GooglePlaces
+  - GoogleMaps (= 3.1.0)
+  - GooglePlaces (= 3.1.0)
   - Hero (= 1.4.0)
   - IQKeyboardManagerSwift (= 6.2.0)
   - Kingfisher (= 4.10.0)
@@ -126,6 +128,7 @@ SPEC REPOS:
     - DKCamera
     - DKImagePickerController
     - DKPhotoGallery
+    - DropDown
     - Fabric
     - FLAnimatedImage
     - GoogleMaps
@@ -156,6 +159,7 @@ SPEC CHECKSUMS:
   DKCamera: 61fa47629a39354e5111bca1fe96695de020dcb9
   DKImagePickerController: debcc4eaa09b82c06fc237f1bebd6a9fd4be9fa3
   DKPhotoGallery: 1b4d65d9a485dfdd2002f22daa5b955eafb350ea
+  DropDown: 0bcc278799ec11a3d34ce1aac9367fbbaf5423d9
   Fabric: 4ac1cdfef3004ccd83ce0959b91eda8a6e37df72
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
@@ -178,6 +182,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XLPagerTabStrip: 22d4c58200d7c105e0e407ab6bfd01a5d85014be
 
-PODFILE CHECKSUM: 3ae8b0a7eacb00c28a7ee7ad3132eaf7df96756b
+PODFILE CHECKSUM: 9c31553a448dc206545bfc86bba54846e090b8f3
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

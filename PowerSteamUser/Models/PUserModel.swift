@@ -28,6 +28,12 @@ class PUserModel: NSObject, NSCoding {
     @objc dynamic var account: Int = 0
     @objc dynamic var active: Int = 1
     
+    // For tech
+    @objc dynamic var bookingID: Int = 1
+    @objc dynamic var lat: Double = 0
+    @objc dynamic var lng: Double = 0
+    @objc dynamic var distance: Double = 0
+    
     init(json: JSON!) {
         if json.isEmpty { return }
         
@@ -46,6 +52,11 @@ class PUserModel: NSObject, NSCoding {
         imei = json["imei"].stringValue
         account = Int(json["account"].stringValue) ?? 0
         active = Int(json["active"].stringValue) ?? 1
+        
+        bookingID = json["booking_id"].intValue
+        lat = json["lat"].doubleValue
+        lng = json["lng"].doubleValue
+        distance = json["ldistanceat"].doubleValue
     }
     
     func encode(with aCoder: NSCoder) {

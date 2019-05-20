@@ -17,14 +17,16 @@ class ServiceListVM {
     let bookingServices = BookingServices()
     var address: String = ""
     var location: CLLocation!
+    var typeBike: Int = 0
     
     let serviceList = BehaviorRelay<[ServiceListCellVM]>(value: [])
     let shouldShowIndicatorView = BehaviorRelay<Bool>(value: true)
     let noDataStr = BehaviorRelay<String>(value: "")
     
-    init(_ address: String, _ location: CLLocation) {
+    init(_ address: String, _ location: CLLocation, _ typeBike: Int) {
         self.address = address
         self.location = location
+        self.typeBike = typeBike
         
         //dummyData()
         getServiceList()
