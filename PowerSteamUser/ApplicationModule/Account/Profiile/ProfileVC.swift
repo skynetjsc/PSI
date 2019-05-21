@@ -44,6 +44,9 @@ extension ProfileVC {
     
     private func initComponent() {
         viewModel = ProfileVM()
+        navigationBar.customBackAction = { [weak self] in
+            self?.tabBarController?.selectedIndex = 0
+        }
         tapAction()
     }
     

@@ -38,6 +38,11 @@ class ServiceListVC: UIViewController {
         initData()
     }
     
+    func setupData(_ address: String, _ location: CLLocation, _ typeBike: Int) {
+        viewModel.address = address
+        viewModel.location = location
+        viewModel.typeBike = typeBike
+    }
 }
 
 // MARK: - Initialization
@@ -45,6 +50,10 @@ class ServiceListVC: UIViewController {
 extension ServiceListVC {
     
     private func initComponent() {
+        navigationBar.customBackAction = { [weak self] in
+            self?.tabBarController?.selectedIndex = 0
+        }
+        
         // setup tableview
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
@@ -93,6 +102,7 @@ extension ServiceListVC {
     
     func showServicePakage(_ service: PServiceModel) {
         let servicePakageVC = ServicePackageVC(viewModel.address, viewModel.location, viewModel.typeBike, service)
+        servicePakageVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(servicePakageVC, animated: true)
     }
 }

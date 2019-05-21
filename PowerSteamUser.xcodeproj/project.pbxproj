@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0420DD3A22931F4300D24C5E /* PTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DD3922931F4200D24C5E /* PTabBarItem.swift */; };
+		0420DD3C22931FD300D24C5E /* PTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DD3B22931FD300D24C5E /* PTabBarVC.swift */; };
 		042E29EC22919D9700C71BB5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E29EB22919D9700C71BB5 /* LocationManager.swift */; };
 		042E29EE2291D43A00C71BB5 /* PPackageItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E29ED2291D43A00C71BB5 /* PPackageItemModel.swift */; };
 		044D977722851542007FFFD5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D977522851542007FFFD5 /* LoginVC.swift */; };
@@ -243,6 +245,8 @@
 		04BA80DE2289D2D600EBC513 /* BookOnWayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA80DD2289D2D600EBC513 /* BookOnWayView.swift */; };
 		04BA80E02289D2E200EBC513 /* BookOnWayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BA80DF2289D2E200EBC513 /* BookOnWayView.xib */; };
 		04BA80E22289D2FE00EBC513 /* BookOnWayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA80E12289D2FE00EBC513 /* BookOnWayViewModel.swift */; };
+		04C9C623229379DD001B9AE9 /* ServiceHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C9C621229379DD001B9AE9 /* ServiceHistoryVC.swift */; };
+		04C9C624229379DD001B9AE9 /* ServiceHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C9C622229379DD001B9AE9 /* ServiceHistoryVC.xib */; };
 		04D57541228674E900771BD3 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5753D228674DA00771BD3 /* UISideMenuNavigationController.swift */; };
 		04D57542228674E900771BD3 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5753E228674DA00771BD3 /* SideMenuManager.swift */; };
 		04D57543228674E900771BD3 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5753F228674DA00771BD3 /* SideMenuTransition.swift */; };
@@ -276,6 +280,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0420DD3922931F4200D24C5E /* PTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTabBarItem.swift; sourceTree = "<group>"; };
+		0420DD3B22931FD300D24C5E /* PTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTabBarVC.swift; sourceTree = "<group>"; };
 		042E29EB22919D9700C71BB5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		042E29ED2291D43A00C71BB5 /* PPackageItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPackageItemModel.swift; sourceTree = "<group>"; };
 		044D977522851542007FFFD5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -522,6 +528,8 @@
 		04BA80DD2289D2D600EBC513 /* BookOnWayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOnWayView.swift; sourceTree = "<group>"; };
 		04BA80DF2289D2E200EBC513 /* BookOnWayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookOnWayView.xib; sourceTree = "<group>"; };
 		04BA80E12289D2FE00EBC513 /* BookOnWayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOnWayViewModel.swift; sourceTree = "<group>"; };
+		04C9C621229379DD001B9AE9 /* ServiceHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHistoryVC.swift; sourceTree = "<group>"; };
+		04C9C622229379DD001B9AE9 /* ServiceHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceHistoryVC.xib; sourceTree = "<group>"; };
 		04D5753D228674DA00771BD3 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
 		04D5753E228674DA00771BD3 /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
 		04D5753F228674DA00771BD3 /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
@@ -565,6 +573,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0420DD3822931F1500D24C5E /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				0420DD3922931F4200D24C5E /* PTabBarItem.swift */,
+				0420DD3B22931FD300D24C5E /* PTabBarVC.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
 		044D9772228514DE007FFFD5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,6 +832,8 @@
 		04AAA72F22835CA40001FEB4 /* ApplicationModule */ = {
 			isa = PBXGroup;
 			children = (
+				04C9C61F229378F9001B9AE9 /* History */,
+				0420DD3822931F1500D24C5E /* Tabbar */,
 				04AAA73022835CA40001FEB4 /* Home */,
 				04AAA73122835CA40001FEB4 /* Booking */,
 				04AAA73222835CA40001FEB4 /* LeftMenu */,
@@ -1481,6 +1500,23 @@
 			path = BookOnWay;
 			sourceTree = "<group>";
 		};
+		04C9C61F229378F9001B9AE9 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				04C9C620229379C1001B9AE9 /* ServiceHistory */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		04C9C620229379C1001B9AE9 /* ServiceHistory */ = {
+			isa = PBXGroup;
+			children = (
+				04C9C621229379DD001B9AE9 /* ServiceHistoryVC.swift */,
+				04C9C622229379DD001B9AE9 /* ServiceHistoryVC.xib */,
+			);
+			path = ServiceHistory;
+			sourceTree = "<group>";
+		};
 		04D5753C228674DA00771BD3 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1674,6 +1710,7 @@
 				0481D6CE2289319F000C65E4 /* PaymentVC.xib in Resources */,
 				04AAA83522835CA80001FEB4 /* GLNotificationBar.xib in Resources */,
 				04AAA86B22835CA80001FEB4 /* Nunito-Light.ttf in Resources */,
+				04C9C624229379DD001B9AE9 /* ServiceHistoryVC.xib in Resources */,
 				0468AEB7228987C3001A9F70 /* BookSuccessView.xib in Resources */,
 				04AAA83122835CA80001FEB4 /* LICENSE in Resources */,
 				044D97962285656A007FFFD5 /* AgreementVC.xib in Resources */,
@@ -1711,7 +1748,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
@@ -1722,7 +1759,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6AB448B166E1C2DAAA0A81F9 /* [CP] Embed Pods Frameworks */ = {
@@ -1731,7 +1768,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CLImageEditor/CLImageEditor.framework",
@@ -1786,7 +1823,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DBBB693E8C12ED19E70DD44E /* [CP] Check Pods Manifest.lock */ = {
@@ -1815,10 +1852,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AAA89422835CA90001FEB4 /* PWebViewController.swift in Sources */,
+				04C9C623229379DD001B9AE9 /* ServiceHistoryVC.swift in Sources */,
 				044D9789228538B1007FFFD5 /* HomeVC.swift in Sources */,
 				04AAA85022835CA80001FEB4 /* FastAnimator.swift in Sources */,
 				04AAA7042283587A0001FEB4 /* ViewController.swift in Sources */,
 				04BA80E22289D2FE00EBC513 /* BookOnWayViewModel.swift in Sources */,
+				0420DD3C22931FD300D24C5E /* PTabBarVC.swift in Sources */,
 				04AAA85922835CA80001FEB4 /* CRRefreshBundle.swift in Sources */,
 				04AAA81B22835CA80001FEB4 /* DateExtension.swift in Sources */,
 				04AAA83822835CA80001FEB4 /* PickerController_Base.swift in Sources */,
@@ -1905,6 +1944,7 @@
 				04AAA84D22835CA80001FEB4 /* RamotionBallLayer.swift in Sources */,
 				0481D6C922892BA1000C65E4 /* AddCouponVM.swift in Sources */,
 				042E29EE2291D43A00C71BB5 /* PPackageItemModel.swift in Sources */,
+				0420DD3A22931F4300D24C5E /* PTabBarItem.swift in Sources */,
 				04AAA82222835CA80001FEB4 /* PConstants.swift in Sources */,
 				04AAA89222835CA90001FEB4 /* PTextField.swift in Sources */,
 				04AAA87C22835CA90001FEB4 /* CameraView.swift in Sources */,

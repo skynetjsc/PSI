@@ -64,7 +64,7 @@ class PDefined: NSObject {
     static let inactiveTextColor = UIColor(hexString: "A1AAB1")
     static let lineColor = UIColor(hexString: "000000").withAlphaComponent(0.06)
     static let backgroudTabbarColor = UIColor(hexString: "FFFFFF").withAlphaComponent(1.0)
-    static let selectedTabbarColor = UIColor(hexString: "479CDC")
+    static let selectedTabbarColor = UIColor(hexString: "00C464")
     static let normalTabbarColor = UIColor(hexString: "999999")
     static let selectedButtonColor = UIColor(hexString: "479CDC")
     static let enableButtonColor = UIColor(hexString: "479CDC")

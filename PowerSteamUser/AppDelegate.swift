@@ -81,9 +81,10 @@ extension AppDelegate {
     }
     
     func showMainHome() {
-        let naviHome = UINavigationController(rootViewController: HomeVC())
-        naviHome.isNavigationBarHidden = true
-        window?.rootViewController = naviHome
+        //let naviHome = UINavigationController(rootViewController: HomeVC())
+        //naviHome.isNavigationBarHidden = true
+        //window?.rootViewController = naviHome
+        window?.rootViewController = PTabBarVC()
     }
     
     func showLogin() {

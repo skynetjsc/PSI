@@ -216,8 +216,12 @@ extension HomeVC {
     
     func showServiceList(carName: String, typeBike: Int) {
         if viewModel.currentLocation != nil {
-            let serviceList = ServiceListVC(viewModel.addressStr.value, viewModel.currentLocation, typeBike)
-            navigationController?.pushViewController(serviceList, animated: true)
+            //let serviceList = ServiceListVC(viewModel.addressStr.value, viewModel.currentLocation, typeBike)
+            //navigationController?.pushViewController(serviceList, animated: true)
+            if let tabbarVC = tabBarController as? PTabBarVC {
+                tabbarVC.serviceVC.setupData(viewModel.addressStr.value, viewModel.currentLocation, typeBike)
+            }
+            tabBarController?.selectedIndex = 1
         } else {
             LocationManager.shared.requireLocationAlert()
         }
