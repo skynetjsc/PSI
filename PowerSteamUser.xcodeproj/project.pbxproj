@@ -259,6 +259,8 @@
 		04E940DA2285FB07003B07F2 /* LeftMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E940D92285FB07003B07F2 /* LeftMenuVM.swift */; };
 		04F132232286E38D00CF1C69 /* ChooseCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */; };
 		9ABD9A3022928EC2004BA264 /* PBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABD9A2F22928EC2004BA264 /* PBookModel.swift */; };
+		9AEFF05622939BB800567834 /* SearchingTechVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFF05422939BB800567834 /* SearchingTechVC.swift */; };
+		9AEFF05722939BB800567834 /* SearchingTechVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEFF05522939BB800567834 /* SearchingTechVC.xib */; };
 		C58445E2E7D616BD74FAF434 /* Pods_PowerSteamUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */; };
 /* End PBXBuildFile section */
 
@@ -544,6 +546,8 @@
 		1D784848B42DD9846E55CABB /* Pods-PowerSteamUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.release.xcconfig"; sourceTree = "<group>"; };
 		474CAC86CC0D96528331CC53 /* Pods-PowerSteamUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.debug.xcconfig"; sourceTree = "<group>"; };
 		9ABD9A2F22928EC2004BA264 /* PBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBookModel.swift; sourceTree = "<group>"; };
+		9AEFF05422939BB800567834 /* SearchingTechVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingTechVC.swift; sourceTree = "<group>"; };
+		9AEFF05522939BB800567834 /* SearchingTechVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchingTechVC.xib; sourceTree = "<group>"; };
 		B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerSteamUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -856,6 +860,7 @@
 		04AAA73122835CA40001FEB4 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
+				9AEFF05322939B9A00567834 /* Searching */,
 				04BA80DC2289D2BF00EBC513 /* BookOnWay */,
 				0468AEB3228987AE001A9F70 /* BookSuccess */,
 				0468AEAC2289758F001A9F70 /* BookProcessing */,
@@ -1538,6 +1543,15 @@
 			path = ChooseCar;
 			sourceTree = "<group>";
 		};
+		9AEFF05322939B9A00567834 /* Searching */ = {
+			isa = PBXGroup;
+			children = (
+				9AEFF05422939BB800567834 /* SearchingTechVC.swift */,
+				9AEFF05522939BB800567834 /* SearchingTechVC.xib */,
+			);
+			path = Searching;
+			sourceTree = "<group>";
+		};
 		A655F3606CEA8F9663F77F48 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1696,6 +1710,7 @@
 				04AAA89F22835CA90001FEB4 /* PlaceItem.xib in Resources */,
 				04AAA87522835CA90001FEB4 /* Nunito-LightItalic.ttf in Resources */,
 				044D977E2285233C007FFFD5 /* RegisterVC.xib in Resources */,
+				9AEFF05722939BB800567834 /* SearchingTechVC.xib in Resources */,
 				04AAA87422835CA90001FEB4 /* Nunito-Italic.ttf in Resources */,
 				0481D6E022896D21000C65E4 /* BookingConfirmView.xib in Resources */,
 				04AAA85522835CA80001FEB4 /* NormalHeader.bundle in Resources */,
@@ -1748,7 +1763,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
@@ -1759,7 +1774,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6AB448B166E1C2DAAA0A81F9 /* [CP] Embed Pods Frameworks */ = {
@@ -1768,7 +1783,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CLImageEditor/CLImageEditor.framework",
@@ -1782,6 +1797,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1809,6 +1825,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -1823,7 +1840,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DBBB693E8C12ED19E70DD44E /* [CP] Check Pods Manifest.lock */ = {
@@ -1948,6 +1965,7 @@
 				04AAA82222835CA80001FEB4 /* PConstants.swift in Sources */,
 				04AAA89222835CA90001FEB4 /* PTextField.swift in Sources */,
 				04AAA87C22835CA90001FEB4 /* CameraView.swift in Sources */,
+				9AEFF05622939BB800567834 /* SearchingTechVC.swift in Sources */,
 				0481D6D4228932A9000C65E4 /* PaymentMethodCell.swift in Sources */,
 				044D977D2285233C007FFFD5 /* RegisterVC.swift in Sources */,
 				04AAA88522835CA90001FEB4 /* PPhotoLibrary.swift in Sources */,

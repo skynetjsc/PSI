@@ -68,6 +68,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.4.0)
   - NVActivityIndicatorView/Presenter (4.4.0)
   - OneSignal (2.9.5)
+  - Pulsator (0.5.3)
   - RxAlamofire (4.3.0):
     - RxAlamofire/Core (= 4.3.0)
   - RxAlamofire/Core (4.3.0):
@@ -108,6 +109,7 @@ DEPENDENCIES:
   - Localize-Swift (= 2.0.0)
   - NVActivityIndicatorView (= 4.4.0)
   - OneSignal (= 2.9.5)
+  - Pulsator (= 0.5.3)
   - RxAlamofire (= 4.3.0)
   - RxCocoa (= 4.3.1)
   - RxSwift (= 4.3.1)
@@ -139,6 +141,7 @@ SPEC REPOS:
     - Localize-Swift
     - NVActivityIndicatorView
     - OneSignal
+    - Pulsator
     - RxAlamofire
     - RxCocoa
     - RxSwift
@@ -170,6 +173,7 @@ SPEC CHECKSUMS:
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
   OneSignal: ccdeb961882f8668305e5b694e2cb7cb325fc907
+  Pulsator: d58707c6827ec862cd89fd727424866795dabd24
   RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
@@ -182,6 +186,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XLPagerTabStrip: 22d4c58200d7c105e0e407ab6bfd01a5d85014be
 
-PODFILE CHECKSUM: 9c31553a448dc206545bfc86bba54846e090b8f3
+PODFILE CHECKSUM: 01369a44ef22eb45b352d4c9eef6294983df6967
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

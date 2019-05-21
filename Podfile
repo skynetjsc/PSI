@@ -23,6 +23,7 @@ target 'PowerSteamUser' do
     #pod 'SkeletonView', '~> 1.4.2'
     #pod 'RSBarcodes_Swift'
     pod 'SVPinView', '~> 1.0'
+    pod 'Pulsator', '0.5.3'
     
     # Float menu
     #pod 'FanMenu'
