@@ -67,7 +67,7 @@ class PaymentVM {
                 guard let self = self else { return }
                 switch event {
                 case .next(let model):
-                    completion?(1, "")
+                    completion?(1, model.bookingID.description)
                 case .error(let error):
                     if case APIError.error(let error) = error {
                         completion?(0, error.data as? String ?? "Có lỗi xảy ra, vui lòng thực hiện lại!".localized())

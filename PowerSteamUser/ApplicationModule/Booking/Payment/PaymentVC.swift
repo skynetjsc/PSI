@@ -96,12 +96,7 @@ extension PaymentVC {
                     guard let self = self else { return }
                     if code > 0 {
                         AppMessagesManager.shared.showBookingConfirm(confirmCompletion: {
-                            for viewcontroller in self.navigationController?.viewControllers ?? [] {
-                                if let homeVC = viewcontroller as? HomeVC {
-                                    homeVC.bookingConfirmHandler()
-                                }
-                            }
-                            self.navigationController?.popToRootViewController(animated: false)
+                            self.showSearchingTech(Int(message) ?? 0)
                         })
                     } else {
                         AppMessagesManager.shared.showMessage(messageType: .error, message: message)
@@ -141,7 +136,21 @@ extension PaymentVC: UITableViewDelegate {
 
 extension PaymentVC {
     
-    
+    func showSearchingTech(_ bookingID: Int) {
+        if let navi = self.navigationController {
+            let searchingTechVC = SearchingTechVC(bookingID)
+            navi.pushViewController(searchingTechVC, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                var viewControllers = [UIViewController]()
+                for viewController in navi.viewControllers {
+                    if viewController.isKind(of: ServiceListVC.self) || viewController.isKind(of: SearchingTechVC.self) {
+                        viewControllers.append(viewController)
+                    }
+                }
+                navi.viewControllers = viewControllers
+            }
+        }
+    }
 }
 
 

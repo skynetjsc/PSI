@@ -63,6 +63,7 @@ extension AppDelegate {
     func setupInit() {
         // Keyboard
         IQKeyboardManager.shared.enable = true
+        _ = RxAlamofireClient.shared
         
         // Slidemenu
         SlideMenuOptions.contentViewScale = 1.0

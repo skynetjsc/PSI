@@ -130,7 +130,7 @@ extension AppMessagesManager {
         var config = sharedConfig
         config.presentationStyle = .center
         config.interactiveHide = false
-        config.dimMode = .gray(interactive: false)
+        config.dimMode = .gray(interactive: true)
         let view: ChooseCarView = try! SwiftMessages.viewFromNib()
         view.viewModel = ChooseCarViewModel()
         view.confirmCompletion = confirmCompletion

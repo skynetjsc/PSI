@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class PBookModel {
     
-    @objc dynamic var bookingID: Int = 1
+    @objc dynamic var bookingID: Int = 0
     @objc dynamic var lat: Double = 0
     @objc dynamic var lng: Double = 0
     var listTechs = [PUserModel]()

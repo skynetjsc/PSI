@@ -88,4 +88,30 @@ class BookingServices {
             })
             .share(replay: 1)
     }
+    
+    /// update status booking
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func updateStatusBooking(params: [String: Any]) -> Observable<String> {
+        //RxAlamofireClient.shared.headers["token"] = userDefaults.string(forKey: kAccessToken) ?? ""
+        
+        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.statusBooking, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> String in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["message"].stringValue
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
 }

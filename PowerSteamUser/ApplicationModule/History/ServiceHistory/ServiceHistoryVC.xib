@@ -1,22 +1,155 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceHistoryVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceHistoryVC" customModule="PowerSteamUser" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="navigationBar" destination="hN1-Z3-OPj" id="cAW-1N-RMD"/>
+                <outlet property="notificationButton" destination="HhV-sb-gkr" id="3Vi-32-3MV"/>
+                <outlet property="segmentedControl" destination="UAz-WT-u0O" id="8DW-m1-tqk"/>
+                <outlet property="tableView" destination="y48-t1-H3u" id="nnp-SF-NQG"/>
+                <outlet property="view" destination="8Oh-Xu-KSk" id="kwG-ky-71j"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8Oh-Xu-KSk">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hN1-Z3-OPj" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="750" constant="64" id="oh2-j0-Nuj"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j41-uN-lZT">
+                    <rect key="frame" x="0.0" y="74" width="375" height="593"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="56d-sF-Vwz">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="593"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ql8-mI-859">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Lịch sử dịch vụ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjd-rO-ksF">
+                                            <rect key="frame" x="20" y="0.0" width="375" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="W9E-Cn-FZJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="30"/>
+                                            <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhV-sb-gkr">
+                                            <rect key="frame" x="310" y="0.0" width="45" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="HhV-sb-gkr" secondAttribute="height" multiplier="3:2" id="7yW-xW-0KV"/>
+                                            </constraints>
+                                            <state key="normal" image="notification-bell"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Pjd-rO-ksF" secondAttribute="trailing" constant="-20" id="KqI-Tv-mqx"/>
+                                        <constraint firstItem="Pjd-rO-ksF" firstAttribute="top" secondItem="Ql8-mI-859" secondAttribute="top" id="N8w-dh-mUA"/>
+                                        <constraint firstAttribute="bottom" secondItem="HhV-sb-gkr" secondAttribute="bottom" id="Znp-RX-n7a"/>
+                                        <constraint firstItem="Pjd-rO-ksF" firstAttribute="leading" secondItem="Ql8-mI-859" secondAttribute="leading" constant="20" id="bKk-qR-gXd"/>
+                                        <constraint firstAttribute="trailing" secondItem="HhV-sb-gkr" secondAttribute="trailing" constant="20" id="fVp-aW-rx3"/>
+                                        <constraint firstAttribute="bottom" secondItem="Pjd-rO-ksF" secondAttribute="bottom" id="fwI-gs-jiN"/>
+                                        <constraint firstItem="HhV-sb-gkr" firstAttribute="top" secondItem="Ql8-mI-859" secondAttribute="top" id="tkk-9K-vLY"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZe-VO-KyJ">
+                                    <rect key="frame" x="0.0" y="30" width="375" height="55"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Để Xem chi tiết lịch sử của bạn vui lòng chạm vào các tiêu đề." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUG-9Y-gZ0">
+                                            <rect key="frame" x="20" y="5" width="335" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="unc-Sg-adz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                            <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="wUG-9Y-gZ0" secondAttribute="bottom" constant="10" id="EGC-bH-JWM"/>
+                                        <constraint firstItem="wUG-9Y-gZ0" firstAttribute="leading" secondItem="kZe-VO-KyJ" secondAttribute="leading" constant="20" id="Hee-Wf-FO9"/>
+                                        <constraint firstItem="wUG-9Y-gZ0" firstAttribute="top" secondItem="kZe-VO-KyJ" secondAttribute="top" constant="5" id="Uf6-SL-r48"/>
+                                        <constraint firstAttribute="trailing" secondItem="wUG-9Y-gZ0" secondAttribute="trailing" constant="20" id="q5u-gx-weh"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVT-eh-bLo">
+                                    <rect key="frame" x="0.0" y="85" width="375" height="60"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UAz-WT-u0O">
+                                            <rect key="frame" x="20" y="5" width="335" height="41"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="q6X-oH-dDw"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="Tất cả"/>
+                                                <segment title="Đang chờ"/>
+                                                <segment title="Hoàn thành"/>
+                                            </segments>
+                                            <color key="tintColor" red="0.0" green="0.76862745098039209" blue="0.39215686274509803" alpha="1" colorSpace="deviceRGB"/>
+                                            <connections>
+                                                <action selector="segmentedDidChange:" destination="-1" eventType="valueChanged" id="qq0-Ta-Suj"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="UAz-WT-u0O" firstAttribute="leading" secondItem="GVT-eh-bLo" secondAttribute="leading" constant="20" id="3Ew-Ig-E3R"/>
+                                        <constraint firstAttribute="bottom" secondItem="UAz-WT-u0O" secondAttribute="bottom" constant="15" id="B9C-Gi-gIg"/>
+                                        <constraint firstItem="UAz-WT-u0O" firstAttribute="centerX" secondItem="GVT-eh-bLo" secondAttribute="centerX" id="g7M-Hb-OUG"/>
+                                        <constraint firstItem="UAz-WT-u0O" firstAttribute="top" secondItem="GVT-eh-bLo" secondAttribute="top" constant="5" id="pwF-PV-MVN"/>
+                                    </constraints>
+                                </view>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="y48-t1-H3u">
+                                    <rect key="frame" x="0.0" y="145" width="375" height="448"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </tableView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="56d-sF-Vwz" firstAttribute="leading" secondItem="j41-uN-lZT" secondAttribute="leading" id="6P2-ii-mIg"/>
+                        <constraint firstAttribute="trailing" secondItem="56d-sF-Vwz" secondAttribute="trailing" id="FIP-iz-CS8"/>
+                        <constraint firstItem="56d-sF-Vwz" firstAttribute="top" secondItem="j41-uN-lZT" secondAttribute="top" id="QNO-Oa-7Sg"/>
+                        <constraint firstAttribute="bottom" secondItem="56d-sF-Vwz" secondAttribute="bottom" id="Ywd-AI-UK6"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hN1-Z3-OPj" secondAttribute="trailing" id="EzP-Le-4Ie"/>
+                <constraint firstItem="j41-uN-lZT" firstAttribute="top" secondItem="hN1-Z3-OPj" secondAttribute="bottom" constant="10" id="Kjr-CX-KP8"/>
+                <constraint firstItem="j41-uN-lZT" firstAttribute="leading" secondItem="8Oh-Xu-KSk" secondAttribute="leading" id="Lv5-Y7-IPu"/>
+                <constraint firstAttribute="bottom" secondItem="j41-uN-lZT" secondAttribute="bottom" id="jVD-iJ-oaD"/>
+                <constraint firstItem="hN1-Z3-OPj" firstAttribute="top" secondItem="8Oh-Xu-KSk" secondAttribute="top" priority="750" id="lI4-OQ-c0y"/>
+                <constraint firstItem="hN1-Z3-OPj" firstAttribute="leading" secondItem="8Oh-Xu-KSk" secondAttribute="leading" id="nlG-IF-bIP"/>
+                <constraint firstAttribute="trailing" secondItem="j41-uN-lZT" secondAttribute="trailing" id="oxf-eV-zl7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="tCB-BM-syV"/>
+            <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
         </view>
     </objects>
+    <resources>
+        <image name="notification-bell" width="22" height="24"/>
+    </resources>
 </document>

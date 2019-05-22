@@ -259,6 +259,10 @@
 		04E940DA2285FB07003B07F2 /* LeftMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E940D92285FB07003B07F2 /* LeftMenuVM.swift */; };
 		04F132232286E38D00CF1C69 /* ChooseCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */; };
 		9ABD9A3022928EC2004BA264 /* PBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABD9A2F22928EC2004BA264 /* PBookModel.swift */; };
+		9ADB95E122950E8C004A4A59 /* SearchingTechVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB95E022950E8C004A4A59 /* SearchingTechVM.swift */; };
+		9ADB95E42295434F004A4A59 /* ServiceHistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB95E32295434F004A4A59 /* ServiceHistoryVM.swift */; };
+		9ADB95EA22954923004A4A59 /* ServiceHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB95E822954923004A4A59 /* ServiceHistoryCell.swift */; };
+		9ADB95EB22954923004A4A59 /* ServiceHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ADB95E922954923004A4A59 /* ServiceHistoryCell.xib */; };
 		9AEFF05622939BB800567834 /* SearchingTechVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFF05422939BB800567834 /* SearchingTechVC.swift */; };
 		9AEFF05722939BB800567834 /* SearchingTechVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEFF05522939BB800567834 /* SearchingTechVC.xib */; };
 		C58445E2E7D616BD74FAF434 /* Pods_PowerSteamUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */; };
@@ -546,6 +550,10 @@
 		1D784848B42DD9846E55CABB /* Pods-PowerSteamUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.release.xcconfig"; sourceTree = "<group>"; };
 		474CAC86CC0D96528331CC53 /* Pods-PowerSteamUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.debug.xcconfig"; sourceTree = "<group>"; };
 		9ABD9A2F22928EC2004BA264 /* PBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBookModel.swift; sourceTree = "<group>"; };
+		9ADB95E022950E8C004A4A59 /* SearchingTechVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingTechVM.swift; sourceTree = "<group>"; };
+		9ADB95E32295434F004A4A59 /* ServiceHistoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHistoryVM.swift; sourceTree = "<group>"; };
+		9ADB95E822954923004A4A59 /* ServiceHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHistoryCell.swift; sourceTree = "<group>"; };
+		9ADB95E922954923004A4A59 /* ServiceHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceHistoryCell.xib; sourceTree = "<group>"; };
 		9AEFF05422939BB800567834 /* SearchingTechVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingTechVC.swift; sourceTree = "<group>"; };
 		9AEFF05522939BB800567834 /* SearchingTechVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchingTechVC.xib; sourceTree = "<group>"; };
 		B762DF3336BAE12109398DC7 /* Pods_PowerSteamUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PowerSteamUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1516,7 +1524,9 @@
 		04C9C620229379C1001B9AE9 /* ServiceHistory */ = {
 			isa = PBXGroup;
 			children = (
+				9ADB95E5229548E9004A4A59 /* CustomCells */,
 				04C9C621229379DD001B9AE9 /* ServiceHistoryVC.swift */,
+				9ADB95E32295434F004A4A59 /* ServiceHistoryVM.swift */,
 				04C9C622229379DD001B9AE9 /* ServiceHistoryVC.xib */,
 			);
 			path = ServiceHistory;
@@ -1543,10 +1553,20 @@
 			path = ChooseCar;
 			sourceTree = "<group>";
 		};
+		9ADB95E5229548E9004A4A59 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				9ADB95E822954923004A4A59 /* ServiceHistoryCell.swift */,
+				9ADB95E922954923004A4A59 /* ServiceHistoryCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
 		9AEFF05322939B9A00567834 /* Searching */ = {
 			isa = PBXGroup;
 			children = (
 				9AEFF05422939BB800567834 /* SearchingTechVC.swift */,
+				9ADB95E022950E8C004A4A59 /* SearchingTechVM.swift */,
 				9AEFF05522939BB800567834 /* SearchingTechVC.xib */,
 			);
 			path = Searching;
@@ -1677,6 +1697,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ADB95EB22954923004A4A59 /* ServiceHistoryCell.xib in Resources */,
 				044D977822851542007FFFD5 /* LoginVC.xib in Resources */,
 				046D0DCD228896200041147F /* PackageItemView.xib in Resources */,
 				044D9784228530E1007FFFD5 /* ForgotPasswordVC.xib in Resources */,
@@ -1939,6 +1960,7 @@
 				0468AEB5228987BA001A9F70 /* BookSuccessView.swift in Sources */,
 				04AAA7022283587A0001FEB4 /* AppDelegate.swift in Sources */,
 				04871CC72287D89C00C29998 /* BookingServices.swift in Sources */,
+				9ADB95E42295434F004A4A59 /* ServiceHistoryVM.swift in Sources */,
 				042E29EC22919D9700C71BB5 /* LocationManager.swift in Sources */,
 				04AAA8A022835CA90001FEB4 /* KeyboardObserver.swift in Sources */,
 				04AAA8A122835CA90001FEB4 /* CsvHelper.swift in Sources */,
@@ -2007,6 +2029,7 @@
 				04AAA82322835CA80001FEB4 /* UITextView+Placeholder.m in Sources */,
 				04D57544228674E900771BD3 /* UITableViewVibrantCell.swift in Sources */,
 				046D0DD3228899280041147F /* PackageCellVM.swift in Sources */,
+				9ADB95EA22954923004A4A59 /* ServiceHistoryCell.swift in Sources */,
 				04AAA86522835CA80001FEB4 /* SJSegmentedScrollView.swift in Sources */,
 				046D0DD722889E580041147F /* PServicePackageModel.swift in Sources */,
 				045A2FF2228BFB8E00FBE0B2 /* ProfileVM.swift in Sources */,
@@ -2055,6 +2078,7 @@
 				04AAA88122835CA90001FEB4 /* CustomUIDelegate.swift in Sources */,
 				04AAA88D22835CA90001FEB4 /* PImageView.swift in Sources */,
 				04AAA85F22835CA80001FEB4 /* CRRefreshFooterView.swift in Sources */,
+				9ADB95E122950E8C004A4A59 /* SearchingTechVM.swift in Sources */,
 				044D979C228565A6007FFFD5 /* TermsVC.swift in Sources */,
 				0481D6D922894DA5000C65E4 /* PaymentFooterView.swift in Sources */,
 				04AAA8A622835CA90001FEB4 /* SocialManager.swift in Sources */,

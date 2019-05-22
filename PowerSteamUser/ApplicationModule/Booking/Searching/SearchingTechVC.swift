@@ -22,7 +22,17 @@ class SearchingTechVC: UIViewController {
     
     // MARK: - Variable
     let disposeBag = DisposeBag()
+    var viewModel: SearchingTechVM!
     var isFirstLoad = true
+    
+    init(_ bookingID: Int) {
+        viewModel = SearchingTechVM(bookingID)
+        super.init(nibName: "SearchingTechVC", bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,29 +60,38 @@ extension SearchingTechVC {
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         //mapView.delegate = self
-        
+        //mapView.isUserInteractionEnabled = false
         setupNavigationBar()
     }
     
     private func setupNavigationBar() {
-        let cancelButton = UIButton(frame: CGRect(x: 0, y: 0, width: 64, height: 44))
+        let cancelButton = UIButton(type: .custom)
         cancelButton.setTitle("Huỷ".localized(), for: .normal)
-        cancelButton.titleLabel?.textColor = UIColor(hexString: "FF1313")
+        cancelButton.setTitleColor(UIColor(hexString: "FF1313"), for: .normal)
         cancelButton.titleLabel?.font = PDefined.fontMedium(size: 18)
         cancelButton.snp.makeConstraints { (make) in
             make.width.equalTo(64)
+            make.height.equalTo(44)
         }
         
         navigationBar.setupView(title: "", rightButtons: [cancelButton])
         navigationBar.divView.isHidden = false
-        navigationBar.customBackAction = { [weak self] in
-            
-        }
         cancelButton.rx.tap.asDriver()
             .throttle(1)
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-                
+                _ = EZAlertController.alert(PAboutApp.appName, message: "Bạn có chắc muốn huỷ đặt dịch vụ không?", buttons: ["OK", "Huỷ"], tapBlock: { (action, index) in
+                    if index == 0 {
+                        self.viewModel.cancelBooking(completion: { [weak self] (code, message) in
+                            guard let self = self else { return }
+                            if code > 0 {
+                                self.navigationController?.popViewController(animated:  )
+                            } else {
+                                AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                            }
+                        })
+                    }
+                })
             })
             .disposed(by: disposeBag)
     }
@@ -84,9 +103,11 @@ extension SearchingTechVC {
     
     func setupPulsator() {
         let pulsator = Pulsator()
+        pulsator.frame.origin = CGPoint(x: centerButton.width / 2, y: centerButton.height / 2)
         centerButton.layer.addSublayer(pulsator)
-        pulsator.numPulse = 5
-        pulsator.radius = SCREEN_WIDTH / 2
+        pulsator.numPulse = 8
+        pulsator.radius = SCREEN_WIDTH / 2 + centerButton.width
+        pulsator.animationDuration = 5
         pulsator.backgroundColor = PDefined.mainColor.cgColor
         pulsator.start()
     }
