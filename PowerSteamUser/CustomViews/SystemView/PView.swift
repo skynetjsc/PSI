@@ -54,7 +54,7 @@ class PView: UIView {
                 layer.shadowColor = UIColor.black.cgColor
                 layer.shadowOpacity = 0.16
                 layer.shadowRadius = 4.0
-                layer.shadowOffset = CGSize(width: 0, height: 6)
+                layer.shadowOffset = CGSize(width: 0, height: 0)
                 layer.masksToBounds = false
                 //layer.shouldRasterize = true
             }

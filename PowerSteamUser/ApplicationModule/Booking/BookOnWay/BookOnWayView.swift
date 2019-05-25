@@ -48,10 +48,80 @@ class BookOnWayView: UIView {
     }
     
     private func setupUI() {
-       
+        callButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                guard let self = self, let viewModel = self.viewModel, let number = viewModel.bookModel.tech?.phone else { return }
+                guard let numberUrl = URL(string: "tel://" + number) else { return }
+                UIApplication.shared.open(numberUrl)
+            })
+            .disposed(by: disposeBag)
+        
+        chatButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                guard let self = self, let viewModel = self.viewModel else { return }
+                
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindData() {
+        guard let viewModel = self.viewModel else { return }
         
+        viewModel.statusStr.asDriver().drive(self.statusLabel.rx.text).disposed(by: disposeBag)
+        viewModel.timeStr.asDriver().drive(self.timeLabel.rx.text).disposed(by: disposeBag)
+        viewModel.techAvararLink.asDriver()
+            .filter { $0.count > 0 }
+            .map { URL(string: $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) }
+            .asDriver(onErrorJustReturn: nil)
+            .drive(onNext: { [weak self] (url) in
+                if let url = url {
+                    self?.avatarImage.kf.setImage(with: url, placeholder: PDefined.noAvatar, options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
+                }
+            })
+            .disposed(by: disposeBag)
+        viewModel.techName.asDriver().drive(self.nameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.rateStr.asDriver().drive(self.rateLabel.rx.text).disposed(by: disposeBag)
+        
+        viewModel.serviceImageLink.asDriver()
+            .filter { $0.count > 0 }
+            .map { URL(string: $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) }
+            .asDriver(onErrorJustReturn: nil)
+            .drive(onNext: { [weak self] (url) in
+                if let url = url {
+                    self?.packageImage.kf.setImage(with: url, placeholder: PDefined.placeholderImage, options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
+                }
+            })
+            .disposed(by: disposeBag)
+        viewModel.serviceName.asDriver().drive(self.packageName.rx.text).disposed(by: disposeBag)
+        viewModel.servicePrice.asDriver().drive(self.packagePrice.rx.text).disposed(by: disposeBag)
+        
+        viewModel.vehicleType.asDriver()
+            .drive(onNext: { [weak self] (vehicleType) in
+                guard let self = self else { return }
+                self.vehicleName.text = vehicleType.name
+                self.vehicleImage.image = vehicleType.image
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.paymentType.asDriver()
+            .drive(onNext: { [weak self] (paymentType) in
+                guard let self = self else { return }
+                switch paymentType {
+                case .cash:
+                    self.cardName.text = paymentType.content
+                    self.cardNumber.isHidden = true
+                    self.cardImage.isHidden = true
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
+
+
+
+
+

@@ -31,7 +31,16 @@ class ServiceHistoryVC: UIViewController {
     }
     
     @IBAction func segmentedDidChange(_ sender: Any) {
-        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            viewModel.typeHistory = 3
+        case 1:
+            viewModel.typeHistory = 1
+        default:
+            viewModel.typeHistory = 2
+        }
+        self.tableView.alpha = 0.0
+        tableView.cr.beginHeaderRefresh()
     }
 }
 
@@ -49,14 +58,21 @@ extension ServiceHistoryVC {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         tableView.backgroundColor = UIColor.clear
-        tableView.register(UINib.init(nibName: ServiceListCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ServiceListCell.cellIdentifier)
+        tableView.register(UINib.init(nibName: ServiceHistoryCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: ServiceHistoryCell.cellIdentifier)
         
         // indicator view
         viewModel.shouldShowIndicatorView.asDriver()
             .drive(onNext: { [weak self] (isShow) in
+                self?.tableView.alpha = 1.0
                 self?.tableView.showIndicatorView(isShow: isShow)
+                self?.tableView.cr.endHeaderRefresh()
             })
             .disposed(by: disposeBag)
+        
+        // refresh table view
+        tableView.cr.addHeadRefresh(animator: CRHeaderRefresh()) { [weak self] in
+            self?.viewModel.getServiceHistory()
+        }
     }
     
     private func initData() {
@@ -66,9 +82,9 @@ extension ServiceHistoryVC {
             })
             .disposed(by: disposeBag)
         
-        viewModel.serviceList.asObservable()
+        viewModel.bookList.asObservable()
             .observeOn(MainScheduler.instance)
-            .bind(to: tableView.rx.items(cellIdentifier: ServiceListCell.cellIdentifier, cellType: ServiceListCell.self)) { index, cellViewModel, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: ServiceHistoryCell.cellIdentifier, cellType: ServiceHistoryCell.self)) { index, cellViewModel, cell in
                 cell.viewModel = cellViewModel
                 cell.backgroundColor = UIColor.clear
                 cell.selectionStyle = .none
@@ -80,7 +96,20 @@ extension ServiceHistoryVC {
             .drive(onNext: { [weak self] (indexPath) in
                 guard let self = self else { return }
                 self.tableView.deselectRow(at: indexPath, animated: true)
-                self.showServicePakage(self.viewModel.serviceList.value[indexPath.row].model)
+                if let bookModel = self.viewModel.bookList.value[indexPath.row].model {
+                    switch bookModel.bookActiveType {
+                    case .completed:
+                        if bookModel.rating > 0 {
+                            self.showBookDetail(bookModel)
+                        } else {
+                            self.showSearchingTech(bookModel)
+                        }
+                    case .notAssign, .assigned, .doing:
+                        self.showSearchingTech(bookModel)
+                    case .userCanceled, .techCanceled, .systemCanceled:
+                        self.showBookDetail(bookModel)
+                    }
+                }
             })
             .disposed(by: disposeBag)
         
@@ -93,7 +122,17 @@ extension ServiceHistoryVC {
 
 extension ServiceHistoryVC {
     
-
+    func showSearchingTech(_ bookModel: PBookModel) {
+        let searchingTechVC = SearchingTechVC(bookModel)
+        searchingTechVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(searchingTechVC, animated: true)
+    }
+    
+    func showBookDetail(_ bookModel: PBookModel) {
+        let bookDetailVC = BookDetailVC(bookModel.bookingID)
+        bookDetailVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(bookDetailVC, animated: true)
+    }
 }
 
 

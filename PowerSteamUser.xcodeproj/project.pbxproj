@@ -38,6 +38,7 @@
 		045DB15422881BDB0025D3ED /* ServicePackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DB15222881BDB0025D3ED /* ServicePackageVC.swift */; };
 		045DB15522881BDB0025D3ED /* ServicePackageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045DB15322881BDB0025D3ED /* ServicePackageVC.xib */; };
 		045DB15722881BEF0025D3ED /* ServicePackageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045DB15622881BEF0025D3ED /* ServicePackageVM.swift */; };
+		0462704F22954CF300DF8C17 /* ServiceHistoryCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462704E22954CF300DF8C17 /* ServiceHistoryCellVM.swift */; };
 		0468AEAE228975A0001A9F70 /* BookProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468AEAD228975A0001A9F70 /* BookProcessingView.swift */; };
 		0468AEB0228975A9001A9F70 /* BookProcessingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0468AEAF228975A9001A9F70 /* BookProcessingView.xib */; };
 		0468AEB222897650001A9F70 /* BookProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468AEB122897650001A9F70 /* BookProcessingViewModel.swift */; };
@@ -63,6 +64,12 @@
 		0481D6DB22894DB5000C65E4 /* PaymentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0481D6DA22894DB5000C65E4 /* PaymentFooterView.xib */; };
 		0481D6DE22896D15000C65E4 /* BookingConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481D6DD22896D15000C65E4 /* BookingConfirmView.swift */; };
 		0481D6E022896D21000C65E4 /* BookingConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0481D6DF22896D21000C65E4 /* BookingConfirmView.xib */; };
+		048433142299378700D451C2 /* PImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048433132299378700D451C2 /* PImageModel.swift */; };
+		048433282299387400D451C2 /* PSlideShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048433222299387300D451C2 /* PSlideShowVC.swift */; };
+		048433292299387400D451C2 /* PSlideImageCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048433242299387300D451C2 /* PSlideImageCellVM.swift */; };
+		0484332A2299387400D451C2 /* PSlideImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048433252299387300D451C2 /* PSlideImageCell.xib */; };
+		0484332B2299387400D451C2 /* PSlideImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048433262299387300D451C2 /* PSlideImageCell.swift */; };
+		0484332C2299387400D451C2 /* PSlideShowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048433272299387300D451C2 /* PSlideShowVC.xib */; };
 		04871CB92287CE8C00C29998 /* ServiceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04871CB72287CE8C00C29998 /* ServiceListVC.swift */; };
 		04871CBA2287CE8C00C29998 /* ServiceListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04871CB82287CE8C00C29998 /* ServiceListVC.xib */; };
 		04871CBC2287CE9A00C29998 /* ServiceListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04871CBB2287CE9A00C29998 /* ServiceListVM.swift */; };
@@ -71,6 +78,8 @@
 		04871CC32287D1DD00C29998 /* ServiceListCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04871CC22287D1DD00C29998 /* ServiceListCellVM.swift */; };
 		04871CC52287D61100C29998 /* PServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04871CC42287D61100C29998 /* PServiceModel.swift */; };
 		04871CC72287D89C00C29998 /* BookingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04871CC62287D89C00C29998 /* BookingServices.swift */; };
+		0491382122983069001E54BE /* BookPackageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491382022983069001E54BE /* BookPackageItemView.swift */; };
+		049138232298307C001E54BE /* BookPackageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049138222298307C001E54BE /* BookPackageItemView.xib */; };
 		04AAA7022283587A0001FEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAA7012283587A0001FEB4 /* AppDelegate.swift */; };
 		04AAA7042283587A0001FEB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAA7032283587A0001FEB4 /* ViewController.swift */; };
 		04AAA7072283587A0001FEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AAA7052283587A0001FEB4 /* Main.storyboard */; };
@@ -258,6 +267,9 @@
 		04E940D82285FAF8003B07F2 /* LeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E940D62285FAF8003B07F2 /* LeftMenuVC.xib */; };
 		04E940DA2285FB07003B07F2 /* LeftMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E940D92285FB07003B07F2 /* LeftMenuVM.swift */; };
 		04F132232286E38D00CF1C69 /* ChooseCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */; };
+		04FE66C72297FFBD00B8F953 /* BookDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE66C52297FFBD00B8F953 /* BookDetailVC.swift */; };
+		04FE66C82297FFBD00B8F953 /* BookDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FE66C62297FFBD00B8F953 /* BookDetailVC.xib */; };
+		04FE66CA2297FFD900B8F953 /* BookDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE66C92297FFD900B8F953 /* BookDetailVM.swift */; };
 		9ABD9A3022928EC2004BA264 /* PBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABD9A2F22928EC2004BA264 /* PBookModel.swift */; };
 		9ADB95E122950E8C004A4A59 /* SearchingTechVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB95E022950E8C004A4A59 /* SearchingTechVM.swift */; };
 		9ADB95E42295434F004A4A59 /* ServiceHistoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB95E32295434F004A4A59 /* ServiceHistoryVM.swift */; };
@@ -317,6 +329,7 @@
 		045DB15222881BDB0025D3ED /* ServicePackageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePackageVC.swift; sourceTree = "<group>"; };
 		045DB15322881BDB0025D3ED /* ServicePackageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicePackageVC.xib; sourceTree = "<group>"; };
 		045DB15622881BEF0025D3ED /* ServicePackageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePackageVM.swift; sourceTree = "<group>"; };
+		0462704E22954CF300DF8C17 /* ServiceHistoryCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHistoryCellVM.swift; sourceTree = "<group>"; };
 		0468AEAD228975A0001A9F70 /* BookProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProcessingView.swift; sourceTree = "<group>"; };
 		0468AEAF228975A9001A9F70 /* BookProcessingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookProcessingView.xib; sourceTree = "<group>"; };
 		0468AEB122897650001A9F70 /* BookProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProcessingViewModel.swift; sourceTree = "<group>"; };
@@ -342,6 +355,12 @@
 		0481D6DA22894DB5000C65E4 /* PaymentFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentFooterView.xib; sourceTree = "<group>"; };
 		0481D6DD22896D15000C65E4 /* BookingConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConfirmView.swift; sourceTree = "<group>"; };
 		0481D6DF22896D21000C65E4 /* BookingConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingConfirmView.xib; sourceTree = "<group>"; };
+		048433132299378700D451C2 /* PImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PImageModel.swift; sourceTree = "<group>"; };
+		048433222299387300D451C2 /* PSlideShowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSlideShowVC.swift; sourceTree = "<group>"; };
+		048433242299387300D451C2 /* PSlideImageCellVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSlideImageCellVM.swift; sourceTree = "<group>"; };
+		048433252299387300D451C2 /* PSlideImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSlideImageCell.xib; sourceTree = "<group>"; };
+		048433262299387300D451C2 /* PSlideImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSlideImageCell.swift; sourceTree = "<group>"; };
+		048433272299387300D451C2 /* PSlideShowVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSlideShowVC.xib; sourceTree = "<group>"; };
 		04871CB72287CE8C00C29998 /* ServiceListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListVC.swift; sourceTree = "<group>"; };
 		04871CB82287CE8C00C29998 /* ServiceListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceListVC.xib; sourceTree = "<group>"; };
 		04871CBB2287CE9A00C29998 /* ServiceListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListVM.swift; sourceTree = "<group>"; };
@@ -350,6 +369,8 @@
 		04871CC22287D1DD00C29998 /* ServiceListCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListCellVM.swift; sourceTree = "<group>"; };
 		04871CC42287D61100C29998 /* PServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PServiceModel.swift; sourceTree = "<group>"; };
 		04871CC62287D89C00C29998 /* BookingServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingServices.swift; sourceTree = "<group>"; };
+		0491382022983069001E54BE /* BookPackageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPackageItemView.swift; sourceTree = "<group>"; };
+		049138222298307C001E54BE /* BookPackageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPackageItemView.xib; sourceTree = "<group>"; };
 		04AAA6FE2283587A0001FEB4 /* PowerSteamUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerSteamUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AAA7012283587A0001FEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04AAA7032283587A0001FEB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -547,6 +568,9 @@
 		04E940D62285FAF8003B07F2 /* LeftMenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuVC.xib; sourceTree = "<group>"; };
 		04E940D92285FB07003B07F2 /* LeftMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuVM.swift; sourceTree = "<group>"; };
 		04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCarViewModel.swift; sourceTree = "<group>"; };
+		04FE66C52297FFBD00B8F953 /* BookDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailVC.swift; sourceTree = "<group>"; };
+		04FE66C62297FFBD00B8F953 /* BookDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailVC.xib; sourceTree = "<group>"; };
+		04FE66C92297FFD900B8F953 /* BookDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailVM.swift; sourceTree = "<group>"; };
 		1D784848B42DD9846E55CABB /* Pods-PowerSteamUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.release.xcconfig"; sourceTree = "<group>"; };
 		474CAC86CC0D96528331CC53 /* Pods-PowerSteamUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerSteamUser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser.debug.xcconfig"; sourceTree = "<group>"; };
 		9ABD9A2F22928EC2004BA264 /* PBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBookModel.swift; sourceTree = "<group>"; };
@@ -757,6 +781,26 @@
 			path = BookingConfirm;
 			sourceTree = "<group>";
 		};
+		048433212299387300D451C2 /* SlideShow */ = {
+			isa = PBXGroup;
+			children = (
+				048433222299387300D451C2 /* PSlideShowVC.swift */,
+				048433232299387300D451C2 /* CustomCells */,
+				048433272299387300D451C2 /* PSlideShowVC.xib */,
+			);
+			path = SlideShow;
+			sourceTree = "<group>";
+		};
+		048433232299387300D451C2 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				048433242299387300D451C2 /* PSlideImageCellVM.swift */,
+				048433252299387300D451C2 /* PSlideImageCell.xib */,
+				048433262299387300D451C2 /* PSlideImageCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
 		04871CB62287CE7B00C29998 /* ServiceList */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +820,15 @@
 				04871CBF2287D1CF00C29998 /* ServiceListCell.xib */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		0491381F2298301B001E54BE /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0491382022983069001E54BE /* BookPackageItemView.swift */,
+				049138222298307C001E54BE /* BookPackageItemView.xib */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		04AAA6F52283587A0001FEB4 = {
@@ -844,6 +897,7 @@
 		04AAA72F22835CA40001FEB4 /* ApplicationModule */ = {
 			isa = PBXGroup;
 			children = (
+				048433212299387300D451C2 /* SlideShow */,
 				04C9C61F229378F9001B9AE9 /* History */,
 				0420DD3822931F1500D24C5E /* Tabbar */,
 				04AAA73022835CA40001FEB4 /* Home */,
@@ -868,6 +922,7 @@
 		04AAA73122835CA40001FEB4 /* Booking */ = {
 			isa = PBXGroup;
 			children = (
+				04FE66C42297FFAC00B8F953 /* BookDetail */,
 				9AEFF05322939B9A00567834 /* Searching */,
 				04BA80DC2289D2BF00EBC513 /* BookOnWay */,
 				0468AEB3228987AE001A9F70 /* BookSuccess */,
@@ -1280,6 +1335,7 @@
 				042E29ED2291D43A00C71BB5 /* PPackageItemModel.swift */,
 				045A2FEA228BF59900FBE0B2 /* PTermsAgreementModel.swift */,
 				9ABD9A2F22928EC2004BA264 /* PBookModel.swift */,
+				048433132299378700D451C2 /* PImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1553,10 +1609,22 @@
 			path = ChooseCar;
 			sourceTree = "<group>";
 		};
+		04FE66C42297FFAC00B8F953 /* BookDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0491381F2298301B001E54BE /* CustomViews */,
+				04FE66C52297FFBD00B8F953 /* BookDetailVC.swift */,
+				04FE66C92297FFD900B8F953 /* BookDetailVM.swift */,
+				04FE66C62297FFBD00B8F953 /* BookDetailVC.xib */,
+			);
+			path = BookDetail;
+			sourceTree = "<group>";
+		};
 		9ADB95E5229548E9004A4A59 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
 				9ADB95E822954923004A4A59 /* ServiceHistoryCell.swift */,
+				0462704E22954CF300DF8C17 /* ServiceHistoryCellVM.swift */,
 				9ADB95E922954923004A4A59 /* ServiceHistoryCell.xib */,
 			);
 			path = CustomCells;
@@ -1703,6 +1771,7 @@
 				044D9784228530E1007FFFD5 /* ForgotPasswordVC.xib in Resources */,
 				04AAA70C2283587B0001FEB4 /* LaunchScreen.storyboard in Resources */,
 				04AAA7092283587B0001FEB4 /* Assets.xcassets in Resources */,
+				049138232298307C001E54BE /* BookPackageItemView.xib in Resources */,
 				04AAA83722835CA80001FEB4 /* Close.png in Resources */,
 				04AAA87322835CA90001FEB4 /* Nunito-BlackItalic.ttf in Resources */,
 				04AAA86D22835CA80001FEB4 /* Nunito-SemiBold.ttf in Resources */,
@@ -1736,10 +1805,13 @@
 				0481D6E022896D21000C65E4 /* BookingConfirmView.xib in Resources */,
 				04AAA85522835CA80001FEB4 /* NormalHeader.bundle in Resources */,
 				04AAA83B22835CA80001FEB4 /* chinese_regionalism.json in Resources */,
+				0484332A2299387400D451C2 /* PSlideImageCell.xib in Resources */,
 				04AAA87222835CA80001FEB4 /* Nunito-SemiBoldItalic.ttf in Resources */,
+				04FE66C82297FFBD00B8F953 /* BookDetailVC.xib in Resources */,
 				045A2FF0228BFB8300FBE0B2 /* ProfileVC.xib in Resources */,
 				045DB15522881BDB0025D3ED /* ServicePackageVC.xib in Resources */,
 				04AAA86C22835CA80001FEB4 /* Nunito-Regular.ttf in Resources */,
+				0484332C2299387400D451C2 /* PSlideShowVC.xib in Resources */,
 				04AAA87122835CA80001FEB4 /* Nunito-ExtraLight.ttf in Resources */,
 				04AAA88322835CA90001FEB4 /* PPhotoCell.xib in Resources */,
 				04BA80E02289D2E200EBC513 /* BookOnWayView.xib in Resources */,
@@ -1784,7 +1856,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
@@ -1795,7 +1867,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6AB448B166E1C2DAAA0A81F9 /* [CP] Embed Pods Frameworks */ = {
@@ -1804,7 +1876,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CLImageEditor/CLImageEditor.framework",
@@ -1861,7 +1933,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DBBB693E8C12ED19E70DD44E /* [CP] Check Pods Manifest.lock */ = {
@@ -1898,6 +1970,7 @@
 				0420DD3C22931FD300D24C5E /* PTabBarVC.swift in Sources */,
 				04AAA85922835CA80001FEB4 /* CRRefreshBundle.swift in Sources */,
 				04AAA81B22835CA80001FEB4 /* DateExtension.swift in Sources */,
+				0491382122983069001E54BE /* BookPackageItemView.swift in Sources */,
 				04AAA83822835CA80001FEB4 /* PickerController_Base.swift in Sources */,
 				04AAA88B22835CA90001FEB4 /* PShadowView.swift in Sources */,
 				04AAA84A22835CA80001FEB4 /* RamotionBounceLayer.swift in Sources */,
@@ -1933,6 +2006,7 @@
 				044D978F2285652A007FFFD5 /* SignupOtpVC.swift in Sources */,
 				04AAA88C22835CA90001FEB4 /* PLabel.swift in Sources */,
 				04AAA85A22835CA80001FEB4 /* CRUIColorExtension.swift in Sources */,
+				048433282299387400D451C2 /* PSlideShowVC.swift in Sources */,
 				04AAA8A922835CA90001FEB4 /* AppMessagesManager.swift in Sources */,
 				04AAA84322835CA80001FEB4 /* UIViewController+ShowPicker.swift in Sources */,
 				04AAA8B022835CA90001FEB4 /* CommonServices.swift in Sources */,
@@ -1966,6 +2040,7 @@
 				04AAA8A122835CA90001FEB4 /* CsvHelper.swift in Sources */,
 				04AAA88422835CA90001FEB4 /* PPhotoCell.swift in Sources */,
 				04AAA86322835CA80001FEB4 /* SJUtil.swift in Sources */,
+				0484332B2299387400D451C2 /* PSlideImageCell.swift in Sources */,
 				04AAA87922835CA90001FEB4 /* ImageItem.swift in Sources */,
 				04AAA89722835CA90001FEB4 /* PBarButtonItem.swift in Sources */,
 				04AAA83F22835CA80001FEB4 /* Tree.swift in Sources */,
@@ -1984,6 +2059,7 @@
 				0481D6C922892BA1000C65E4 /* AddCouponVM.swift in Sources */,
 				042E29EE2291D43A00C71BB5 /* PPackageItemModel.swift in Sources */,
 				0420DD3A22931F4300D24C5E /* PTabBarItem.swift in Sources */,
+				0462704F22954CF300DF8C17 /* ServiceHistoryCellVM.swift in Sources */,
 				04AAA82222835CA80001FEB4 /* PConstants.swift in Sources */,
 				04AAA89222835CA90001FEB4 /* PTextField.swift in Sources */,
 				04AAA87C22835CA90001FEB4 /* CameraView.swift in Sources */,
@@ -2006,6 +2082,7 @@
 				044D977722851542007FFFD5 /* LoginVC.swift in Sources */,
 				04AAA84922835CA80001FEB4 /* CRRefreshAnimator.swift in Sources */,
 				04AAA81D22835CA80001FEB4 /* PDefined.swift in Sources */,
+				04FE66CA2297FFD900B8F953 /* BookDetailVM.swift in Sources */,
 				04AAA84522835CA80001FEB4 /* DatePickerViewController.swift in Sources */,
 				04AAA89322835CA90001FEB4 /* PBaseVC.swift in Sources */,
 				04AAA82122835CA80001FEB4 /* PAboutApp.swift in Sources */,
@@ -2030,6 +2107,7 @@
 				04D57544228674E900771BD3 /* UITableViewVibrantCell.swift in Sources */,
 				046D0DD3228899280041147F /* PackageCellVM.swift in Sources */,
 				9ADB95EA22954923004A4A59 /* ServiceHistoryCell.swift in Sources */,
+				048433142299378700D451C2 /* PImageModel.swift in Sources */,
 				04AAA86522835CA80001FEB4 /* SJSegmentedScrollView.swift in Sources */,
 				046D0DD722889E580041147F /* PServicePackageModel.swift in Sources */,
 				045A2FF2228BFB8E00FBE0B2 /* ProfileVM.swift in Sources */,
@@ -2073,7 +2151,9 @@
 				04AAA83E22835CA80001FEB4 /* PickerControl_Base.swift in Sources */,
 				04AAA83A22835CA80001FEB4 /* PickerController_Group.swift in Sources */,
 				044D9783228530E1007FFFD5 /* ForgotPasswordVC.swift in Sources */,
+				04FE66C72297FFBD00B8F953 /* BookDetailVC.swift in Sources */,
 				04AAA82422835CA80001FEB4 /* KMPlaceholderTextView.swift in Sources */,
+				048433292299387400D451C2 /* PSlideImageCellVM.swift in Sources */,
 				04AAA83022835CA80001FEB4 /* UPCarouselFlowLayout.swift in Sources */,
 				04AAA88122835CA90001FEB4 /* CustomUIDelegate.swift in Sources */,
 				04AAA88D22835CA90001FEB4 /* PImageView.swift in Sources */,
@@ -2269,7 +2349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "http://powersteaminc.site";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = FN6GB7872Y;
 				INFOPLIST_FILE = PowerSteamUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2277,8 +2357,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SE.PowerSteamUser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.powerSteamUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = PowerSteamUser;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2290,16 +2371,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "http://cms.powersteam.vn";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FN6GB7872Y;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 87Q2DHV66D;
 				INFOPLIST_FILE = PowerSteamUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SE.PowerSteamUser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vunh.PowerSteamUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = PowerSteamUser;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

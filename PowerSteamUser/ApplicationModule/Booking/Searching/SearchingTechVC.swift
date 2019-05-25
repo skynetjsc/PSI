@@ -10,8 +10,11 @@ import GoogleMaps
 import Pulsator
 import RxCocoa
 import RxSwift
+import SwiftMessages
 import UIKit
 
+
+/// Using general for searching tech view, on the way view, processing view, success view
 class SearchingTechVC: UIViewController {
 
     // MARK: - Outlet
@@ -23,10 +26,11 @@ class SearchingTechVC: UIViewController {
     // MARK: - Variable
     let disposeBag = DisposeBag()
     var viewModel: SearchingTechVM!
+    var cancelButton: UIButton!
     var isFirstLoad = true
     
-    init(_ bookingID: Int) {
-        viewModel = SearchingTechVM(bookingID)
+    init(_ bookModel: PBookModel) {
+        viewModel = SearchingTechVM(bookModel)
         super.init(nibName: "SearchingTechVC", bundle: nil)
     }
     
@@ -42,12 +46,16 @@ class SearchingTechVC: UIViewController {
         initData()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if isFirstLoad {
             isFirstLoad = false
-            setupPulsator()
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
 }
 
@@ -65,7 +73,7 @@ extension SearchingTechVC {
     }
     
     private func setupNavigationBar() {
-        let cancelButton = UIButton(type: .custom)
+        cancelButton = UIButton(type: .custom)
         cancelButton.setTitle("Huỷ".localized(), for: .normal)
         cancelButton.setTitleColor(UIColor(hexString: "FF1313"), for: .normal)
         cancelButton.titleLabel?.font = PDefined.fontMedium(size: 18)
@@ -94,14 +102,49 @@ extension SearchingTechVC {
                 })
             })
             .disposed(by: disposeBag)
+        
+        navigationBar.customBackAction = { [weak self] in
+            guard let self = self else { return }
+            SwiftMessages.hideAll()
+            AppMessagesManager.shared.bookSuccessSwiftMessage.hide()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
     }
     
-    
     private func initData() {
+        cancelButton.isHidden = true
+        summaryLabel.isHidden = true
         
+        viewModel.getBookingDetail { [weak self] (code, message) in
+            guard let self = self else { return }
+            if code > 0 {
+                switch self.viewModel.bookModel.bookActiveType {
+                case .notAssign:
+                    self.setupPulsator()
+                case .assigned:
+                    AppMessagesManager.shared.showBookOnWayView(self.viewModel.bookModel)
+                case .doing:
+                    AppMessagesManager.shared.showBookProcessingView(self.viewModel.bookModel)
+                case .completed:
+                    AppMessagesManager.shared.showBookSuccessView(self.viewModel.bookModel, confirmCompletion: {
+                        self.showBookDetail(self.viewModel.bookModel)
+                    })
+                default:
+                    break
+                }
+                self.focusToCurrent(toLocation: CLLocation(latitude: self.viewModel.bookModel.lat, longitude: self.viewModel.bookModel.lng))
+            } else {
+                self.setupPulsator()
+            }
+        }
     }
     
     func setupPulsator() {
+        cancelButton.isHidden = false
+        summaryLabel.isHidden = false
+        
         let pulsator = Pulsator()
         pulsator.frame.origin = CGPoint(x: centerButton.width / 2, y: centerButton.height / 2)
         centerButton.layer.addSublayer(pulsator)
@@ -120,6 +163,26 @@ extension SearchingTechVC {
     }
 }
 
+// MARK: - Navigation
 
+extension SearchingTechVC {
+    
+    func showBookDetail(_ bookModel: PBookModel) {
+        if let navi = self.navigationController {
+            let bookDetailVC = BookDetailVC(bookModel.bookingID)
+            bookDetailVC.hidesBottomBarWhenPushed = true
+            navi.pushViewController(bookDetailVC, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                var viewControllers = [UIViewController]()
+                for viewController in navi.viewControllers {
+                    if !viewController.isKind(of: SearchingTechVC.self) {
+                        viewControllers.append(viewController)
+                    }
+                }
+                navi.viewControllers = viewControllers
+            }
+        }
+    }
+}
 
 

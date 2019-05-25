@@ -28,6 +28,28 @@ enum PaymentType: Int {
             return "Tiền mặt(Cash)".localized()
         }
     }
+    
+    var shortName: String {
+        switch self {
+        case .myWallet:
+            return "Ví tài khoản".localized()
+        case .visa:
+            return "Thẻ VISA".localized()
+        case .cash:
+            return "Tiền mặt".localized()
+        }
+    }
+    
+    var content: String {
+        switch self {
+        case .myWallet:
+            return "Thanh toán bằng ví tài khoản".localized()
+        case .visa:
+            return "Thanh toán bằng thẻ VISA".localized()
+        case .cash:
+            return "Thanh toán bằng tiền mặt".localized()
+        }
+    }
 }
 
 class PaymentVM {
@@ -57,7 +79,7 @@ class PaymentVM {
         selectedPayment.asDriver().map { $0 != nil }.drive(self.enableConfirm).disposed(by: disposeBag)
     }
     
-    func booking(completion: ((Int, String) -> Void)?) {
+    func booking(completion: ((Int, Any) -> Void)?) {
         PLoadingActivity.shared.show()
         self.params["method_payment"] = (self.selectedPayment.value ?? .cash).rawValue
         
@@ -67,7 +89,7 @@ class PaymentVM {
                 guard let self = self else { return }
                 switch event {
                 case .next(let model):
-                    completion?(1, model.bookingID.description)
+                    completion?(1, model)
                 case .error(let error):
                     if case APIError.error(let error) = error {
                         completion?(0, error.data as? String ?? "Có lỗi xảy ra, vui lòng thực hiện lại!".localized())

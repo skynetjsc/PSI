@@ -19,20 +19,26 @@ class PUserModel: NSObject, NSCoding {
     @objc dynamic var email: String = ""
     @objc dynamic var address: String = ""
     @objc dynamic var date: String = "" // 2018-12-13 16:11:30
-    @objc dynamic var level: Int = 1
+    @objc dynamic var level: Int = 0
     @objc dynamic var typeBike: Int = 1
     @objc dynamic var avatar: String = ""
     @objc dynamic var birthday: String = "" // 12\/07\/2018
     @objc dynamic var gender: Int = 1
     @objc dynamic var imei: String = ""
     @objc dynamic var account: Int = 0
-    @objc dynamic var active: Int = 1
+    @objc dynamic var active: Int = 0
     
     // For tech
     @objc dynamic var bookingID: Int = 1
     @objc dynamic var lat: Double = 0
     @objc dynamic var lng: Double = 0
     @objc dynamic var distance: Double = 0
+    @objc dynamic var totalRating: Double = 0
+    @objc dynamic var numberRating: Double = 0
+    @objc dynamic var rating: Double = 0
+    @objc dynamic var ratingAdmin: Double = 0
+    @objc dynamic var online: Int = 1
+    @objc dynamic var status: Int = 1
     
     init(json: JSON!) {
         if json.isEmpty { return }
@@ -44,19 +50,25 @@ class PUserModel: NSObject, NSCoding {
         email = json["email"].stringValue
         address = json["address"].stringValue
         date = json["date"].stringValue
-        level = Int(json["level"].stringValue) ?? 1
+        level = Int(json["level"].stringValue) ?? 0
         typeBike = Int(json["type_bike"].stringValue) ?? 1
         avatar = json["avatar"].stringValue
         birthday = json["birthday"].stringValue
         gender = Int(json["gender"].stringValue) ?? 1
         imei = json["imei"].stringValue
         account = Int(json["account"].stringValue) ?? 0
-        active = Int(json["active"].stringValue) ?? 1
+        active = Int(json["active"].stringValue) ?? 0
         
         bookingID = json["booking_id"].intValue
         lat = json["lat"].doubleValue
         lng = json["lng"].doubleValue
-        distance = json["ldistanceat"].doubleValue
+        distance = json["distanceat"].doubleValue
+        totalRating = Double(json["total_rating"].stringValue) ?? 0
+        numberRating = Double(json["number_rating"].stringValue) ?? 0
+        rating = Double(json["rating"].stringValue) ?? 0
+        ratingAdmin = Double(json["rating_admin"].stringValue) ?? 0
+        online = Int(json["online"].stringValue) ?? 0
+        status = Int(json["status"].stringValue) ?? 0
     }
     
     func encode(with aCoder: NSCoder) {

@@ -92,14 +92,14 @@ extension PaymentVC {
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.viewModel.booking(completion: { [weak self] (code, message) in
+                self.viewModel.booking(completion: { [weak self] (code, data) in
                     guard let self = self else { return }
                     if code > 0 {
                         AppMessagesManager.shared.showBookingConfirm(confirmCompletion: {
-                            self.showSearchingTech(Int(message) ?? 0)
+                            self.showSearchingTech(data as? PBookModel ?? PBookModel())
                         })
                     } else {
-                        AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: data as? String ?? "Có lỗi xảy ra, vui lòng thực hiện lại!")
                     }
                 })
             })
@@ -136,9 +136,9 @@ extension PaymentVC: UITableViewDelegate {
 
 extension PaymentVC {
     
-    func showSearchingTech(_ bookingID: Int) {
+    func showSearchingTech(_ bookingModel: PBookModel) {
         if let navi = self.navigationController {
-            let searchingTechVC = SearchingTechVC(bookingID)
+            let searchingTechVC = SearchingTechVC(bookingModel)
             navi.pushViewController(searchingTechVC, animated: true)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 var viewControllers = [UIViewController]()

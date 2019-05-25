@@ -200,13 +200,13 @@ extension HomeVC: GMSMapViewDelegate {
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-//        if isFoscusCenter || (!isFoscusCenter && !LocationManager.shared.isAllowLocationPermission) {
+        if isFoscusCenter || (!isFoscusCenter && !LocationManager.shared.isAllowLocationPermission) {
             let latitude = mapView.camera.target.latitude
             let longitude = mapView.camera.target.longitude
             let location = CLLocation(latitude: latitude, longitude: longitude)
             geocodeLocation(location: location)
             viewModel.currentLocation = location
-//        }
+        }
     }
 }
 

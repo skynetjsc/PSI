@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookPackageItemView" customModule="PowerSteamUser" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="Dmb-4W-I0A" id="h3a-Ry-9Ga"/>
+                <outlet property="divView" destination="gJz-cF-FHI" id="d3S-xv-HX8"/>
+                <outlet property="nameLabel" destination="sDj-Xb-HJJ" id="eGw-6r-Ylj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Dmb-4W-I0A">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Exterior Hand Wash" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDj-Xb-HJJ">
+                    <rect key="frame" x="0.0" y="2" width="375" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="mtX-Hk-2zw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="14"/>
+                    <color key="textColor" red="0.098039215686274508" green="0.21176470588235294" blue="0.15686274509803921" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-cF-FHI" userLabel="Div View">
+                    <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="E0E-0f-oVq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gJz-cF-FHI" secondAttribute="bottom" id="E9n-bW-xep"/>
+                <constraint firstItem="gJz-cF-FHI" firstAttribute="leading" secondItem="nuB-q3-TqB" secondAttribute="leading" id="Hgf-oE-ki8"/>
+                <constraint firstItem="nuB-q3-TqB" firstAttribute="trailing" secondItem="gJz-cF-FHI" secondAttribute="trailing" id="VMr-mS-Qaf"/>
+                <constraint firstItem="nuB-q3-TqB" firstAttribute="trailing" secondItem="sDj-Xb-HJJ" secondAttribute="trailing" id="Yeb-lA-ME2"/>
+                <constraint firstItem="sDj-Xb-HJJ" firstAttribute="leading" secondItem="nuB-q3-TqB" secondAttribute="leading" id="ZHu-ag-Qdg"/>
+                <constraint firstItem="sDj-Xb-HJJ" firstAttribute="centerY" secondItem="Dmb-4W-I0A" secondAttribute="centerY" id="ZTt-MC-hXz"/>
+                <constraint firstItem="sDj-Xb-HJJ" firstAttribute="top" secondItem="Dmb-4W-I0A" secondAttribute="top" constant="2" id="ceN-ON-3JE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="nuB-q3-TqB"/>
+            <point key="canvasLocation" x="132" y="107.49625187406298"/>
+        </view>
+    </objects>
+</document>

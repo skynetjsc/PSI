@@ -41,23 +41,48 @@ class BookSuccessView: UIView {
     private func setupUI() {
         starView.isInteractive = true
         starView.starType = .large
-        starView.setStarActive(numberOfStar: 1)
+        starView.setStarActive(numberOfStar: 0)
         starView.observerReviewAction = { [weak self] number in
             guard let `self` = self else { return }
-            
+            self.viewModel?.rating.accept(number)
         }
         
         confirmButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                SwiftMessages.hideAll()
-                self?.confirmCompletion?()
+                guard let self = self, let viewModel = self.viewModel else { return }
+                viewModel.rating(completion: { (code, message) in
+                    if code > 0 {
+                        AppMessagesManager.shared.bookSuccessSwiftMessage.hide()
+                        self.confirmCompletion?()
+                    } else {
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: message)
+                    }
+                })  
             })
             .disposed(by: disposeBag)
     }
     
     private func bindData() {
+        guard let viewModel = self.viewModel else { return }
         
+        viewModel.timeStr.asDriver().drive(self.timeLabel.rx.text).disposed(by: disposeBag)
+        viewModel.techAvararLink.asDriver()
+            .filter { $0.count > 0 }
+            .map { URL(string: $0.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) }
+            .asDriver(onErrorJustReturn: nil)
+            .drive(onNext: { [weak self] (url) in
+                if let url = url {
+                    self?.avatarImage.kf.setImage(with: url, placeholder: PDefined.noAvatar, options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
+                }
+            })
+            .disposed(by: disposeBag)
+        viewModel.techName.asDriver().drive(self.nameLabel.rx.text).disposed(by: disposeBag)
+        viewModel.priceStr.asDriver().drive(self.amountPaymentLabel.rx.text).disposed(by: disposeBag)
+        viewModel.enableConfirm.asDriver().drive(self.confirmButton.rx.isEnabled).disposed(by: disposeBag)
     }
-    
 }
+
+
+
+

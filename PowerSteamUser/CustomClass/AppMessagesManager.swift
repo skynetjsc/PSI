@@ -17,15 +17,9 @@ class AppMessagesManager {
     static let shared = AppMessagesManager()
 	// Seperate SwiftMessage instance to display multiple message at same time
 	let successSwiftMessage = SwiftMessages()
-	let timeSwiftMessage = SwiftMessages()
-	let freeCastSwiftMessage = SwiftMessages()
 	let commonMessageInstant = SwiftMessages()
-
+    let bookSuccessSwiftMessage = SwiftMessages()
     //let toastSwifMessage = SwiftMessages()
-    let reviewSwifMessage = SwiftMessages()
-	
-	let premiumSwiftMessage = SwiftMessages()
-    let approachViewMessage = SwiftMessages()
     
     var sharedConfig: SwiftMessages.Config {
         var config = SwiftMessages.Config()
@@ -147,30 +141,34 @@ extension AppMessagesManager {
         SwiftMessages.sharedInstance.show(config: config, view: view)
     }
     
-    func showBookProcessingView() {
+    func showBookProcessingView(_ bookModel: PBookModel) {
         var config = sharedConfig
         config.presentationStyle = .bottom
         config.interactiveHide = false
-        config.dimMode = .gray(interactive: false)
+        config.dimMode = .none
         let view: BookProcessingView = try! SwiftMessages.viewFromNib()
+        view.viewModel = BookProcessingViewModel(bookModel)
         SwiftMessages.sharedInstance.show(config: config, view: view)
     }
     
-    func showBookSuccessView() {
+    func showBookSuccessView(_ bookModel: PBookModel, confirmCompletion: (() -> Void)? = nil) {
         var config = sharedConfig
         config.presentationStyle = .bottom
         config.interactiveHide = false
-        config.dimMode = .gray(interactive: false)
+        config.dimMode = .none
         let view: BookSuccessView = try! SwiftMessages.viewFromNib()
-        SwiftMessages.sharedInstance.show(config: config, view: view)
+        view.viewModel = BookSuccessViewModel(bookModel)
+        view.confirmCompletion = confirmCompletion
+        bookSuccessSwiftMessage.show(config: config, view: view)
     }
     
-    func showBookOnWayView() {
+    func showBookOnWayView(_ bookModel: PBookModel) {
         var config = sharedConfig
         config.presentationStyle = .center
         config.interactiveHide = false
-        config.dimMode = .gray(interactive: false)
+        config.dimMode = .none
         let view: BookOnWayView = try! SwiftMessages.viewFromNib()
+        view.viewModel = BookOnWayViewModel(bookModel)
         SwiftMessages.sharedInstance.show(config: config, view: view)
     }
     

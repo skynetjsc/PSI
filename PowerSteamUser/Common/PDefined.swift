@@ -72,7 +72,7 @@ class PDefined: NSObject {
     static let errorColor = UIColor(hexString: "DB3E51")
     static let onlineColor = UIColor(hexString: "7ED321")
     static let offlineColor = UIColor(hexString: "98AAB0")
-    static let redColor = UIColor(hexString: "D0021B")
+    static let redColor = UIColor(hexString: "FF1313")
     static let orangeColor = UIColor(hexString: "F76B1C")
     static let startGradientColor = UIColor(hexString: "FFAF23")
     static let endGradientColor = UIColor(hexString: "FF6B23")
@@ -104,6 +104,17 @@ enum VehicleType: Int {
             return "SUV".localized()
         case .bike:
             return "Bike".localized()
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .sedan:
+            return #imageLiteral(resourceName: "car")
+        case .suv:
+            return #imageLiteral(resourceName: "suv")
+        case .bike:
+            return #imageLiteral(resourceName: "bike")
         }
     }
 }
@@ -138,6 +149,51 @@ enum RepeatType: Int {
 }
 
 
+// active - 1: chưa ghép, 2: đã ghép, 3: đang thực hiện, 4: hoàn thành, 5: khách hàng huỷ, 6: kỹ thuật huỷ, 7: hệ thống hủy
+enum BookActiveType: Int {
+    
+    case notAssign = 1
+    case assigned = 2
+    case doing = 3
+    case completed = 4
+    case userCanceled = 5
+    case techCanceled = 6
+    case systemCanceled = 7
+    
+    var name: String {
+        switch self {
+        case .notAssign:
+            return "Chờ xác nhận".localized()
+        case .assigned:
+            return "Kỹ thuật đã nhận".localized()
+        case .doing:
+            return "Đang thực hiện".localized()
+        case .completed:
+            return "Hoàn thành".localized()
+        case .userCanceled:
+            return "Khách hàng huỷ".localized()
+        case .techCanceled:
+            return "Kỹ thuật huỷ".localized()
+        case .systemCanceled:
+            return "Hệ thống hủy".localized()
+        }
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .notAssign:
+            return UIColor(hexString: "193628")
+        case .assigned:
+            return UIColor(hexString: "DE8E3C")
+        case .doing:
+            return UIColor(hexString: "00C464")
+        case .completed:
+            return UIColor(hexString: "FF1313")
+        case .userCanceled, .techCanceled, .systemCanceled:
+            return UIColor(hexString: "FF1313")
+        }
+    }
+}
 
 
 

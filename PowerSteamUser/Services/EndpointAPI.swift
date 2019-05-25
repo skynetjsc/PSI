@@ -38,6 +38,9 @@ class EndpointAPI {
     static let serviceCategory      = baseURL + "service_category.php"
     static let booking              = baseURL + "booking.php"
     static let statusBooking        = baseURL + "status_booking.php"
+    static let history              = baseURL + "history.php"
+    static let bookingDetail        = baseURL + "booking_detail.php"
+    static let rating               = baseURL + "rating.php"
 }
 
 

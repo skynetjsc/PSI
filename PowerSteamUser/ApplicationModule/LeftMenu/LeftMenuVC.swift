@@ -92,7 +92,7 @@ extension LeftMenuVC {
         historyButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                self?.showServiceHistory()
             })
             .disposed(by: disposeBag)
         
@@ -152,6 +152,11 @@ extension LeftMenuVC {
     func showProfile() {
         let profileVC = ProfileVC()
         navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    func showServiceHistory() {
+        let serviceHistoryVC = ServiceHistoryVC()
+        navigationController?.pushViewController(serviceHistoryVC, animated: true)
     }
 }
 
