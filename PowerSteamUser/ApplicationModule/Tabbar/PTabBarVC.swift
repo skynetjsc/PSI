@@ -86,10 +86,6 @@ extension PTabBarVC: UITabBarControllerDelegate {
 
 extension PTabBarVC {
     
-//    func showInputTypeForm() {
-//        let inputTypeFormVC = InputTypeFormVC(extractType: self.extractType)
-//        navigationController?.pushViewController(inputTypeFormVC, animated: true)
-//    }
 }
 
 

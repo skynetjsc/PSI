@@ -51,7 +51,12 @@ extension ServiceListVC {
     
     private func initComponent() {
         navigationBar.customBackAction = { [weak self] in
-            self?.tabBarController?.selectedIndex = 0
+            guard let self = self else { return }
+            if let navi = self.navigationController, navi.viewControllers.count > 1 {
+                navi.popViewController(animated: true)
+            } else {
+                self.tabBarController?.selectedIndex = 0
+            }
         }
         
         // setup tableview

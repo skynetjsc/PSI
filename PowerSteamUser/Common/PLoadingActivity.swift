@@ -18,15 +18,13 @@ class PLoadingActivity {
         NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 1000
     }
     
-    func show(type: NVActivityIndicatorType = .circleStrokeSpin, message: String? = nil, thresholdTime: Int = 0, autoHide: Bool = true) {
+    func show(type: NVActivityIndicatorType = .circleStrokeSpin, message: String? = nil, thresholdTime: Int = 0, timeOut: TimeInterval = TimeInterval(60)) {
         let font = UIFont.systemFont(ofSize: 15)
         let activityData = ActivityData(message: message, messageFont: font, type: type, textColor: nil)
         NVActivityIndicatorView.DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = thresholdTime
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
-        if autoHide {
-            DispatchQueue.main.asyncAfter(deadline: .now() + kTimeoutRequest) {
-                self.hide()
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeOut) {
+            self.hide()
         }
     }
     

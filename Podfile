@@ -12,10 +12,10 @@ target 'PowerSteamUser' do
     pod 'IQKeyboardManagerSwift', '6.2.0'
     pod 'SnapKit', '4.2.0'
     pod 'NVActivityIndicatorView', '4.4.0'
-    #pod 'SwipeCellKit', '2.5.2'
+    pod 'SwipeCellKit', '2.5.2'
     pod 'DropDown', '2.3.12'
     pod 'ActiveLabel', '1.0.1'
-    #pod 'ISEmojiView', '0.1.2'
+    pod 'ISEmojiView', '0.1.2'
     pod 'DKImagePickerController', '4.0.4'
     pod 'XLPagerTabStrip', '8.1.0'
     pod 'Hero', '1.4.0'
@@ -74,5 +74,7 @@ target 'PowerSteamUser' do
    pod 'Fabric', '1.8.0'
    pod 'Crashlytics', '3.11.0'
    #pod 'AppsFlyerFramework'
+   
+   pod 'Socket.IO-Client-Swift', '13.3.1'
    
 end

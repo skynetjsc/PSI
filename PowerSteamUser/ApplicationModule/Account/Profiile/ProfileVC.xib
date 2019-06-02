@@ -29,6 +29,7 @@
                 <outlet property="logoutButton" destination="ifo-Pr-4s5" id="Uxm-4y-4Cf"/>
                 <outlet property="nameLabel" destination="jki-wc-p7e" id="T4R-Nm-FfD"/>
                 <outlet property="navigationBar" destination="bNn-nN-2Ll" id="xOV-ul-wiA"/>
+                <outlet property="notiButton" destination="aZd-L3-xcu" id="dfL-Cg-mHV"/>
                 <outlet property="notiLabel" destination="Tbx-gg-MBf" id="H0O-4P-h2l"/>
                 <outlet property="paymentLabel" destination="Riz-kz-dKu" id="TEO-sb-JUo"/>
                 <outlet property="phoneLabel" destination="biy-9a-LX2" id="5a2-so-Dfc"/>
@@ -214,7 +215,7 @@
                                                 <constraint firstItem="Q2o-SY-X7u" firstAttribute="centerY" secondItem="1F8-e5-EjQ" secondAttribute="centerY" id="pbY-KT-IKc"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNw-ak-tcM" userLabel="Payment View">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNw-ak-tcM" userLabel="NotiView">
                                             <rect key="frame" x="0.0" y="293" width="335" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="Thông báo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egt-1f-wBp">
@@ -236,12 +237,19 @@
                                                         <constraint firstAttribute="height" constant="1" id="hje-xp-vlS"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-L3-xcu">
+                                                    <rect key="frame" x="79.5" y="0.0" width="255.5" height="50"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="aZd-L3-xcu" secondAttribute="trailing" id="5Hu-hm-fXJ"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="CXC-hi-Sxn"/>
                                                 <constraint firstAttribute="trailing" secondItem="ot2-XD-YQH" secondAttribute="trailing" id="EnL-DB-7Py"/>
                                                 <constraint firstItem="Tbx-gg-MBf" firstAttribute="leading" secondItem="Egt-1f-wBp" secondAttribute="trailing" constant="10" id="FT9-om-AlY"/>
+                                                <constraint firstItem="aZd-L3-xcu" firstAttribute="leading" secondItem="Egt-1f-wBp" secondAttribute="trailing" constant="10" id="KdM-Sx-jbe"/>
+                                                <constraint firstItem="aZd-L3-xcu" firstAttribute="top" secondItem="fNw-ak-tcM" secondAttribute="top" id="MSS-SJ-qw3"/>
                                                 <constraint firstItem="Tbx-gg-MBf" firstAttribute="centerY" secondItem="fNw-ak-tcM" secondAttribute="centerY" id="b9D-bM-UgV"/>
+                                                <constraint firstAttribute="bottom" secondItem="aZd-L3-xcu" secondAttribute="bottom" id="eLY-UD-EJA"/>
                                                 <constraint firstItem="Egt-1f-wBp" firstAttribute="centerY" secondItem="fNw-ak-tcM" secondAttribute="centerY" id="pzZ-Bo-Bbe"/>
                                                 <constraint firstItem="Tbx-gg-MBf" firstAttribute="top" secondItem="fNw-ak-tcM" secondAttribute="top" constant="15" id="t2B-JC-dp6"/>
                                                 <constraint firstItem="Egt-1f-wBp" firstAttribute="leading" secondItem="fNw-ak-tcM" secondAttribute="leading" id="tB2-Ir-sqr"/>

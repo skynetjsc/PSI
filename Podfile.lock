@@ -62,6 +62,7 @@ PODS:
     - GoogleMaps/Base (= 3.1.0)
   - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.2.0)
+  - ISEmojiView (0.1.2)
   - Kingfisher (4.10.0)
   - Localize-Swift (2.0.0)
   - NVActivityIndicatorView (4.4.0):
@@ -86,12 +87,16 @@ PODS:
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - SnapKit (4.2.0)
+  - Socket.IO-Client-Swift (13.3.1):
+    - Starscream (~> 3.0.2)
+  - Starscream (3.0.6)
   - SVPinView (1.0.7)
   - SwiftDate (5.0.10)
   - SwiftMessages (5.0.1):
     - SwiftMessages/App (= 5.0.1)
   - SwiftMessages/App (5.0.1)
   - SwiftyJSON (4.2.0)
+  - SwipeCellKit (2.5.2)
   - XLPagerTabStrip (8.1.0)
 
 DEPENDENCIES:
@@ -105,6 +110,7 @@ DEPENDENCIES:
   - GooglePlaces (= 3.1.0)
   - Hero (= 1.4.0)
   - IQKeyboardManagerSwift (= 6.2.0)
+  - ISEmojiView (= 0.1.2)
   - Kingfisher (= 4.10.0)
   - Localize-Swift (= 2.0.0)
   - NVActivityIndicatorView (= 4.4.0)
@@ -115,10 +121,12 @@ DEPENDENCIES:
   - RxSwift (= 4.3.1)
   - RxSwiftExt (= 3.3.0)
   - SnapKit (= 4.2.0)
+  - Socket.IO-Client-Swift (= 13.3.1)
   - SVPinView (~> 1.0)
   - SwiftDate (= 5.0.10)
   - SwiftMessages (~> 5.0)
   - SwiftyJSON (= 4.2.0)
+  - SwipeCellKit (= 2.5.2)
   - XLPagerTabStrip (= 8.1.0)
 
 SPEC REPOS:
@@ -137,6 +145,7 @@ SPEC REPOS:
     - GooglePlaces
     - Hero
     - IQKeyboardManagerSwift
+    - ISEmojiView
     - Kingfisher
     - Localize-Swift
     - NVActivityIndicatorView
@@ -148,10 +157,13 @@ SPEC REPOS:
     - RxSwiftExt
     - SDWebImage
     - SnapKit
+    - Socket.IO-Client-Swift
+    - Starscream
     - SVPinView
     - SwiftDate
     - SwiftMessages
     - SwiftyJSON
+    - SwipeCellKit
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
@@ -169,6 +181,7 @@ SPEC CHECKSUMS:
   GooglePlaces: e874db179f2675c4f3eeda0b686b540273a578b0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  ISEmojiView: 5b53bdf057ddf484b92e70064a1cc46b5fedf7ea
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
@@ -180,12 +193,15 @@ SPEC CHECKSUMS:
   RxSwiftExt: 81afb48ab0602f503147417baeb3989d64c7687d
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Socket.IO-Client-Swift: 79f8f85fa44881838175a20f9bd2c32bef2c9d37
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SVPinView: 6c1da57e4a1273298802f460c60511ba10f7c831
   SwiftDate: fcdaa7ca22a903faf6d7ed231239a88d174dcae3
   SwiftMessages: 32ce3cfc8388b41aae56ff4853cc752a20101147
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwipeCellKit: a19e328c69c4ba983f317eeabf36ed299c69bfa4
   XLPagerTabStrip: 22d4c58200d7c105e0e407ab6bfd01a5d85014be
 
-PODFILE CHECKSUM: 01369a44ef22eb45b352d4c9eef6294983df6967
+PODFILE CHECKSUM: dda03e94aafcc001510a72d0d6cfbcb4306ab606
 
 COCOAPODS: 1.5.3

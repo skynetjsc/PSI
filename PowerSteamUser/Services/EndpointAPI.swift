@@ -41,6 +41,19 @@ class EndpointAPI {
     static let history              = baseURL + "history.php"
     static let bookingDetail        = baseURL + "booking_detail.php"
     static let rating               = baseURL + "rating.php"
+    static let schedule             = baseURL + "schedule.php"
+    
+    // Common
+    static let promotion            = baseURL + "promotion.php"
+    static let promotionDetail      = baseURL + "promotion_detail.php"
+    static let sendFeedback         = baseURL + "feedback.php"
+    static let listFeedback         = baseURL + "list_feedback.php"
+    static let feedbackDetail       = baseURL + "feedback_detail.php"
+    
+    // Chat
+    static let listChat             = baseURL + "list_chat.php"
+    static let contentChat          = baseURL + "content_chat.php"
+    static let sendMessage          = baseURL + "chat.php"
 }
 
 

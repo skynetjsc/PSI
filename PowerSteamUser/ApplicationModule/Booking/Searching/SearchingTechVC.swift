@@ -93,7 +93,7 @@ extension SearchingTechVC {
                         self.viewModel.cancelBooking(completion: { [weak self] (code, message) in
                             guard let self = self else { return }
                             if code > 0 {
-                                self.navigationController?.popViewController(animated:  )
+                                self.navigationController?.popViewController(animated: true)
                             } else {
                                 AppMessagesManager.shared.showMessage(messageType: .error, message: message)
                             }

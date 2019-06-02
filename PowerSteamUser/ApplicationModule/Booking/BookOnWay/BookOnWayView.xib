@@ -146,12 +146,21 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-8T-1DL">
                                     <rect key="frame" x="0.0" y="0.0" width="244" height="56.5"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drops3" translatesAutoresizingMaskIntoConstraints="NO" id="BpX-vr-wHQ">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drops3" translatesAutoresizingMaskIntoConstraints="NO" id="BpX-vr-wHQ" customClass="PImageView" customModule="PowerSteamUser" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="5" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="BpX-vr-wHQ" secondAttribute="height" multiplier="1:1" id="dNw-Wa-zVG"/>
                                                 <constraint firstAttribute="width" constant="44" id="rcE-Sb-bGT"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="cornerCircle" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="8b8-CR-enr">
                                             <rect key="frame" x="54" y="0.0" width="190" height="54"/>
@@ -199,7 +208,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ltq-Ym-aCE">
-                                    <rect key="frame" x="254" y="3.5" width="51.5" height="50"/>
+                                    <rect key="frame" x="254" y="3.5" width="51" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="9A8-9r-wbH">
                                             <rect key="frame" x="0.5" y="0.0" width="50" height="20"/>

@@ -18,6 +18,7 @@ class PImageModel {
     @objc dynamic var postId: String = ""
     @objc dynamic var type: String = "" // 1: image, 2: video
     @objc dynamic var userId: String = ""
+    @objc dynamic var bookingId: String = ""
     
     convenience init(json: JSON!) {
         self.init()
@@ -27,13 +28,14 @@ class PImageModel {
         active = json["active"].stringValue
         date = json["date"].stringValue
         id = json["id"].stringValue
-        image = json["image"].stringValue
+        image = json["img"].stringValue
         if json["video"].stringValue.count > 0 {
             image = json["video"].stringValue
         }
         postId = json["post_id"].stringValue
         type = json["type"].stringValue
         userId = json["user_id"].stringValue
+        bookingId = json["booking_id"].stringValue
     }
     
     var typeInt: Int {

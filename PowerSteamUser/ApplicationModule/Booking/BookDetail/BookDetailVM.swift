@@ -28,7 +28,7 @@ class BookDetailVM {
     let techRate = BehaviorRelay<String>(value: "")
     let isHiddenTech = BehaviorRelay<Bool>(value: false)
     let addressStr = BehaviorRelay<String>(value: "")
-    let imageLinks = BehaviorRelay<[String]>(value: [])
+    let images = BehaviorRelay<[PImageModel]>(value: [])
     let isHiddenImages = BehaviorRelay<Bool>(value: false)
     let serviceItems = BehaviorRelay<[PPackageItemModel]>(value: [])
     
@@ -74,7 +74,7 @@ class BookDetailVM {
         bookActiveType.accept(bookModel.bookActiveType)
         serviceItems.accept(bookModel.serviceItems)
         addressStr.accept(bookModel.address)
-        imageLinks.accept(bookModel.listImage)
+        images.accept(bookModel.listImage)
         isHiddenImages.accept(bookModel.listImage.count == 0)
     }
 }

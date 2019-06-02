@@ -11,6 +11,11 @@ import UIKit
 import Photos
 import MobileCoreServices
 
+struct MediaItem {
+    var key: String
+    var value: Any
+}
+
 class PMediaSource: NSObject {
     
     weak var sourceViewController: UIViewController?
@@ -137,9 +142,9 @@ extension PMediaSource {
     
     private func showAlertActionRequireMediaPermission(type: UIImagePickerController.SourceType) {
         let title = type == .camera ? LANGTEXT(key: "") : LANGTEXT(key: "")
-        let message = type == .camera ? LANGTEXT(key: "”App”がカメラへのアクセスを求めています") :
-            LANGTEXT(key:"”App”が写真へのアクセスを求めています")
-        let settingTitle = type == .camera ? LANGTEXT(key:"設定") : LANGTEXT(key:"設定")
+        let message = type == .camera ? LANGTEXT(key: "Ứng dụng \(PAboutApp.appName) muốn truy cập vào máy ảnh") :
+            LANGTEXT(key:"Ứng dụng \(PAboutApp.appName) muốn truy cập vào hình ảnh")
+        let settingTitle = type == .camera ? LANGTEXT(key:"Cài đặt") : LANGTEXT(key:"Cài đặt")
         let alertActionController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let settingAction = UIAlertAction(title: settingTitle, style: .default) { (action) in

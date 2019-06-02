@@ -100,6 +100,18 @@ extension AppMessagesManager {
 		successSwiftMessage.show(config: config, view: successView)
 	}
     
+    func showToastView(_ message: String) {
+        var config = sharedConfig
+        let view = MessageView.viewFromNib(layout: .cardView)
+        view.configureTheme(.success)
+        view.button?.isHidden = true
+        view.iconImageView?.isHidden = true
+        view.configureContent(title: "", body: message)
+        view.configureDropShadow()
+        config.duration = .seconds(seconds: 3)
+        commonMessageInstant.show(config: config, view: view)
+    }
+    
     func showWelcomeView() {
         var config = sharedConfig
         config.presentationStyle = .center
@@ -165,6 +177,9 @@ extension AppMessagesManager {
     func showBookOnWayView(_ bookModel: PBookModel) {
         var config = sharedConfig
         config.presentationStyle = .center
+        if let topView = UIApplication.topVC()?.view {
+            config.presentationContext = .view(topView)
+        }
         config.interactiveHide = false
         config.dimMode = .none
         let view: BookOnWayView = try! SwiftMessages.viewFromNib()

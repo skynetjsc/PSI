@@ -60,8 +60,8 @@ class BookOnWayView: UIView {
         chatButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                guard let self = self, let viewModel = self.viewModel else { return }
-                
+                guard let self = self else { return }
+                self.showChatVC()
             })
             .disposed(by: disposeBag)
     }
@@ -118,6 +118,18 @@ class BookOnWayView: UIView {
                 }
             })
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: Navigation
+extension BookOnWayView {
+    
+    func showChatVC() {
+        guard let viewModel = self.viewModel else { return }
+        //SwiftMessages.hide()
+        let chatVC = ChatVC(viewModel.bookModel.user?.id ?? 0, viewModel.bookModel.tech?.id ?? 0)
+        chatVC.hidesBottomBarWhenPushed = true
+        UIApplication.topVC()?.navigationController?.pushViewController(chatVC, animated: true)
     }
 }
 

@@ -57,6 +57,7 @@ extension LeftMenuVC {
         nameButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
+                // Hide left menu prevent crash for next show
                 self?.showProfile()
             })
             .disposed(by: disposeBag)
@@ -71,7 +72,7 @@ extension LeftMenuVC {
         walletButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                _ = EZAlertController.alert(PAboutApp.appName, message: "Tính năng đang trong quá trình phát triển, vui lòng trở lại sau!".localized())
             })
             .disposed(by: disposeBag)
         
@@ -85,7 +86,7 @@ extension LeftMenuVC {
         scheduleButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                self?.showPeriodService()
             })
             .disposed(by: disposeBag)
         
@@ -99,28 +100,33 @@ extension LeftMenuVC {
         scheduleMeetButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                self?.showPeriodService()
             })
             .disposed(by: disposeBag)
         
         notificationButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                self?.showCouponList()
             })
             .disposed(by: disposeBag)
         
         reportButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                self?.showFeedbackList()
             })
             .disposed(by: disposeBag)
         
         supportButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
-                self?.showMainHome()
+                //self?.showConversation()
+                if let url = URL(string: "tel://\(19001000)"), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler:nil)
+                } else {
+                    _ = EZAlertController.alert(PAboutApp.appName, message: "Không hỗ trợ việc gọi điện trên thiết bị này")
+                }
             })
             .disposed(by: disposeBag)
         
@@ -157,6 +163,26 @@ extension LeftMenuVC {
     func showServiceHistory() {
         let serviceHistoryVC = ServiceHistoryVC()
         navigationController?.pushViewController(serviceHistoryVC, animated: true)
+    }
+    
+    func showPeriodService() {
+        let periodServiceVC = PeriodServiceVC()
+        navigationController?.pushViewController(periodServiceVC, animated: true)
+    }
+    
+    func showCouponList() {
+        let couponListVC = CouponListVC()
+        navigationController?.pushViewController(couponListVC, animated: true)
+    }
+    
+    func showFeedbackList() {
+        let feedbackList = FeedbackListVC()
+        navigationController?.pushViewController(feedbackList, animated: true)
+    }
+    
+    func showConversation() {
+        let conversationVC = ConversationVC()
+        navigationController?.pushViewController(conversationVC, animated: true)
     }
 }
 

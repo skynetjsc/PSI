@@ -146,6 +146,17 @@ enum RepeatType: Int {
             return "Lặp lại 3 tháng/lần".localized()
         }
     }
+    
+    var scheduleName: String {
+        switch self {
+        case .none, .day:
+            return "Hàng ngày".localized()
+        case .week:
+            return "Hàng tuần".localized()
+        case .month:
+            return "Hàng tháng".localized()
+        }
+    }
 }
 
 
@@ -188,7 +199,7 @@ enum BookActiveType: Int {
         case .doing:
             return UIColor(hexString: "00C464")
         case .completed:
-            return UIColor(hexString: "FF1313")
+            return UIColor(hexString: "00C464")
         case .userCanceled, .techCanceled, .systemCanceled:
             return UIColor(hexString: "FF1313")
         }

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CouponDetailVC" customModule="PowerSteamUser" customModuleProvider="target">
+            <connections>
+                <outlet property="codeLabel" destination="BNE-Dc-riF" id="AdJ-AK-yca"/>
+                <outlet property="contentLabel" destination="TEg-OB-8vi" id="XKG-IH-Sm4"/>
+                <outlet property="copyButton" destination="b6J-gF-aGi" id="8kS-hz-0VA"/>
+                <outlet property="navigationBar" destination="ZSo-2K-nFH" id="ptO-Pu-5Ky"/>
+                <outlet property="timeLabel" destination="mgq-uH-KeA" id="LD1-We-tNF"/>
+                <outlet property="titleLabel" destination="mlL-i5-OPN" id="er6-Ea-Thf"/>
+                <outlet property="view" destination="ptw-2i-pvl" id="sFQ-UY-28P"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ptw-2i-pvl">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSo-2K-nFH" customClass="NavigationView" customModule="PowerSteamUser" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="750" constant="64" id="tKz-z5-hiO"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r60-RV-5c0">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfo-9I-lOY" userLabel="Contain View">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xng-s6-R9A">
+                                    <rect key="frame" x="20" y="10" width="335" height="337"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Khuyến mại" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLA-z8-1m5">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="sUe-FA-1sO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="30"/>
+                                            <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tặng 50,000đ khi sử dụng mã may mắn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlL-i5-OPN">
+                                            <rect key="frame" x="0.0" y="45" width="335" height="19.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="250" constant="60" id="7Aa-HS-Y3J"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="14"/>
+                                            <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHs-vO-5oQ" userLabel="Code View">
+                                            <rect key="frame" x="0.0" y="74.5" width="335" height="70"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAYMAN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNE-Dc-riF">
+                                                    <rect key="frame" x="67.5" y="10" width="200" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="GNo-Qb-4Yz"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="KJs-nG-jhw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="26"/>
+                                                    <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.3921568627" alpha="1" colorSpace="deviceRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border-button" translatesAutoresizingMaskIntoConstraints="NO" id="IPM-PJ-QxD">
+                                                    <rect key="frame" x="67.5" y="10" width="200" height="50"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6J-gF-aGi">
+                                                    <rect key="frame" x="67.5" y="10" width="200" height="50"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IPM-PJ-QxD" firstAttribute="top" secondItem="BNE-Dc-riF" secondAttribute="top" id="4KW-qT-6En"/>
+                                                <constraint firstItem="IPM-PJ-QxD" firstAttribute="trailing" secondItem="BNE-Dc-riF" secondAttribute="trailing" id="6eu-Mh-DL0"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="bottom" secondItem="b6J-gF-aGi" secondAttribute="bottom" id="9qv-9H-7Ic"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="trailing" secondItem="b6J-gF-aGi" secondAttribute="trailing" id="DBp-Jf-XhI"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kHs-vO-5oQ" secondAttribute="leading" constant="10" id="EUB-aa-qBV"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="top" secondItem="b6J-gF-aGi" secondAttribute="top" id="EmR-68-Fx9"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="top" secondItem="kHs-vO-5oQ" secondAttribute="top" constant="10" id="Lcx-Oe-HlP"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="leading" secondItem="b6J-gF-aGi" secondAttribute="leading" id="QL7-Nv-nRe"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="centerX" secondItem="kHs-vO-5oQ" secondAttribute="centerX" id="VVg-uV-0MJ"/>
+                                                <constraint firstItem="BNE-Dc-riF" firstAttribute="centerY" secondItem="kHs-vO-5oQ" secondAttribute="centerY" id="iX2-a6-z5R"/>
+                                                <constraint firstItem="IPM-PJ-QxD" firstAttribute="bottom" secondItem="BNE-Dc-riF" secondAttribute="bottom" id="kdj-0n-La9"/>
+                                                <constraint firstItem="IPM-PJ-QxD" firstAttribute="leading" secondItem="BNE-Dc-riF" secondAttribute="leading" id="mya-UK-9Ed"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEg-OB-8vi">
+                                            <rect key="frame" x="0.0" y="154.5" width="335" height="153"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="250" constant="60" id="EfH-ee-Ia1"/>
+                                            </constraints>
+                                            <string key="text">Với mong muốn thêm những trải nghiệm thú vị cho khách hàng, từ ngày 20/11/2018 tới ngày 30/11/2018, PSI tặng bạn 50,000đ cùng mã giảm giá "MAYMAN" và "VUIVE" với các mức giảm tương ứng 40% và 20% cho khách hàng khi nạp tiền vào tài khoản qua ví PSI Pay. Thanh toán bằng PSI Pay khi sử dụng dịch vụ rửa xe  với tất cả các gói tại Hồ Chí Minh &amp; Hà Nội.</string>
+                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                            <color key="textColor" red="0.28627450980392155" green="0.28627450980392155" blue="0.28627450980392155" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22/11/2018" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgq-uH-KeA">
+                                            <rect key="frame" x="0.0" y="317.5" width="335" height="19.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="250" constant="60" id="MC4-sS-lTu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito SemiBold" pointSize="14"/>
+                                            <color key="textColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Xng-s6-R9A" secondAttribute="trailing" constant="20" id="G0Z-QY-F2V"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xng-s6-R9A" secondAttribute="bottom" id="Jcg-Bf-a5Y"/>
+                                <constraint firstItem="Xng-s6-R9A" firstAttribute="leading" secondItem="vfo-9I-lOY" secondAttribute="leading" constant="20" id="TMC-gG-nhn"/>
+                                <constraint firstItem="Xng-s6-R9A" firstAttribute="top" secondItem="vfo-9I-lOY" secondAttribute="top" constant="10" id="jDX-Gf-QGc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="vfo-9I-lOY" firstAttribute="leading" secondItem="r60-RV-5c0" secondAttribute="leading" id="74Q-Rr-BXT"/>
+                        <constraint firstAttribute="trailing" secondItem="vfo-9I-lOY" secondAttribute="trailing" id="E0u-pm-y33"/>
+                        <constraint firstItem="vfo-9I-lOY" firstAttribute="centerX" secondItem="r60-RV-5c0" secondAttribute="centerX" id="ZRs-lZ-Mkx"/>
+                        <constraint firstItem="vfo-9I-lOY" firstAttribute="height" secondItem="r60-RV-5c0" secondAttribute="height" priority="250" id="aXO-p0-dhk"/>
+                        <constraint firstAttribute="bottom" secondItem="vfo-9I-lOY" secondAttribute="bottom" id="i3P-ed-0la"/>
+                        <constraint firstItem="vfo-9I-lOY" firstAttribute="top" secondItem="r60-RV-5c0" secondAttribute="top" id="vwo-Tr-EMp"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="r60-RV-5c0" secondAttribute="trailing" id="1vS-oh-zGG"/>
+                <constraint firstItem="r60-RV-5c0" firstAttribute="leading" secondItem="ptw-2i-pvl" secondAttribute="leading" id="3O3-4e-anb"/>
+                <constraint firstItem="ZSo-2K-nFH" firstAttribute="leading" secondItem="ptw-2i-pvl" secondAttribute="leading" id="Fc7-eo-P2a"/>
+                <constraint firstAttribute="bottom" secondItem="r60-RV-5c0" secondAttribute="bottom" id="HyY-xD-cIV"/>
+                <constraint firstItem="r60-RV-5c0" firstAttribute="top" secondItem="ZSo-2K-nFH" secondAttribute="bottom" id="Qvx-MP-IMO"/>
+                <constraint firstItem="ZSo-2K-nFH" firstAttribute="top" secondItem="ptw-2i-pvl" secondAttribute="top" priority="750" id="Yqf-d5-Ayh"/>
+                <constraint firstAttribute="trailing" secondItem="ZSo-2K-nFH" secondAttribute="trailing" id="sHb-bp-elr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="RNr-rG-Xko"/>
+            <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="border-button" width="169" height="38"/>
+    </resources>
+</document>

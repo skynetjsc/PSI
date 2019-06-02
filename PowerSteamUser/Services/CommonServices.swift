@@ -62,6 +62,10 @@ class CommonServices {
 //    }
 //
     
+    /// get terms agreement
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
     func getTermsAgreement(agreementType: AgreementType) -> Observable<PTermsAgreementModel> {
         //RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
         var endpoint = ""
@@ -89,6 +93,10 @@ class CommonServices {
             .share(replay: 1)
     }
     
+    /// add car
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
     func addCar(params: [String : Any]) -> Observable<String> {
         return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.addCar, parameters: params)
             .observeOn(MainScheduler.instance)
@@ -108,4 +116,149 @@ class CommonServices {
             .share(replay: 1)
     }
     
+    /// get promotion list
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func getPromotionList(params: [String: Any]) -> Observable<[PPromotionModel]> {
+        //RxAlamofireClient.shared.headers["token"] = userDefaults.string(forKey: kAccessToken) ?? ""
+        
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.promotion, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> [PPromotionModel] in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["data"].arrayValue.map { PPromotionModel(json: $0) }
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
+    /// get promotion detail
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func getPromotionDetail(params: [String: Any]) -> Observable<PPromotionModel> {
+        //RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.promotionDetail, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> PPromotionModel in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess && json["data"].dictionary != nil {
+                        return PPromotionModel(json: json["data"])
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
+    /// get feedback list
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func getFeedbackList(params: [String: Any]) -> Observable<[PFeedbackModel]> {
+        //RxAlamofireClient.shared.headers["token"] = userDefaults.string(forKey: kAccessToken) ?? ""
+        
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.listFeedback, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> [PFeedbackModel] in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["data"].arrayValue.map { PFeedbackModel(json: $0) }
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
+    /// get feedback detail
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func getFeedbackDetail(params: [String: Any]) -> Observable<PFeedbackModel> {
+        //RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
+        
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.feedbackDetail, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> PFeedbackModel in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess && json["data"].dictionary != nil {
+                        return PFeedbackModel(json: json["data"])
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
+    /// send new feedback
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func sendFeedback(params: [String: Any]) -> Observable<String> {
+        //RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
+        
+        return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.sendFeedback, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> String in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["message"].stringValue
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
+    /// send new feedback
+    ///
+    /// - Returns: Observable object
+    func sendFeedback(params: [String : Any]?, filesData: [(key: String, value: Data, fileName: String, mimeType: String)]) -> Observable<String> {
+        return RxAlamofireClient.shared.upload(endpoint: EndpointAPI.sendFeedback, parameters: params, filesData: filesData)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> String in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["message"].stringValue
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
 }

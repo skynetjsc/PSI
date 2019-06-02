@@ -105,7 +105,7 @@ extension HomeVC {
         notificationButton.rx.tap.asDriver()
             .throttle(1)
             .drive(onNext: { [weak self] in
-                
+                self?.showCouponList()
             })
             .disposed(by: disposeBag)
     }
@@ -127,6 +127,7 @@ extension HomeVC {
     }
     
     private func initData() {
+        SocketIOManager.shared.establishConnection()
         viewModel.addressStr.asDriver().drive(self.placeLabel.rx.text).disposed(by: disposeBag)
     }
     
@@ -230,6 +231,12 @@ extension HomeVC {
     func showAgreementVC() {
         let agreementVC = AgreementVC()
         navigationController?.pushViewController(agreementVC, animated: true)
+    }
+    
+    func showCouponList() {
+        let couponListVC = CouponListVC()
+        couponListVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(couponListVC, animated: true)
     }
 }
 

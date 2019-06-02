@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Light.ttf">
+            <string>Nunito-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CouponCell" rowHeight="90" id="EAt-PH-cNX" customClass="CouponCell" customModule="PowerSteamUser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="122"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EAt-PH-cNX" id="zcL-hi-YPe">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="121.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2H-BJ-PxF" userLabel="Container View" customClass="PView" customModule="PowerSteamUser" customModuleProvider="target">
+                        <rect key="frame" x="20" y="10" width="335" height="99"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="14 tháng 11/ 2018, 05:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiP-fZ-Yy7">
+                                <rect key="frame" x="10" y="15" width="185" height="20"/>
+                                <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="14"/>
+                                <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUi-Nh-6Bu">
+                                <rect key="frame" x="10" y="40" width="315" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                <color key="textColor" red="0.098039215686274508" green="0.21176470588235294" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZi-5m-X3R" customClass="PView" customModule="PowerSteamUser" customModuleProvider="target">
+                                <rect key="frame" x="313" y="5" width="12" height="12"/>
+                                <color key="backgroundColor" red="0.22352941179999999" green="0.70980392160000005" blue="0.2901960784" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="1mp-8b-yM3"/>
+                                    <constraint firstAttribute="width" secondItem="VZi-5m-X3R" secondAttribute="height" multiplier="1:1" id="SWr-uE-C9E"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="cornerCircle" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Sử dụng mã khuyến mại THU2 để..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-1S-7hd">
+                                <rect key="frame" x="10" y="64.5" width="315" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="14"/>
+                                <color key="textColor" red="0.098039215690000001" green="0.21176470589999999" blue="0.15686274510000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Xem" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3v-9p-eVb">
+                                <rect key="frame" x="300.5" y="80.5" width="24.5" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Light" family="Nunito Light" pointSize="12"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VZi-5m-X3R" secondAttribute="trailing" constant="10" id="1Nk-Mk-KNm"/>
+                            <constraint firstItem="c6d-1S-7hd" firstAttribute="top" secondItem="gUi-Nh-6Bu" secondAttribute="bottom" constant="5" id="3Ls-OZ-PaY"/>
+                            <constraint firstItem="gUi-Nh-6Bu" firstAttribute="top" secondItem="fiP-fZ-Yy7" secondAttribute="bottom" constant="5" id="Hc5-X2-0Ra"/>
+                            <constraint firstItem="fiP-fZ-Yy7" firstAttribute="top" secondItem="i2H-BJ-PxF" secondAttribute="top" constant="15" id="SWb-3c-gMs"/>
+                            <constraint firstAttribute="bottom" secondItem="c6d-1S-7hd" secondAttribute="bottom" constant="15" id="XSe-rf-bbK"/>
+                            <constraint firstItem="VZi-5m-X3R" firstAttribute="top" secondItem="i2H-BJ-PxF" secondAttribute="top" constant="5" id="ac6-Dc-0gW"/>
+                            <constraint firstAttribute="bottom" secondItem="D3v-9p-eVb" secondAttribute="bottom" constant="2" id="b5d-zs-pSh"/>
+                            <constraint firstAttribute="trailing" secondItem="D3v-9p-eVb" secondAttribute="trailing" constant="10" id="cEa-n8-1AY"/>
+                            <constraint firstItem="c6d-1S-7hd" firstAttribute="leading" secondItem="gUi-Nh-6Bu" secondAttribute="leading" id="gP0-tN-kgI"/>
+                            <constraint firstItem="fiP-fZ-Yy7" firstAttribute="leading" secondItem="i2H-BJ-PxF" secondAttribute="leading" constant="10" id="jso-cd-qc2"/>
+                            <constraint firstItem="gUi-Nh-6Bu" firstAttribute="leading" secondItem="fiP-fZ-Yy7" secondAttribute="leading" id="rSk-aM-9tX"/>
+                            <constraint firstAttribute="trailing" secondItem="gUi-Nh-6Bu" secondAttribute="trailing" constant="10" id="xYO-6n-CXb"/>
+                            <constraint firstItem="c6d-1S-7hd" firstAttribute="trailing" secondItem="gUi-Nh-6Bu" secondAttribute="trailing" id="xiM-bo-yD7"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="i2H-BJ-PxF" firstAttribute="leading" secondItem="zcL-hi-YPe" secondAttribute="leading" constant="20" id="88r-YI-TiT"/>
+                    <constraint firstItem="i2H-BJ-PxF" firstAttribute="top" secondItem="zcL-hi-YPe" secondAttribute="top" constant="10" id="PY2-lY-Y4s"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="i2H-BJ-PxF" secondAttribute="bottom" constant="10" id="SGO-im-zdX"/>
+                    <constraint firstAttribute="trailing" secondItem="i2H-BJ-PxF" secondAttribute="trailing" constant="20" id="WAW-wz-Ui0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="FBE-1e-WcU"/>
+            <connections>
+                <outlet property="containerView" destination="i2H-BJ-PxF" id="iI3-MK-LRN"/>
+                <outlet property="contentLabel" destination="c6d-1S-7hd" id="D3A-Uh-kKe"/>
+                <outlet property="statusView" destination="VZi-5m-X3R" id="Jok-6Q-vz7"/>
+                <outlet property="timeLabel" destination="fiP-fZ-Yy7" id="ILo-9m-64W"/>
+                <outlet property="titleLabel" destination="gUi-Nh-6Bu" id="oLB-Dj-wYw"/>
+            </connections>
+            <point key="canvasLocation" x="132.60869565217394" y="117.1875"/>
+        </tableViewCell>
+    </objects>
+</document>

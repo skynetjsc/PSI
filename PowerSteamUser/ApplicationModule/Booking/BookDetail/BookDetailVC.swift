@@ -70,7 +70,7 @@ extension BookDetailVC {
             .throttle(1)
             .drive(onNext: { [weak self] in
                 if let `self` = self {
-                    
+                    self.showNewFeedback()
                 }
             })
             .disposed(by: disposeBag)
@@ -148,21 +148,27 @@ extension BookDetailVC {
                 self?.noteView.isHidden = isHiddenImages
             })
             .disposed(by: disposeBag)
-        viewModel.imageLinks.asDriver()
+        viewModel.images.asDriver()
             .drive(onNext: { [weak self] list in
                 guard let self = self else { return }
-                for item in list {
+                for (index, item) in list.enumerated() {
                     let buttonImage = PButton(frame: CGRect(x: 0, y: 0, width: 68, height: 60))
                     buttonImage.setImage(#imageLiteral(resourceName: "photo-border"), for: .normal)
-                    if let url = URL(string: item.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) {
+                    buttonImage.contentMode = .scaleAspectFill
+                    buttonImage.cornerRadius = 6.0
+                    if let url = URL(string: item.image.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) {
                         buttonImage.kf.setImage(with: url, for: .normal, placeholder: #imageLiteral(resourceName: "photo-border"), options: nil, progressBlock: nil, completionHandler: nil)
                     }
                     self.imagesStackView.addArrangedSubview(buttonImage)
+                    buttonImage.snp.makeConstraints({ (make) in
+                        make.width.equalTo(68.0)
+                        make.height.equalTo(60.0)
+                    })
                     buttonImage.rx.tap.asDriver()
                         .throttle(1)
                         .drive(onNext: { [weak self] in
                             if let `self` = self {
-                                
+                                self.showSlideImages(index)
                             }
                         })
                         .disposed(by: self.viewModel.disposeBag)
@@ -177,13 +183,14 @@ extension BookDetailVC {
 extension BookDetailVC {
     
     func showSlideImages(_ index: Int) {
-        let images = self.viewModel.imageLinks.value.map { (imageUrl) -> PImageModel in
-            let imageModel = PImageModel()
-            imageModel.image = imageUrl
-            imageModel.type = "1"
-            return imageModel
-        }
-        let slideShowVC = PSlideShowVC(listImages: images, currentIndex: index)
+        let slideShowVC = PSlideShowVC(listImages: self.viewModel.images.value, currentIndex: index)
         self.present(slideShowVC, animated: true, completion: nil)
     }
+    
+    func showNewFeedback() {
+        let newFeedbackVC = NewFeedbackVC()
+        navigationController?.pushViewController(newFeedbackVC, animated: true)
+    }
 }
+
+

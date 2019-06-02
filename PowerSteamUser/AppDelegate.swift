@@ -63,6 +63,9 @@ extension AppDelegate {
     func setupInit() {
         // Keyboard
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses = [ChatVC.self]
+        IQKeyboardManager.shared.disabledToolbarClasses = [ChatVC.self]
+        
         _ = RxAlamofireClient.shared
         
         // Slidemenu

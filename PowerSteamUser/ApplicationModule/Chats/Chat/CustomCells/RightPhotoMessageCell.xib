@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RightPhotoMessageCell" rowHeight="165" id="Ube-4V-A0U" customClass="RightPhotoMessageCell" customModule="LianChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ube-4V-A0U" id="dYh-QR-9uj">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="164.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IM9-7W-xl2" userLabel="Container View">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="164.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="rWx-LS-Iy3">
+                                <rect key="frame" x="10" y="42.5" width="350" height="120"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sy-Dd-Tlt" customClass="FView" customModule="LianChat" customModuleProvider="target">
+                                        <rect key="frame" x="183.5" y="0.0" width="166.5" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Uq-4t-fJn">
+                                                <rect key="frame" x="0.0" y="0.0" width="166.5" height="100"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qXU-bb-3Fk" customClass="PImageView" customModule="LianChat" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="166.5" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="4CH-ca-rOi"/>
+                                                    <constraint firstAttribute="width" secondItem="qXU-bb-3Fk" secondAttribute="height" multiplier="5:3" id="gKD-rO-8Pn"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4Uq-4t-fJn" secondAttribute="trailing" id="2JE-97-peb"/>
+                                            <constraint firstItem="qXU-bb-3Fk" firstAttribute="leading" secondItem="1sy-Dd-Tlt" secondAttribute="leading" id="2Uk-hb-6Ck"/>
+                                            <constraint firstAttribute="bottom" secondItem="qXU-bb-3Fk" secondAttribute="bottom" id="7CA-2y-hKQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="4Uq-4t-fJn" secondAttribute="bottom" id="IBX-lH-vmP"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="Kfh-Ig-NvY"/>
+                                            <constraint firstItem="4Uq-4t-fJn" firstAttribute="top" secondItem="1sy-Dd-Tlt" secondAttribute="top" id="WBc-vR-jno"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ZQF-ds-g0f"/>
+                                            <constraint firstItem="qXU-bb-3Fk" firstAttribute="top" secondItem="1sy-Dd-Tlt" secondAttribute="top" id="dTO-mD-g4V"/>
+                                            <constraint firstItem="4Uq-4t-fJn" firstAttribute="leading" secondItem="1sy-Dd-Tlt" secondAttribute="leading" id="kqa-11-M0Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="qXU-bb-3Fk" secondAttribute="trailing" id="zZ6-FD-6fd"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đã đọc 1:14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zb-Nd-MmA">
+                                        <rect key="frame" x="288.5" y="100" width="61.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="FLW-db-kzE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="11"/>
+                                        <color key="textColor" red="0.52156862749999999" green="0.5568627451" blue="0.59999999999999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1sy-Dd-Tlt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rWx-LS-Iy3" secondAttribute="leading" constant="70" id="Xk9-MX-qKm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="rWx-LS-Iy3" firstAttribute="leading" secondItem="IM9-7W-xl2" secondAttribute="leading" constant="10" id="1z8-Aa-MnI"/>
+                            <constraint firstItem="rWx-LS-Iy3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IM9-7W-xl2" secondAttribute="top" constant="10" id="KNY-cc-iVv"/>
+                            <constraint firstAttribute="bottom" secondItem="rWx-LS-Iy3" secondAttribute="bottom" constant="2" id="eFz-t7-xrB"/>
+                            <constraint firstAttribute="trailing" secondItem="rWx-LS-Iy3" secondAttribute="trailing" constant="15" id="uG2-az-FHc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="IM9-7W-xl2" secondAttribute="bottom" id="fZ2-wH-GZa"/>
+                    <constraint firstItem="IM9-7W-xl2" firstAttribute="leading" secondItem="dYh-QR-9uj" secondAttribute="leading" id="gzP-Ep-imd"/>
+                    <constraint firstAttribute="trailing" secondItem="IM9-7W-xl2" secondAttribute="trailing" id="loI-pT-vB0"/>
+                    <constraint firstItem="IM9-7W-xl2" firstAttribute="top" secondItem="dYh-QR-9uj" secondAttribute="top" id="v1g-1Z-Ydn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="feA-mQ-2tw"/>
+            <connections>
+                <outlet property="bgImage" destination="4Uq-4t-fJn" id="Gyl-U4-iTS"/>
+                <outlet property="containerView" destination="IM9-7W-xl2" id="isk-b2-vhM"/>
+                <outlet property="imageview" destination="qXU-bb-3Fk" id="jzx-iX-DfP"/>
+                <outlet property="timeLabel" destination="0zb-Nd-MmA" id="Xqd-RI-x4D"/>
+            </connections>
+            <point key="canvasLocation" x="28" y="76.011994002998506"/>
+        </tableViewCell>
+    </objects>
+</document>

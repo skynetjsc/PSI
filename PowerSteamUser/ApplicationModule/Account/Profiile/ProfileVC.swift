@@ -23,6 +23,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var paymentLabel: UILabel!
     @IBOutlet weak var notiLabel: UILabel!
+    @IBOutlet weak var notiButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     
     // MARK: - Outlet
@@ -45,7 +46,12 @@ extension ProfileVC {
     private func initComponent() {
         viewModel = ProfileVM()
         navigationBar.customBackAction = { [weak self] in
-            self?.tabBarController?.selectedIndex = 0
+            guard let self = self else { return }
+            if let navi = self.navigationController, navi.viewControllers.count > 1 {
+                navi.popViewController(animated: true)
+            } else {
+                self.tabBarController?.selectedIndex = 0
+            }
         }
         tapAction()
     }
@@ -64,6 +70,14 @@ extension ProfileVC {
                         }
                     }
                 })
+            })
+            .disposed(by: disposeBag)
+        
+        notiButton.rx.tap.asDriver()
+            .throttle(1.0)
+            .drive(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.showMoreNotification()
             })
             .disposed(by: disposeBag)
     }
@@ -93,7 +107,11 @@ extension ProfileVC {
 
 extension ProfileVC {
     
-    
+    func showMoreNotification() {
+        let moreNotificationVC = MoreNotificationVC()
+        moreNotificationVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(moreNotificationVC, animated: true)
+    }
 }
 
 

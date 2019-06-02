@@ -43,6 +43,17 @@ extension AddCouponVC {
     }
     
     private func initData() {
+        couponField.rx.controlEvent([.editingDidBegin])
+            .asObservable()
+            .subscribe(onNext: { _ in
+                //print("editing state changed")
+                if let code = UIPasteboard.general.string {
+                    self.couponField.insertText(code)
+                }
+            })
+            .disposed(by: disposeBag)
+
+        
         confirmButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in

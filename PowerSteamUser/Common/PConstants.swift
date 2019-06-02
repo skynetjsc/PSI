@@ -72,8 +72,8 @@ public let kGoogleClientID = "546838806559-rksv6ce356f16vne35kh2c5h2pg6a5li.apps
 public let kGoogleReversedClientID = "com.googleusercontent.apps.508795560004-2uj4po300c8a8v75o0s3b7dpobva0mgn"
 
 // MARK: Google Place
-public let kPlacesAPIKey = "AIzaSyDNaxV6tecldXTshO0Gf2ZbcMbLhh_Uk0k"
-public let kGoogleMapKey = "AIzaSyDx8bQbQ9zE7Wn8X864XeOJ9Fss_YSDNWQ"
+public let kPlacesAPIKey = "AIzaSyD89SAwZAK3SuiyF9jfckdN0OKuQOop0x8"
+public let kGoogleMapKey = "AIzaSyD89SAwZAK3SuiyF9jfckdN0OKuQOop0x8"
 public let kPlacesSearchAPIKey = "AIzaSyDNaxV6tecldXTshO0Gf2ZbcMbLhh_Uk0k"
 public let GoogleNearBySearchUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 

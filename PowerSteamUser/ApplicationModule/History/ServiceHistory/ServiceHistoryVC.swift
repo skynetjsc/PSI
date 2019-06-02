@@ -51,7 +51,12 @@ extension ServiceHistoryVC {
     private func initComponent() {
         viewModel = ServiceHistoryVM()
         navigationBar.customBackAction = { [weak self] in
-            self?.tabBarController?.selectedIndex = 0
+            guard let self = self else { return }
+            if let navi = self.navigationController, navi.viewControllers.count > 1 {
+                navi.popViewController(animated: true)
+            } else {
+                self.tabBarController?.selectedIndex = 0
+            }
         }
         
         // setup tableview
@@ -63,9 +68,11 @@ extension ServiceHistoryVC {
         // indicator view
         viewModel.shouldShowIndicatorView.asDriver()
             .drive(onNext: { [weak self] (isShow) in
-                self?.tableView.alpha = 1.0
                 self?.tableView.showIndicatorView(isShow: isShow)
                 self?.tableView.cr.endHeaderRefresh()
+                UIView.animate(withDuration: 0.3, animations: {
+                    self?.tableView.alpha = 1.0
+                })
             })
             .disposed(by: disposeBag)
         
@@ -73,6 +80,13 @@ extension ServiceHistoryVC {
         tableView.cr.addHeadRefresh(animator: CRHeaderRefresh()) { [weak self] in
             self?.viewModel.getServiceHistory()
         }
+        
+        notificationButton.rx.tap.asDriver()
+            .throttle(1)
+            .drive(onNext: { [weak self] in
+                self?.showCouponList()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func initData() {
@@ -114,8 +128,6 @@ extension ServiceHistoryVC {
             .disposed(by: disposeBag)
         
     }
-    
-    
 }
 
 // MARK: - Navigation
@@ -132,6 +144,12 @@ extension ServiceHistoryVC {
         let bookDetailVC = BookDetailVC(bookModel.bookingID)
         bookDetailVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(bookDetailVC, animated: true)
+    }
+    
+    func showCouponList() {
+        let couponListVC = CouponListVC()
+        couponListVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(couponListVC, animated: true)
     }
 }
 

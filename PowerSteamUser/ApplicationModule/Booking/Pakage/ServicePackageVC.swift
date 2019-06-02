@@ -99,7 +99,7 @@ extension ServicePackageVC {
                 if let `self` = self {
                     self.showDatePicker(title: "Thời gian giao hàng".localized(), initialDate: Date(), minDate: Date(), maxDate: nil, mode: .time, onDone: { [weak self] (date) in
                         guard let self = self else { return }
-                        self.viewModel.hourWorking.accept(date.toFormat("HH:mm"))
+                        self.viewModel.hourWorking.accept(date.convertTo(region: PDefined.serverRegion).toFormat("HH:mm"))
                     }, onCancel: {
                         // write code here
                     })
@@ -113,7 +113,7 @@ extension ServicePackageVC {
                 if let `self` = self {
                     self.showDatePicker(title: "Chọn lịch dự tính".localized(), initialDate: Date(), minDate: Date(), maxDate: nil, mode: .date, onDone: { [weak self] (date) in
                         guard let self = self else { return }
-                        self.viewModel.dateWorking.accept(date)
+                        self.viewModel.dateWorking.accept(date.convertTo(region: PDefined.serverRegion).date)
                         }, onCancel: {
                             // write code here
                     })

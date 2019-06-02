@@ -15,6 +15,7 @@ class PBookModel {
     @objc dynamic var lat: Double = 0
     @objc dynamic var lng: Double = 0
     @objc dynamic var tech: PUserModel?
+    @objc dynamic var user: PUserModel?
     var listTechs = [PUserModel]()
     // active - 1: chưa ghép, 2: đã ghép, 3: đang thực hiện, 4: hoàn thành, 5: khách hàng huỷ, 6: kỹ thuật huỷ, 7: hệ thống hủy
     @objc dynamic var active: Int = 1
@@ -25,7 +26,7 @@ class PBookModel {
     @objc dynamic var hourWorking: String = ""  // 07:48
     @objc dynamic var id: String = ""
     @objc dynamic var idPromotion: Int = 0
-    var listImage: [String] = []
+    var listImage = [PImageModel]()
     @objc dynamic var locationId: Int = 0
     @objc dynamic var methodPayment: Int = 0
     @objc dynamic var note: String = ""
@@ -37,6 +38,7 @@ class PBookModel {
     @objc dynamic var serviceName: String = ""
     @objc dynamic var techId: Int = 0
     @objc dynamic var timeWorking: String = ""
+    @objc dynamic var dayString: String = ""
     @objc dynamic var typeBike: Int = 0
     @objc dynamic var userId: Int = 0
     @objc dynamic var userName: String = ""
@@ -62,6 +64,9 @@ class PBookModel {
         if json["tech"].exists() {
             tech = PUserModel(json: json["tech"])
         }
+        if json["user"].exists() {
+            user = PUserModel(json: json["user"])
+        }
         active = Int(json["active"].stringValue) ?? 1
         address = json["address"].stringValue
         currency = Int(json["currency"].stringValue) ?? 1
@@ -70,8 +75,8 @@ class PBookModel {
         hourWorking = json["hour_working"].stringValue
         id = json["id"].stringValue
         idPromotion = Int(json["id_promotion"].stringValue) ?? 0
-        for listImageJson in json["list_image"].arrayValue {
-            listImage.append(listImageJson.stringValue)
+        for image in json["list_image"].arrayValue {
+            listImage.append(PImageModel(json: image))
         }
         locationId = Int(json["location_id"].stringValue) ?? 0
         methodPayment = Int(json["method_payment"].stringValue) ?? 0
@@ -84,6 +89,7 @@ class PBookModel {
         serviceName = json["service_name"].stringValue
         techId = Int(json["tech_id"].stringValue) ?? 0
         timeWorking = json["time_working"].stringValue
+        dayString = json["day_string"].stringValue
         typeBike = Int(json["type_bike"].stringValue) ?? 0
         userId = Int(json["user_id"].stringValue) ?? 0
         userName = json["user_name"].stringValue
@@ -103,5 +109,9 @@ class PBookModel {
     
     var vehicleType: VehicleType {
         return VehicleType(rawValue: self.typeBike) ?? .bike
+    }
+    
+    var repeatTypeEnum: RepeatType {
+        return RepeatType(rawValue: self.repeatType) ?? .none
     }
 }
