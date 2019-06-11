@@ -21,7 +21,12 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -31,12 +36,16 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Cho phép $(PRODUCT_NAME) sử dụng camera để chụp ảnh</string>
+	<key>NSCameraUsageDescription - 2</key>
+	<string>Sử dụng Camera để chụp ảnh</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Cho phép $(PRODUCT_NAME) sử dụng Contact để thêm bạn</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Xác định vị trí của bạn trên bản đồ</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Xác định vị trí của bạn trên bản đồ</string>
+	<key>NSLocationWhenInUseUsageDescription </key>
+	<string>Xác định vị trí của bạn</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Cho phép $(PRODUCT_NAME) sử dụng Microphone để ghi âm khi chat</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -58,6 +67,10 @@
 		<string>Nunito-Italic.ttf</string>
 		<string>Nunito-LightItalic.ttf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -76,11 +89,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>googlechromes</string>
-		<string>comgooglemaps</string>
 	</array>
 </dict>
 </plist>

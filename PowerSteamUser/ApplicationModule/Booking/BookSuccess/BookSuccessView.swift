@@ -53,6 +53,7 @@ class BookSuccessView: UIView {
                 guard let self = self, let viewModel = self.viewModel else { return }
                 viewModel.rating(completion: { (code, message) in
                     if code > 0 {
+                        NotificationCenter.default.post(name: NSNotification.Name(kRatingNotification), object: nil)
                         AppMessagesManager.shared.bookSuccessSwiftMessage.hide()
                         self.confirmCompletion?()
                     } else {

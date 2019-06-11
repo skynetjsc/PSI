@@ -123,9 +123,7 @@ extension PaymentVC: UITableViewDelegate {
         let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: PaymentFooterView.cellIdentifier) as? PaymentFooterView
         footerView?.addCardHandler = { [weak self] in
             guard let self = self else { return }
-            AppMessagesManager.shared.showBookingConfirm(confirmCompletion: {
-                // write code here
-            })
+            
         }
         
         return footerView

@@ -87,6 +87,13 @@ extension ServiceHistoryVC {
                 self?.showCouponList()
             })
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NSNotification.Name(kRatingNotification))
+            .asObservable()
+            .subscribe(onNext: { [weak self] (notification) in
+                self?.viewModel.getServiceHistory()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func initData() {

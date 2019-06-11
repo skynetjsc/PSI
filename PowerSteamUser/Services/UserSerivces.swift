@@ -202,14 +202,14 @@ class UserServices {
     ///
     /// - Returns: Observable object
     func postDevice(param: [String: Any]) -> Observable<[String: JSON]> {
-        RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
+        //RxAlamofireClient.shared.headers["accessToken"] = userDefaults.string(forKey: kAuthToken) ?? ""
         
         return RxAlamofireClient.shared.request(method: .post, endpoint: EndpointAPI.registerDevice, parameters: param)
             .observeOn(MainScheduler.instance)
             .map({ (data) -> [String: JSON] in
                 if let jsonFormat = data as? [String: Any] {
                     let json = JSON(jsonFormat)
-                    let result = json["code"].intValue
+                    let result = json["errorId"].intValue
                     if result == kCodeSuccess {
                         return json["data"].dictionaryValue
                     } else {

@@ -16,18 +16,20 @@ import CoreLocation
 class HomeVM {
     
     let disposeBag = DisposeBag()
-    var userServices = UserServices()
+    var commomServices = CommonServices()
     let nameStr = BehaviorRelay<String>(value: "")
     let phoneStr = BehaviorRelay<String>(value: "")
     let emailStr = BehaviorRelay<String>(value: "")
     let enableRegister = BehaviorRelay<Bool>(value: false)
+    let locationList = BehaviorRelay<[PLocationModel]>(value: [])
+    var selectedLocationID: Int = 0
     
     var currentLocation: CLLocation!
     var geoLocation: JSON!
     let addressStr = BehaviorRelay<String>(value: "")
     
     init() {
-        
+        getLocationList()
     }
     
     func getAddressFromLatLong(latitude: Double, longitude : Double) {
@@ -47,6 +49,16 @@ class HomeVM {
                 print(error)
             }
         }
+    }
+    
+    func getLocationList() {
+        commomServices.getLocationList(params: [:])
+            .asDriver(onErrorJustReturn: [])
+            .drive(onNext: { [weak self] (list) in
+                guard let `self` = self else { return }
+                self.locationList.accept(list)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

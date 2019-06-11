@@ -26,7 +26,7 @@ class EndpointAPI {
     static let forgetPassword       = baseURL + "forget_password.php"
     static let updateAvatar         = baseURL + "update_avatar.php"
     static let logout               = baseURL + "logout.php"
-    static let registerDevice       = baseURL + "user/register-device"
+    static let registerDevice       = baseURL + "update_token_ios.php"
     
     static let privacy              = baseURL + "privacy.php"
     static let term                 = baseURL + "term.php"
@@ -49,6 +49,7 @@ class EndpointAPI {
     static let sendFeedback         = baseURL + "feedback.php"
     static let listFeedback         = baseURL + "list_feedback.php"
     static let feedbackDetail       = baseURL + "feedback_detail.php"
+    static let location             = baseURL + "location.php"
     
     // Chat
     static let listChat             = baseURL + "list_chat.php"

@@ -50,7 +50,7 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g52-Qf-HAe" userLabel="Contain View">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="696.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="706.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yIT-Ts-Hel">
                                     <rect key="frame" x="20" y="10" width="335" height="686.5"/>
@@ -377,7 +377,7 @@
                                 <constraint firstAttribute="trailing" secondItem="yIT-Ts-Hel" secondAttribute="trailing" constant="20" id="3a6-5O-EqA"/>
                                 <constraint firstItem="yIT-Ts-Hel" firstAttribute="top" secondItem="g52-Qf-HAe" secondAttribute="top" constant="10" id="D1n-QW-qx3"/>
                                 <constraint firstItem="yIT-Ts-Hel" firstAttribute="leading" secondItem="g52-Qf-HAe" secondAttribute="leading" constant="20" id="MYG-2q-YJi"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yIT-Ts-Hel" secondAttribute="bottom" id="dvB-cT-gNt"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yIT-Ts-Hel" secondAttribute="bottom" constant="10" id="dvB-cT-gNt"/>
                             </constraints>
                         </view>
                     </subviews>

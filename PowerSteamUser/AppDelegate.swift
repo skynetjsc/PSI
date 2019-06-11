@@ -8,6 +8,7 @@
 
 import IQKeyboardManagerSwift
 import GoogleMaps
+import GooglePlaces
 import UIKit
 
 @UIApplicationMain
@@ -15,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        OneSignalSetup.shared.launchOptions = launchOptions
         setupInit()
         
         return true
@@ -44,6 +45,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+}
+
+// MARK: - Notification handle
+extension AppDelegate {
+    // Notification
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("APNs token retrieved: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        PAppManager.shared.handleSlientPushNotification(content: userInfo)
+        let state = UIApplication.shared.applicationState
+        switch state {
+        case .inactive:
+            if self.window?.rootViewController != nil {
+                PAppManager.shared.tapPushWhenBackgroudMode(userInfo)
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    PAppManager.shared.tapPushWhenBackgroudMode(userInfo)
+                }
+            }
+        default:
+            PAppManager.shared.handlePushNotification(content: userInfo)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
+            completionHandler(UIBackgroundFetchResult.newData)
+        }
     }
 }
 
@@ -74,7 +104,7 @@ extension AppDelegate {
         
         // Google
         GMSServices.provideAPIKey(kGoogleMapKey)
-        //GMSPlacesClient.provideAPIKey(kGoogleMapKey)
+        GMSPlacesClient.provideAPIKey(kGoogleMapKey)
         
         if let _ = PAppManager.shared.accessToken {
             self.showMainHome()

@@ -61,7 +61,7 @@ extension CouponDetailVC {
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
                 AppMessagesManager.shared.showToastView("Copied!".localized())
-                UIPasteboard.general.string = self.viewModel.codeStr.value
+                UIPasteboard.general.string = self.viewModel.codeStr.value 
             })
             .disposed(by: disposeBag)
     }

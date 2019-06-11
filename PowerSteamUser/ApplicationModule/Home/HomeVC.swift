@@ -7,6 +7,8 @@
 //
 
 import GoogleMaps
+import GooglePlaces
+import GooglePlacePicker
 import RxCocoa
 import RxSwift
 import UIKit
@@ -129,6 +131,39 @@ extension HomeVC {
     private func initData() {
         SocketIOManager.shared.establishConnection()
         viewModel.addressStr.asDriver().drive(self.placeLabel.rx.text).disposed(by: disposeBag)
+        
+        viewModel.locationList.asDriver()
+            .drive(onNext: { [weak self] (list) in
+                guard let self = self else { return }
+                for location in list {
+                    self.showStore(location)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        // add tap gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.searchPlaceTapped(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.numberOfTouchesRequired = 1
+        placeLabel.addGestureRecognizer(tapGesture)
+        placeLabel.isUserInteractionEnabled = true
+    }
+    
+    func showStore(_ location: PLocationModel) {
+        (self.isFoscusCenter == true) ? nil : self.focusToCurrent(toLocation: CLLocation(latitude: location.lat, longitude: location.lng))
+        
+        let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng))
+        marker.title = location.name
+        marker.snippet = """
+        Cửa hàng: \(location.name)
+        """
+        let image = #imageLiteral(resourceName: "location")//.withRenderingMode(.alwaysTemplate)
+        let markerView = UIImageView(image: image)
+        markerView.tintColor = PDefined.redColor
+        marker.iconView = markerView
+        marker.map = self.mapView
+        marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.2)
+        marker.userData = location
     }
     
     private func tapActions() {
@@ -146,6 +181,13 @@ extension HomeVC {
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    @objc func searchPlaceTapped(_ sender: UITapGestureRecognizer) {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self
+        self.present(placePicker, animated: true, completion: nil)
     }
 }
 
@@ -179,9 +221,66 @@ extension HomeVC {
     }
 }
 
+extension HomeVC: GMSPlacePickerViewControllerDelegate {
+    
+    // To receive the results from the place picker 'self' will need to conform to
+    // GMSPlacePickerViewControllerDelegate and implement this code.
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        //print("Place name \(place.name)")
+        //print("Place address \(place.formattedAddress)")
+        //print("Place attributions \(place.attributions)")
+        
+        let location = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+        //geocodeLocation(location: location)
+        viewModel.currentLocation = location
+        viewModel.addressStr.accept(place.formattedAddress ?? "") // place.formattedAddress ?? ""
+        focusToCurrent(toLocation: location)
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+    }
+}
+
 // MARK: - GMSMapViewDelegate
 
 extension HomeVC: GMSMapViewDelegate {
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        //print("abc")
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if let location = marker.userData as? PLocationModel {
+            self.viewModel.selectedLocationID = location.id
+        }
+        
+        return false
+    }
+    
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        LocationManager.shared.requireLocation()
+        
+        return false
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        if isFoscusCenter || (!isFoscusCenter && !LocationManager.shared.isAllowLocationPermission) {
+            let latitude = mapView.camera.target.latitude
+            let longitude = mapView.camera.target.longitude
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            geocodeLocation(location: location)
+            viewModel.currentLocation = location
+        }
+    }
     
     func focusToCurrent(toLocation: CLLocation? = nil) {
         if let location = toLocation {
@@ -199,16 +298,6 @@ extension HomeVC: GMSMapViewDelegate {
         }
         isFoscusCenter = true
     }
-    
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        if isFoscusCenter || (!isFoscusCenter && !LocationManager.shared.isAllowLocationPermission) {
-            let latitude = mapView.camera.target.latitude
-            let longitude = mapView.camera.target.longitude
-            let location = CLLocation(latitude: latitude, longitude: longitude)
-            geocodeLocation(location: location)
-            viewModel.currentLocation = location
-        }
-    }
 }
 
 // MARK: - Navigation
@@ -220,7 +309,7 @@ extension HomeVC {
             //let serviceList = ServiceListVC(viewModel.addressStr.value, viewModel.currentLocation, typeBike)
             //navigationController?.pushViewController(serviceList, animated: true)
             if let tabbarVC = tabBarController as? PTabBarVC {
-                tabbarVC.serviceVC.setupData(viewModel.addressStr.value, viewModel.currentLocation, typeBike)
+                tabbarVC.serviceVC.setupData(viewModel.addressStr.value, viewModel.currentLocation, typeBike, viewModel.selectedLocationID)
             }
             tabBarController?.selectedIndex = 1
         } else {

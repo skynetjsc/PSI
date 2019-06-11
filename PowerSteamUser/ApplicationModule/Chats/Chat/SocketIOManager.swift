@@ -10,7 +10,7 @@ import Foundation
 import SocketIO
 import UIKit
 
-public let kBaseChatURL = "http://103.237.147.86:3001"
+public let kBaseChatURL = "http://45.119.82.138:4001"
 //public let kBaseChatURL = Bundle.main.object(forInfoDictionaryKey: "BASE_CHAT_URL") as! String
 
 class SocketIOManager: NSObject {

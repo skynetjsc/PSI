@@ -58,6 +58,9 @@ PODS:
   - GoogleMaps/Base (3.1.0)
   - GoogleMaps/Maps (3.1.0):
     - GoogleMaps/Base
+  - GooglePlacePicker (3.1.0):
+    - GoogleMaps (= 3.1.0)
+    - GooglePlaces (= 3.1.0)
   - GooglePlaces (3.1.0):
     - GoogleMaps/Base (= 3.1.0)
   - Hero (1.4.0)
@@ -107,6 +110,7 @@ DEPENDENCIES:
   - DropDown (= 2.3.12)
   - Fabric (= 1.8.0)
   - GoogleMaps (= 3.1.0)
+  - GooglePlacePicker (= 3.1.0)
   - GooglePlaces (= 3.1.0)
   - Hero (= 1.4.0)
   - IQKeyboardManagerSwift (= 6.2.0)
@@ -142,6 +146,7 @@ SPEC REPOS:
     - Fabric
     - FLAnimatedImage
     - GoogleMaps
+    - GooglePlacePicker
     - GooglePlaces
     - Hero
     - IQKeyboardManagerSwift
@@ -178,6 +183,7 @@ SPEC CHECKSUMS:
   Fabric: 4ac1cdfef3004ccd83ce0959b91eda8a6e37df72
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
+  GooglePlacePicker: 1c60c2a26e9d1e73bcb0c6f89609db8d777d13c1
   GooglePlaces: e874db179f2675c4f3eeda0b686b540273a578b0
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
@@ -202,6 +208,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: a19e328c69c4ba983f317eeabf36ed299c69bfa4
   XLPagerTabStrip: 22d4c58200d7c105e0e407ab6bfd01a5d85014be
 
-PODFILE CHECKSUM: dda03e94aafcc001510a72d0d6cfbcb4306ab606
+PODFILE CHECKSUM: 1c8a2c9d2527d207b0c7bb2702e38276d744432e
 
 COCOAPODS: 1.5.3

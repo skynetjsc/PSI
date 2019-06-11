@@ -52,7 +52,7 @@ target 'PowerSteamUser' do
     #Google place
     pod 'GoogleMaps', '3.1.0'
     pod 'GooglePlaces', '3.1.0'
-    #pod 'GooglePlacePicker'
+    pod 'GooglePlacePicker', '3.1.0'
     #pod 'GoogleSignIn', '4.4.0'
     
     #Services & Network

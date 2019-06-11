@@ -28,7 +28,7 @@ class PConversationModel {
         lastMessage = json["last_message"].stringValue.decodeUrl() ?? ""
         date = json["date"].stringValue
         if json["user"].exists() {
-            tech = PUserModel(json: json["user"])
+            user = PUserModel(json: json["user"])
         }
         if json["tech"].exists() {
             tech = PUserModel(json: json["tech"])

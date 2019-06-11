@@ -68,6 +68,13 @@ extension PeriodServiceVC {
         tableView.cr.addHeadRefresh(animator: CRHeaderRefresh()) { [weak self] in
             self?.viewModel.getSchedule()
         }
+        
+        NotificationCenter.default.rx.notification(NSNotification.Name(kRatingNotification))
+            .asObservable()
+            .subscribe(onNext: { [weak self] (notification) in
+                self?.viewModel.getSchedule()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func initData() {

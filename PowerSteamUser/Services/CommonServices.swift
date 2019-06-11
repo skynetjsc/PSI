@@ -37,31 +37,6 @@ class CommonServices {
 //            .share(replay: 1)
 //    }
     
-//
-//    /// get help list
-//    ///
-//    /// - Returns: Observable object
-//    func getHelpList() -> Observable<[PHelpModel]> {
-//        RxAlamofireClient.shared.headers["Authorization"] = "Bearer " + (userDefaults.string(forKey: kAuthToken) ?? "")
-//        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.helpList)
-//            .observeOn(MainScheduler.instance)
-//            .map({ (data) -> [PHelpModel] in
-//                if let jsonFormat = data as? [String: Any] {
-//                    let json = JSON(jsonFormat)
-//                    let result = json["success"].boolValue
-//                    if result {
-//                        return json["data"].arrayValue.map { PHelpModel(json: $0) }
-//                    } else {
-//                        throw APIError.error(responseCode: json["code"].intValue, data: json["message"].stringValue)
-//                    }
-//                } else {
-//                    throw APIError.invalidResponseData(data: data)
-//                }
-//            })
-//            .share(replay: 1)
-//    }
-//
-    
     /// get terms agreement
     ///
     /// - Parameter params: dictionary object
@@ -252,6 +227,31 @@ class CommonServices {
                     let result = json["errorId"].intValue
                     if result == kCodeSuccess {
                         return json["message"].stringValue
+                    } else {
+                        throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
+                    }
+                } else {
+                    throw APIError.invalidResponseData(data: data)
+                }
+            })
+            .share(replay: 1)
+    }
+    
+    /// get location list
+    ///
+    /// - Parameter params: dictionary object
+    /// - Returns: Observable object
+    func getLocationList(params: [String: Any]) -> Observable<[PLocationModel]> {
+        //RxAlamofireClient.shared.headers["token"] = userDefaults.string(forKey: kAccessToken) ?? ""
+        
+        return RxAlamofireClient.shared.request(method: .get, endpoint: EndpointAPI.location, parameters: params)
+            .observeOn(MainScheduler.instance)
+            .map({ (data) -> [PLocationModel] in
+                if let jsonFormat = data as? [String: Any] {
+                    let json = JSON(jsonFormat)
+                    let result = json["errorId"].intValue
+                    if result == kCodeSuccess {
+                        return json["data"].arrayValue.map { PLocationModel(json: $0) }
                     } else {
                         throw APIError.error(responseCode: json["errorId"].intValue, data: json["message"].stringValue)
                     }

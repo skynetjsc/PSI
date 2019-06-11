@@ -64,8 +64,9 @@ extension OneSignalSetup: OSSubscriptionObserver {
     }
     
     func sendPlayerID(playerID: String) {
-		let params: [String: Any] = ["deviceId": playerID,
-									 "device_type": 0]
+		let params: [String: Any] = ["id": PAppManager.shared.currentUser?.id ?? 0,
+                                     "token_ios": playerID,
+									 "type": 1]
 		userServices.postDevice(param: params)
 			.subscribe(onNext: { _ in
 				// write code here

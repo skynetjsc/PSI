@@ -48,7 +48,7 @@ extension AddCouponVC {
             .subscribe(onNext: { _ in
                 //print("editing state changed")
                 if let code = UIPasteboard.general.string {
-                    self.couponField.insertText(code)
+                    self.couponField.text = code
                 }
             })
             .disposed(by: disposeBag)
@@ -58,7 +58,21 @@ extension AddCouponVC {
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.navigationController?.popViewController(animated: true)
+                self.viewModel.getPromotionDetail(self.couponField.text ?? "", completion: { (code, data) in
+                    if code > 0, let promotionModel = data as? PPromotionModel, promotionModel.id > 0 {
+                        if let navi = self.navigationController {
+                            for controller in navi.viewControllers {
+                                if let servicePackageVC = controller as? ServicePackageVC {
+                                    servicePackageVC.addCoupon(promotionModel)
+                                    break
+                                }
+                            }
+                        }
+                        self.navigationController?.popViewController(animated: false)
+                    } else {
+                        AppMessagesManager.shared.showMessage(messageType: .error, message: data as? String ?? "Mã giảm giá không đúng, vui lòng nhập mã khác!".localized())
+                    }
+                })
             })
             .disposed(by: disposeBag)
     }

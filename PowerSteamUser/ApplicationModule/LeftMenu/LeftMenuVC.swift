@@ -133,13 +133,18 @@ extension LeftMenuVC {
         logoutButton.rx.tap.asDriver()
             .throttle(1.0)
             .drive(onNext: { [weak self] in
+                guard let self = self else { return }
                 _ = EZAlertController.alert("", message: "Bạn có chắc muốn đăng xuất không?", buttons: ["OK", "Huỷ"], tapBlock: { (action, index) in
                     if index == 0 {
                         PAppManager.shared.accessToken = nil
                         PAppManager.shared.currentUser = nil
-                        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                            appDelegate.showLogin()
-                        }
+                        // Hide left menu prevent crash for next show
+                        self.dismiss(animated: false, completion: {
+                            // Show login screen
+                            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                                appDelegate.showLogin()
+                            }
+                        })
                     }
                 })
             })

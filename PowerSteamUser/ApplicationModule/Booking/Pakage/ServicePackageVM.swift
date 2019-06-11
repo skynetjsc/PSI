@@ -18,7 +18,9 @@ class ServicePackageVM {
     var address: String = ""
     var location: CLLocation!
     var typeBike: Int = 0
+    var locationID: Int = 0
     var serviceModel: PServiceModel!
+    var selectedPromotionID: Int = 0
     
     let packageList = BehaviorRelay<[PackageCellVM]>(value: [])
     let shouldShowIndicatorView = BehaviorRelay<Bool>(value: true)
@@ -32,10 +34,11 @@ class ServicePackageVM {
     let dateWorking = BehaviorRelay<Date>(value: Date())
     let repeatType = BehaviorRelay<RepeatType>(value: .none)
     
-    init(_ address: String, _ location: CLLocation, _ typeBike: Int, _ serviceModel: PServiceModel) {
+    init(_ address: String, _ location: CLLocation, _ typeBike: Int, _ locationID: Int = 0, _ serviceModel: PServiceModel) {
         self.address = address
         self.location = location
         self.typeBike = typeBike
+        self.locationID = locationID
         self.serviceModel = serviceModel
         
         addressStr.accept(address)

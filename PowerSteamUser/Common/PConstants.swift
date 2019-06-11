@@ -49,16 +49,11 @@ public let kLoginNotification               = "kLoginNotification"
 public let kLogoutNotification              = "kLogoutNotification"
 public let kDidEnterBackgroundNotification  = "kDidEnterBackgroundNotification"
 public let kDidBecomeActiveNotification     = "kDidBecomeActiveNotification"
-public let kDidEditGroupNotification        = "kDidEditGroupNotification"
-public let kDidDeleteGroupNotification      = "kDidDeleteGroupNotification"
-public let kDidLeaveGroupNotification       = "kDidLeaveGroupNotification"
 public let kRefreshConversationNotification = "kRefreshConversationNotification"
-public let kRefreshNewsFeedNotification     = "kRefreshNewsFeedNotification"
-public let kRefreshPostListNotification     = "kRefreshPostListNotification"
-public let kRefreshVideoListNotification     = "kRefreshVideoListNotification"
+public let kRatingNotification              = "kRatingNotification"
 
 // MARK: Third key
-public let kOneSignalAppID = "0562a1e8-ea58-48a2-9685-45d5dfe81867"
+public let kOneSignalAppID = "a6cd6814-5f74-4d17-9b89-7d5f9a3c9928"
 public let kOneSignalUserKey = "kOneSignalUserKey"
 
 public let kTwitterConsumerKey = Bundle.main.object(forInfoDictionaryKey: "TwitterConsumerKey") as? String ?? ""

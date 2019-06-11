@@ -128,9 +128,11 @@ extension SearchingTechVC {
                 case .doing:
                     AppMessagesManager.shared.showBookProcessingView(self.viewModel.bookModel)
                 case .completed:
-                    AppMessagesManager.shared.showBookSuccessView(self.viewModel.bookModel, confirmCompletion: {
-                        self.showBookDetail(self.viewModel.bookModel)
-                    })
+                    if self.viewModel.bookModel.rating == 0 {
+                        AppMessagesManager.shared.showBookSuccessView(self.viewModel.bookModel, confirmCompletion: {
+                            self.showBookDetail(self.viewModel.bookModel)
+                        })
+                    }
                 default:
                     break
                 }

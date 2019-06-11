@@ -47,8 +47,8 @@ class ServicePackageVC: UIViewController {
     private var viewModel: ServicePackageVM!
     let itemsDropDown = DropDown()
     
-    init(_ address: String, _ location: CLLocation, _ typeBike: Int, _ serviceModel: PServiceModel) {
-        viewModel = ServicePackageVM(address, location, typeBike, serviceModel)
+    init(_ address: String, _ location: CLLocation, _ typeBike: Int, _ locationID: Int = 0, _ serviceModel: PServiceModel) {
+        viewModel = ServicePackageVM(address, location, typeBike, locationID, serviceModel)
         
         super.init(nibName: "ServicePackageVC", bundle: nil)
     }
@@ -97,7 +97,11 @@ extension ServicePackageVC {
             .throttle(1.0)
             .drive(onNext: { [weak self] in
                 if let `self` = self {
-                    self.showDatePicker(title: "Thời gian giao hàng".localized(), initialDate: Date(), minDate: Date(), maxDate: nil, mode: .time, onDone: { [weak self] (date) in
+                    var minDate: Date? = nil
+                    if self.viewModel.dateWorking.value.isToday {
+                        minDate = Date()
+                    }
+                    self.showDatePicker(title: "Thời gian giao hàng".localized(), initialDate: Date(), minDate: minDate, maxDate: nil, mode: .time, onDone: { [weak self] (date) in
                         guard let self = self else { return }
                         self.viewModel.hourWorking.accept(date.convertTo(region: PDefined.serverRegion).toFormat("HH:mm"))
                     }, onCancel: {
@@ -244,6 +248,11 @@ extension ServicePackageVC {
         
         return true
     }
+    
+    func addCoupon(_ promotionModel: PPromotionModel) {
+        couponLabel.text = "\(promotionModel.code) - Giảm giá \(promotionModel.value)%"
+        self.viewModel.selectedPromotionID = promotionModel.id
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -326,8 +335,8 @@ extension ServicePackageVC {
                                      "address": self.viewModel.address,
                                      "date_working": self.viewModel.dateWorking.value.toFormat("MM/dd/yyyy"),
                                      "hour_working": hourWorking,
-                                     "id_promotion": 0,
-                                     "location_id": 0,
+                                     "id_promotion": self.viewModel.selectedPromotionID,
+                                     "location_id": self.viewModel.locationID,
                                      "lat": self.viewModel.location.coordinate.latitude,
                                      "lng": self.viewModel.location.coordinate.longitude,
                                      "note": self.noteTextView.text!,

@@ -21,7 +21,7 @@ class ServiceListVC: UIViewController {
     let disposeBag = DisposeBag()
     var viewModel: ServiceListVM!
     
-    init(_ address: String, _ location: CLLocation, _ typeBike: Int) {
+    init(_ address: String, _ location: CLLocation, _ typeBike: Int, _ locationID: Int = 0) {
         viewModel = ServiceListVM(address, location, typeBike)
         super.init(nibName: "ServiceListVC", bundle: nil)
     }
@@ -38,10 +38,11 @@ class ServiceListVC: UIViewController {
         initData()
     }
     
-    func setupData(_ address: String, _ location: CLLocation, _ typeBike: Int) {
+    func setupData(_ address: String, _ location: CLLocation, _ typeBike: Int, _ locationID: Int = 0) {
         viewModel.address = address
         viewModel.location = location
         viewModel.typeBike = typeBike
+        viewModel.locationID = locationID
     }
 }
 
@@ -106,7 +107,7 @@ extension ServiceListVC {
 extension ServiceListVC {
     
     func showServicePakage(_ service: PServiceModel) {
-        let servicePakageVC = ServicePackageVC(viewModel.address, viewModel.location, viewModel.typeBike, service)
+        let servicePakageVC = ServicePackageVC(viewModel.address, viewModel.location, viewModel.typeBike, viewModel.locationID, service)
         servicePakageVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(servicePakageVC, animated: true)
     }

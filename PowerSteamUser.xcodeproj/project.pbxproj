@@ -334,6 +334,7 @@
 		04E9BA34229A971B00FDC74C /* NewFeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E9BA32229A971B00FDC74C /* NewFeedbackVC.xib */; };
 		04E9BA36229A975300FDC74C /* NewFeedbackVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E9BA35229A975300FDC74C /* NewFeedbackVM.swift */; };
 		04F132232286E38D00CF1C69 /* ChooseCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */; };
+		04F4716122A5E9E2002DA4A0 /* PLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4716022A5E9E2002DA4A0 /* PLocationModel.swift */; };
 		04FE66C72297FFBD00B8F953 /* BookDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE66C52297FFBD00B8F953 /* BookDetailVC.swift */; };
 		04FE66C82297FFBD00B8F953 /* BookDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FE66C62297FFBD00B8F953 /* BookDetailVC.xib */; };
 		04FE66CA2297FFD900B8F953 /* BookDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE66C92297FFD900B8F953 /* BookDetailVM.swift */; };
@@ -442,6 +443,7 @@
 		04871CC22287D1DD00C29998 /* ServiceListCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListCellVM.swift; sourceTree = "<group>"; };
 		04871CC42287D61100C29998 /* PServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PServiceModel.swift; sourceTree = "<group>"; };
 		04871CC62287D89C00C29998 /* BookingServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingServices.swift; sourceTree = "<group>"; };
+		048BFA5722A6557300A633E2 /* PowerSteamUser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PowerSteamUser.entitlements; sourceTree = "<group>"; };
 		0491382022983069001E54BE /* BookPackageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPackageItemView.swift; sourceTree = "<group>"; };
 		049138222298307C001E54BE /* BookPackageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPackageItemView.xib; sourceTree = "<group>"; };
 		04AAA6FE2283587A0001FEB4 /* PowerSteamUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerSteamUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -702,6 +704,7 @@
 		04E9BA32229A971B00FDC74C /* NewFeedbackVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeedbackVC.xib; sourceTree = "<group>"; };
 		04E9BA35229A975300FDC74C /* NewFeedbackVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedbackVM.swift; sourceTree = "<group>"; };
 		04F132222286E38D00CF1C69 /* ChooseCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCarViewModel.swift; sourceTree = "<group>"; };
+		04F4716022A5E9E2002DA4A0 /* PLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLocationModel.swift; sourceTree = "<group>"; };
 		04FE66C52297FFBD00B8F953 /* BookDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailVC.swift; sourceTree = "<group>"; };
 		04FE66C62297FFBD00B8F953 /* BookDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailVC.xib; sourceTree = "<group>"; };
 		04FE66C92297FFD900B8F953 /* BookDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailVM.swift; sourceTree = "<group>"; };
@@ -1011,6 +1014,7 @@
 		04AAA7002283587A0001FEB4 /* PowerSteamUser */ = {
 			isa = PBXGroup;
 			children = (
+				048BFA5722A6557300A633E2 /* PowerSteamUser.entitlements */,
 				04AAA72F22835CA40001FEB4 /* ApplicationModule */,
 				04AAA74222835CA50001FEB4 /* Common */,
 				04AAA80722835CA70001FEB4 /* Components */,
@@ -1501,6 +1505,7 @@
 				04AF731D22A0A992000666EE /* PConversationModel.swift */,
 				04AF731F22A0A9D6000666EE /* PContentChatModel.swift */,
 				04AF732122A0A9F0000666EE /* PMessageModel.swift */,
+				04F4716022A5E9E2002DA4A0 /* PLocationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2081,6 +2086,14 @@
 				TargetAttributes = {
 					04AAA6FD2283587A0001FEB4 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					04AAA7112283587B0001FEB4 = {
 						CreatedOnToolsVersion = 10.2;
@@ -2233,11 +2246,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PowerSteamUser/Pods-PowerSteamUser-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2378,6 +2393,7 @@
 				044D97982285657A007FFFD5 /* AgreementVM.swift in Sources */,
 				04AAA84F22835CA80001FEB4 /* WCLLoadingView.swift in Sources */,
 				0481D6DE22896D15000C65E4 /* BookingConfirmView.swift in Sources */,
+				04F4716122A5E9E2002DA4A0 /* PLocationModel.swift in Sources */,
 				04AF730822A09F9B000666EE /* PreviewImageViewModel.swift in Sources */,
 				04AAA8A522835CA90001FEB4 /* InstagramLoginVC.swift in Sources */,
 				04AAA82E22835CA80001FEB4 /* RxKingfisherError.swift in Sources */,
@@ -2777,17 +2793,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "http://powersteaminc.site";
+				CODE_SIGN_ENTITLEMENTS = PowerSteamUser/PowerSteamUser.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = FN6GB7872Y;
+				DEVELOPMENT_TEAM = 87Q2DHV66D;
 				INFOPLIST_FILE = PowerSteamUser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dev.powerSteamUser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vunh.PowerSteamUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = PowerSteamUser;
+				PROVISIONING_PROFILE_SPECIFIER = PowerSteamUser_Dev;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2799,6 +2816,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "http://cms.powersteam.vn";
+				CODE_SIGN_ENTITLEMENTS = PowerSteamUser/PowerSteamUser.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 87Q2DHV66D;
